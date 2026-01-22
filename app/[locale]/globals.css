@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Brand colors */
+    --brand-accent: #c08301;
+    --brand-dark: #181306;
+    --brand-light: #FFF9EB;
+    
+    /* Theme variables */
+    --background: 255 255 255;
+    --foreground: 24 19 6;
+    --primary: 192 131 1;
+  }
+
+  .dark {
+    --background: 15 13 4;
+    --foreground: 255 249 235;
+    --primary: 192 131 1;
+  }
+  
+  * {
+    @apply border-border-light dark:border-border-dark;
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-surface-light-base dark:bg-surface-dark-base 
+           text-text-light-primary dark:text-text-dark-primary
+           font-sans antialiased
+           transition-colors duration-300;
+  }
+}
+
+@layer utilities {
+  /* Custom shimmer effect for loading states */
+  .shimmer {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(192, 131, 1, 0.1) 50%,
+      transparent 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 2s linear infinite;
+  }
+  
+  /* Glass morphism with brand colors */
+  .glass-accent {
+    @apply bg-accent-500/10 backdrop-blur-md border border-accent-500/20;
+  }
+  
+  .glass-dark {
+    @apply bg-dark-900/80 backdrop-blur-md border border-dark-700/50;
+  }
+  
+  .glass-light {
+    @apply bg-light-100/80 backdrop-blur-md border border-light-300/50;
+  }
+}

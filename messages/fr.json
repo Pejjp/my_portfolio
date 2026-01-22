@@ -1,0 +1,141 @@
+{
+    "nav":{
+        "home":"Bienvenue"
+    },
+    "contact":{
+        "contact_me":"Contactez-moi"
+    },
+    "common":{
+        "project": "Projets",
+        "about":"Me découvrir",
+        "hire_me":"M'embocher"        
+    },
+    "footer":{
+
+    },
+    "about": {
+        "why": "Pourquoi",
+        "about_me": "Je suis Étudiant en informatique spécialisé en développement Full-stack, Enthousiaste de Apprentissage Automatique et Sciences de Données. Je conçois des applications de bout en bout — des interfaces front-end intuitives aux systèmes back-end robustes — tout en développant, entraînant et déployant des pipelines de machine learning sur des données réelles. À l’aise sur l’ensemble du cycle de développement, j’aime transformer des problématiques complexes en solutions évolutives et orientées données grâce à des frameworks modernes et aux technologies infonuagiques."
+    },    
+    "hero":{
+        "hey":"Hey",
+        "name":"Moi c'est",
+        "welcome":"Bienvenue dans mon espace",
+        "space":"espace",
+        "impact":"Impactants",
+        "major":"Informatique",
+        "degree":"Dipôme",
+        "personal":"Motivé par la création d'expériences numériques remarquables, en alliant code propre, performance et solutions innovantes."
+
+    },
+    "projects": {
+        "sectionTitle": {
+            "prefix": "Découvrez mon",
+            "highlight": "Portfolio"
+        },
+        "aria": {
+            "previous": "Projet précédent",
+            "next": "Projet suivant"
+        },
+        "projectsList": [
+        {
+            "id": 1,
+            "title": "Morgan Stanley Code to Give – Athena HopeBridge",
+            "period": "Nov. 2025",
+            "location": "Montréal, QC",
+            "stack": ["Python", "Django", "React", "JavaScript", "FastAPI"],
+            "link": "/blog/art-of-ui-ux",
+            "image":"/projects_screenshots/mockup_athena_hopebridge.jpg",
+            "bullets": [
+            "Développement d’une application web complète intégrant des composants front-end, des services backend et des fonctionnalités basées sur l’IA.",
+            "Conception de composants front-end évolutifs et de services backend avec intégration FastAPI.",
+            "Travail en méthodologie Agile, avec ajout de fonctionnalités et amélioration continue basée sur les retours des parties prenantes.",
+            "Utilisation de Git pour coordonner le travail d’équipe et la collaboration."
+            ]
+        },
+        {
+            "id": 2,
+            "title": "Picto 360 – Application Web Full Stack",
+            "period": "Mai 2025 – Présent",
+            "stack": ["React", "TypeScript", "Node.js", "MongoDB"],
+            "link": "/blog/art-of-ui-ux",
+            "image":"/projects_screenshots/mockup_picto_360.png",
+            "bullets": [
+            "Amélioration des performances de chargement et de rendu de 30 % grâce à une meilleure gestion d’état et à la restructuration des composants.",
+            "Travail sur l’ensemble de la pile front-end et backend afin d’assurer des contrats API propres et des flux de données fluides.",
+            "Livraison de composants front-end réutilisables garantissant un comportement cohérent sur la plateforme.",
+            "Conception de modèles de données et contribution à la logique backend à l’aide de MongoDB et Node.js.",
+            "Reception d'une mention honorable par le départemenr d'informatique et de recherche opérationelle de l'UdeM."
+            ]
+        },
+        {
+            "id": 3,
+            "title": "Plateforme de Classification d’Images par Apprentissage Automatique",
+            "period": "Nov. 2025",
+            "stack": ["Docker", "Google Cloud"],
+            "link": "/blog/art-of-ui-ux",
+            "image":"/projects_screenshots/athena_hopebridge.png",
+            "bullets": [
+            "Déploiement de services front-end et backend conteneurisés pour un modèle d’inférence en apprentissage automatique.",
+            "Exposition d’API pour servir les prédictions et gérer les flux de données entre les services.",
+            "Acquisition d’une expérience pratique en environnements infonuagiques, débogage en production et validation des performances."
+            ]
+        },
+        {
+            "id": 4,
+            "title": "MaVille – Application Backend Java",
+            "period": "Mars 2024",
+            "stack": ["Java", "API REST"],
+            "link": "/blog/art-of-ui-ux",
+            "image":"/projects_screenshots/athena_hopebridge.png",
+            "bullets": [
+            "Développement d’un système backend permettant aux citoyens d’accéder aux données de travaux routiers en temps réel et de soumettre des demandes de service.",
+            "Intégration d’API publiques municipales, avec gestion de la normalisation des données et de la logique métier backend.",
+            "Application de principes de conception orientée objet, de séparation des responsabilités et d’architectures maintenables."
+            ]
+        },
+        {
+            "id": 5,
+            "title": "Picto 360 – Full-Stack Web Application",
+            "period": "May 2025 – Present",
+            "stack": ["React", "TypeScript", "Node.js", "MongoDB"],
+            "link": "/blog/art-of-ui-ux",
+            "image":"/projects_screenshots/mockup_picto_360.png",
+            "bullets": [
+            "Improved load and render performance by 30% through optimized state management and component restructuring.",
+            "Worked across frontend and backend boundaries to ensure clean API contracts and smooth data flows.",
+            "Shipped reusable frontend components to ensure consistent behavior across the platform.",
+            "Designed data models and contributed to backend logic using MongoDB and Node.js.",
+            "Received an honorable mention from the Computer Science and Operational Research Department at the University of Montreal for outstanding project work."
+            ]
+        }   
+        ]
+    },
+    "work_exp":{
+        "my_exp":"Mon Expérience de Travail"
+    },    
+    "experiences": [
+        {
+        "company": "Université de Montréal, Montréal, QC",
+        "period": "Janv. 2026 - Présent",
+        "role": "Auxiliaire d'enseignement",
+        "bullets": [
+            "Offre un soutien académique aux étudiants tout au long du semestre pour le cours IFT2245.",
+            "Accompagne les étudiants lors des laboratoires et des heures de bureau afin de clarifier les concepts du cours.",
+            "Participe à la correction des travaux et des examens en respectant des critères d'évaluation rigoureux."
+        ],
+        "isActive": true
+        },
+        {
+        "company": "Voilà par IGA, Pointe-Claire, QC",
+        "period": "Août 2023 - Août 2025",
+        "role": "Commis à l'inventaire",
+        "bullets": [
+            "Réalisation de plus de 15 audits d'inventaire critiques par jour avec une grande précision.",
+            "Collaboration avec plusieurs équipes à l'échelle de l'entrepôt afin d'assurer la fiabilité des stocks.",
+            "Application d'un fort souci du détail et de compétences en résolution de problèmes sous contraintes opérationnelles."
+        ],
+        "isActive": false
+        }
+    ]
+}
