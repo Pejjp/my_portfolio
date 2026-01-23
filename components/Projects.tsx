@@ -118,7 +118,7 @@ const PortfolioShowcase = () => {
             <div
               className='flex transition-transform duration-500 ease-in-out gap-6 px-5'
               style={{
-                transform: `translateX(calc(-${currentIndex * (100 / visibleCount)}% - ${currentIndex * 24}px))`
+                transform: `translateX(calc(-${currentIndex * (90 / visibleCount)}% - ${currentIndex * 24}px))`
 
               }}
             >

@@ -72,9 +72,9 @@
             "id": 3,
             "title": "Plateforme de Classification d’Images par Apprentissage Automatique",
             "period": "Nov. 2025",
-            "stack": ["Docker", "Google Cloud"],
+            "stack": ["Docker", "Google Cloud","Python"],
             "link": "/blog/art-of-ui-ux",
-            "image":"/projects_screenshots/athena_hopebridge.png",
+            "image":"/projects_screenshots/image_classification_w_docker.jpg",
             "bullets": [
             "Déploiement de services front-end et backend conteneurisés pour un modèle d’inférence en apprentissage automatique.",
             "Exposition d’API pour servir les prédictions et gérer les flux de données entre les services.",
@@ -96,17 +96,16 @@
         },
         {
             "id": 5,
-            "title": "Picto 360 – Full-Stack Web Application",
-            "period": "May 2025 – Present",
-            "stack": ["React", "TypeScript", "Node.js", "MongoDB"],
+            "title": "Mon Portfolio Personnel",
+            "period": "Janv. 2026 - Présent",
+            "stack": ["Next.js", "TypeScript", "Tailwind CSS"],
             "link": "/blog/art-of-ui-ux",
             "image":"/projects_screenshots/mockup_picto_360.png",
             "bullets": [
-            "Improved load and render performance by 30% through optimized state management and component restructuring.",
-            "Worked across frontend and backend boundaries to ensure clean API contracts and smooth data flows.",
-            "Shipped reusable frontend components to ensure consistent behavior across the platform.",
-            "Designed data models and contributed to backend logic using MongoDB and Node.js.",
-            "Received an honorable mention from the Computer Science and Operational Research Department at the University of Montreal for outstanding project work."
+            "Conception et développement d'un site portfolio personnel pour mettre en valeur les projets et les compétences.",
+            "Création de composants front-end robustes avec Next.js et Tailwind CSS pour un design réactif et visuellement attrayant.",
+            "Implémentation du chargement dynamique de contenu et optimisation des performances pour une expérience utilisateur fluide.",
+            "Support multilingue et de thème pour répondre à un public diversifié."
             ]
         }   
         ]
@@ -120,9 +119,10 @@
         "period": "Janv. 2026 - Présent",
         "role": "Auxiliaire d'enseignement",
         "bullets": [
-            "Offre un soutien académique aux étudiants tout au long du semestre pour le cours IFT2245.",
-            "Accompagne les étudiants lors des laboratoires et des heures de bureau afin de clarifier les concepts du cours.",
-            "Participe à la correction des travaux et des examens en respectant des critères d'évaluation rigoureux."
+            "Soutien de plus de 150 étudiants en répondant à des questions techniques et en expliquant les concepts du cours Systèmes d'exploitation (ift2245).",
+            "Gestion de l'infrastructure d'évaluation automatisée en utilisant GitHub Classroom et GitHub Actions (CI), incluant les scripts de test, la validation des soumissions et le dépannage des pipelines défaillants.",
+            "Correction des travaux et évaluations des étudiants et fourniture de rétroactions.",
+            "Assistance aux étudiants pendant les laboratoires et les heures de bureau pour clarifier les concepts du cours."
         ],
         "isActive": true
         },
