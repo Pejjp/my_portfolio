@@ -7,6 +7,7 @@ import WorkExperience from '@/components/WorkExperience';
 import AboutMe from '@/components/About';
 import PortfolioShowcase from '@/components/Projects';
 import CurvedCardExample from '@/components/TestComponent';
+import Contact  from '@/components/Contact';
 
 export default function HomePage({
   params
@@ -31,10 +32,9 @@ export default function HomePage({
       
       <Hero/>  
       <AboutMe/>
-      <WorkExperience/>
       <PortfolioShowcase/>
-
-      <CurvedCardExample/>
+      <WorkExperience/>
+      <Contact/>
     </div>
 
   );

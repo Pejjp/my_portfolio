@@ -13,7 +13,9 @@ const Hero = () => {
 
   return (
     
-    <div className='relative w-full'>
+    <section 
+      className='relative w-full'
+      id="hero">
       {/* Mobile: Image on top with text overlay */}
       <div className='w-full md:hidden flex flex-col items-center gap-2 justify-center '>
         {/* Top greeting */}
@@ -183,7 +185,7 @@ const Hero = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   )
 }
 

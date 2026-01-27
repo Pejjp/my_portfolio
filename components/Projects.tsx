@@ -4,23 +4,22 @@ import Link from 'next/link'
 import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
 import { LuArrowUpRight, LuChevronLeft, LuChevronRight, LuLink2 } from 'react-icons/lu'
-
-type Project = {
-  id: number;
-  stack: string[];
-  title: string;
-  period: string;
-  image: string;
-  link: string;
-  bullets:string[];
-}
+import ProjectPopup from './ProjectsPopup'
+import { Project } from '@/lib/types/project'
 
 const PortfolioShowcase = () => {
   const t = useTranslations("projects");
   const projects = t.raw("projectsList") as Project[];
   const [currentIndex, setCurrentIndex] = useState(0);
   const [visibleCount, setVisibleCount] = useState(1);
-  const canNavigate = projects.length > visibleCount;  
+  const canNavigate = projects.length > visibleCount; 
+  const [isPopupOpen, setIsPopupOpen] = React.useState(false); 
+  const [selectedProject, setSelectedProject] = React.useState<number | null>(null);
+
+  const openPopup = (id: number) => {
+    setSelectedProject(id);
+    setIsPopupOpen(true);
+  }
 
   // For the sliding mechanism
   // Simplified sliding mechanism
@@ -68,7 +67,9 @@ const PortfolioShowcase = () => {
 
 
   return (
-    <div className='w-full max-w-7xl mx-auto px-4 md:px-6 lg:px-8'>
+    <section 
+      className='w-full max-w-7xl mx-auto px-4 md:px-6 lg:px-8'
+      id="projects">
        {/* Header */}
         <div className='flex flex-row items-center justify-center md:items-center mb-8 md:mb-12 gap-4 text-center'>
           <h2 className='text-3xl md:text-4xl lg:text-5xl font-bold'>
@@ -114,21 +115,21 @@ const PortfolioShowcase = () => {
 
 
           {/* Projects Grid */}
-          <div className='overflow-hidden pb-14'>
+          <div className='overflow-hidden pb-8'>
             <div
               className='flex transition-transform duration-500 ease-in-out gap-6 px-5'
               style={{
                 transform: `translateX(calc(-${currentIndex * (90 / visibleCount)}% - ${currentIndex * 24}px))`
-
               }}
             >
               {projects.map((project,index) => (
                 <div 
                   key={project.id}
                   className="flex-shrink-0 w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
+                  onClick={() => openPopup(index)}
                 >
                   <Link 
-                    href={project.link}
+                    href="#"
                     className='group block relative overflow-hidden rounded-2xl md:rounded-3xl aspect-[3/4]
                       transition-all duration-300 shadow-xl shadow-amber-950/5 hover:scale-[1.02]
                       border-8 border-white bg-surface-light-elevated dark:bg-surface-dark-base 
@@ -176,7 +177,7 @@ const PortfolioShowcase = () => {
                           alt={project.title}
                           width={400}
                           height={400}
-                          className="w-full h-full object-cover object-center "
+                          className="w-full h-full object-cover object-center dark:fill-white transition-transform duration-500 ease-in-out"
                         />
                       </div>
 
@@ -192,7 +193,7 @@ const PortfolioShowcase = () => {
                                                                               behavior: "smooth",
                                                                             })}                                
                     >
-                      {/* RELATIVE WRAPPER (key fix) */}
+                      {/* RELATIVE WRAPPER */}
                       <div className="relative">
 
                         {/* Category Badge */}
@@ -241,14 +242,13 @@ const PortfolioShowcase = () => {
                           '
                         >
                             {
-                            project.bullets.map((bullet,idx)=>(
+                            project.keyFeatures.map((bullet,idx)=>(
                               <li key={idx} className='text-sm md:text-base text-text-light-secondary 
                                                     dark:text-text-dark-secondary list-disc list-item line-clamp-3'>
                                 {bullet}
                               </li>
                             ))
                             }  
-
                         </ul>
 
                       </div>
@@ -258,8 +258,13 @@ const PortfolioShowcase = () => {
               ))}
             </div>
           </div>
-        </div>        
-    </div>
+        </div>
+        <ProjectPopup 
+          project={projects[selectedProject ?? 0]}
+          isOpen={isPopupOpen}
+          onClose={() => setIsPopupOpen(false)}
+        />                
+    </section>
   )
 }
 

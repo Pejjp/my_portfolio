@@ -16,7 +16,9 @@ const WorkExperience = () => {
     const work_exp = useTranslations("work_exp")
 
   return (
-      <div className='max-w-7xl mx-auto px-4 md:px-6 lg:px-8'>
+      <section 
+        className='max-w-7xl mx-auto px-4 md:px-6 lg:px-8'
+        id="work-experience">
         {/* Section Title */}
         <h2 className='text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-12 md:mb-16 text-text-light-primary dark:text-text-dark-primary'>
           {work_exp("my_exp")}
@@ -177,7 +179,7 @@ const WorkExperience = () => {
             ))}
           </div>
         </div>
-      </div>
+      </section>
   )
 }
 

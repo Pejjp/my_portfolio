@@ -3,7 +3,15 @@
         "home":"Welcome"
     },    
     "contact":{
-        "contact_me":"Contact me"
+        "contact_me":"Contact me",
+        "your_email":"Your Email",
+        "send_message":"Send Message",
+        "connect_with_me":"Or connect with me on",
+        "thanks_message":"Thanks! I'll get back to you shortly.",
+        "email_placeholder":"Enter your email",
+        "sending":"Sending...",
+        "have_idea":"Have An Awesome Project Idea?",
+        "lets_discuss":"Let's Discuss"
     },
     "common":{
         "project": "Projects",
@@ -11,7 +19,54 @@
         "hire_me":"Hire Me"
     },
     "footer":{
-
+        "header": {
+            "title": "Let's Connect",
+            "cta": "I'm always open to discussing new projects, creative ideas, or collaboration opportunities."
+        },
+        "brand": {
+            "name": "My Portfolio",
+            "description": "Full-stack developer and machine learning enthusiast showcasing projects and expertise."
+        },
+        "navigation": {
+            "title": "Navigation",
+            "links": {
+                "home": "Home",
+                "aboutUs": "About Me",
+                "service": "Services",
+                "resume": "Resume",
+                "project": "Projects"
+            }
+        },
+        "contact": {
+            "title": "Get In Touch",
+            "phone": "+1 (555) 123-4567",
+            "website": "myportfolio.com",
+            "email": "contact@myportfolio.com"
+        },
+        "newsletter": {
+            "title": "Subscribe to Updates",
+            "placeholder": "Enter your email",
+            "ariaLabel": "Subscribe to newsletter"
+        },
+        "copyright": {
+            "text": "Copyright ©",
+            "brandName": "Jeff Pendy",
+            "rights": "All rights reserved."
+        },
+        "legal": {
+            "terms": "Terms of Service",
+            "privacy": "Privacy Policy",
+            "separator": "|"
+        },
+        "socialMedia": {
+            "ariaLabels": {
+                "facebook": "Visit our Facebook",
+                "behance": "Visit our Behance",
+                "youtube": "Visit our YouTube",
+                "twitter": "Visit our Twitter",
+                "instagram": "Visit our Instagram"
+            }
+        }
     },
     "about":{
         "why":"Why",
@@ -27,6 +82,19 @@
         "degree":"Degree",
         "personal":"Driven to craft exceptional digital experiences by combining clean, maintainable code with high-impact, innovative solutions."
     },
+    "project_popup":{
+        "key_features":"Key Features",
+        "overview":"Overview",
+        "technologies_used":"Technologies Used",
+        "challenges_solutions":"Challenges & Solutions",
+        "outcome":"Outcome",
+        "links":"Links",
+        "demo":"View Live Demo",
+        "code":"View Source Code",
+        "video":"Watch Video",
+        "challenge":"Challenge",
+        "solution":"Solution"
+    },
     "projects": {
         "sectionTitle": {
             "prefix": "Let's Have a Look at my",
@@ -39,78 +107,216 @@
         "projectsList": [
         {
             "id": 1,
-            "title": "Morgan Stanley Code to Give – Athena HopeBridge",
-            "period": "Nov 2025",
-            "location": "Montreal, QC",
-            "stack": ["Python", "Django", "React", "JavaScript", "FastAPI"],
-            "link": "/blog/art-of-ui-ux",
-            "image":"/projects_screenshots/mockup_athena_hopebridge.jpg",
-            "bullets": [
-            "Developed a fully functional web application integrating front-end components, backend services, and AI-driven features.",
-            "Built scalable front-end components and backend services with FastAPI integration.",
-            "Worked in an Agile workflow, adding new features and iterating based on stakeholder feedback.",
-            "Used Git to coordinate teamwork and manage collaborative development."
-            ]
+            "title": "Personal Portfolio Website",
+            "stack": ["Next.js", "TypeScript", "Tailwind CSS"],
+            "image":"/projects_screenshots/mockup_picto_360.png",            
+            "period": "Jan 2026",
+            "overview": "A personal portfolio website showcasing projects and skills with responsive design, dynamic content, and multilingual support.",
+            "keyFeatures": [
+                "Responsive design",
+                "Dynamic content loading",
+                "Multilingual support",
+                "Theme support",
+                "Optimized performance"
+            ],
+            "technologies": [
+            {
+                "category": "Frontend",
+                "items": ["Next.js", "TypeScript", "Tailwind CSS"]
+            }
+            ],
+            "challenges": [
+            {
+                "challenge": "Creating visually appealing and responsive design",
+                "solution": "Used Next.js and Tailwind CSS for modern, scalable components"
+            },
+            {
+                "challenge": "Supporting multiple languages and themes",
+                "solution": "Implemented dynamic content loading and theme switching mechanisms"
+            }
+            ],
+            "outcome": {
+            "description": "Successfully built a modern portfolio website with seamless user experience, multilingual support, and optimized performance."
+            },
+            "demo": {
+            "liveUrl": "",
+            "githubUrl": "https://github.com/Pejjp/my_portfolio",
+            "videoUrl": ""
+            }
         },
         {
             "id": 2,
-            "title": "Picto 360 – Full-Stack Web Application",
-            "period": "May 2025 – Present",
-            "stack": ["React", "TypeScript", "Node.js", "MongoDB"],
-            "link": "/blog/art-of-ui-ux",
-            "image":"/projects_screenshots/mockup_picto_360.png",
-            "bullets": [
-            "Improved load and render performance by 30% through optimized state management and component restructuring.",
-            "Worked across frontend and backend boundaries to ensure clean API contracts and smooth data flows.",
-            "Shipped reusable frontend components to ensure consistent behavior across the platform.",
-            "Designed data models and contributed to backend logic using MongoDB and Node.js.",
-            "Received an honorable mention from the Computer Science and Operational Research Department at the University of Montreal for outstanding project work."
-            ]
+            "title": "Morgan Stanley Code to Give – Athena HopeBridge",
+            "image": "/projects_screenshots/mockup_athena_hopebridge.jpg",
+            "stack": ["Python", "Django", "React", "JavaScript", "FastAPI"],
+            "period": "Nov 2025",
+            "overview": "A fully functional web application developed for Morgan Stanley's Code to Give initiative, integrating AI-driven features with modern web technologies to support the HopeBridge mission.",
+            "keyFeatures": [
+                "AI-driven feature integration",
+                "Scalable backend services with FastAPI",
+                "Responsive front-end components",
+                "Agile workflow implementation"
+            ],
+            "technologies": [
+                {
+                    "category": "Frontend",
+                    "items": ["React", "JavaScript"]
+                },
+                {
+                    "category": "Backend",
+                    "items": ["Python", "Django", "FastAPI"]
+                }
+            ],
+            "challenges": [
+                {
+                    "challenge": "Integrating multiple services and AI features",
+                    "solution": "Built scalable architecture with FastAPI and coordinated teamwork using Git"
+                },
+                {
+                    "challenge": "Meeting stakeholder requirements in time constraints",
+                    "solution": "Adopted Agile workflow to iterate and gather feedback continuously"
+                }
+            ],
+            "outcome": {
+                "description": "Successfully delivered a production-ready web application with integrated AI capabilities, demonstrating full-stack development expertise."
+            },
+            "demo": {
+                "liveUrl": "",
+                "githubUrl": "https://github.com/ParsaMakari/CodeToGive_2025",
+                "videoUrl": ""
+            }
         },
         {
             "id": 3,
-            "title": "Machine Learning Image Classification Platform",
-            "period": "Nov 2025",
-            "stack": ["Docker", "Google Cloud","Python"],
-            "link": "/blog/art-of-ui-ux",
-            "image":"/projects_screenshots/image_classification_w_docker.jpg",
-            "bullets": [
-            "Deployed containerized frontend and backend services for a machine learning inference model.",
-            "Exposed APIs to serve predictions and manage data flow between frontend and backend services.",
-            "Gained hands-on experience with cloud environments, production debugging, and performance validation."
-            ]
+            "title": "Picto 360 – Full-Stack Web Application",
+            "image": "/projects_screenshots/mockup_picto_360.png",
+            "stack": ["React", "TypeScript", "Node.js", "MongoDB"],
+            "period": "May 2025 – Present",
+            "overview": "A full-stack web application showcasing optimized performance, clean API contracts, and reusable component architecture recognized by the University of Montreal.",
+            "keyFeatures": [
+                "30% performance improvement through optimization",
+                "Reusable frontend components",
+                "MongoDB-backed data models",
+                "Seamless API integration"
+            ],
+            "technologies": [
+                {
+                    "category": "Frontend",
+                    "items": ["React", "TypeScript"]
+                },
+                {
+                    "category": "Backend",
+                    "items": ["Node.js", "MongoDB"]
+                }
+            ],
+            "challenges": [
+                {
+                    "challenge": "Slow load and render performance",
+                    "solution": "Optimized state management and restructured components, achieving 30% improvement"
+                },
+                {
+                    "challenge": "Ensuring consistency across platform",
+                    "solution": "Designed and shipped reusable frontend components"
+                }
+            ],
+            "outcome": {
+                "metrics": ["30% performance improvement", "Honorable mention from CS/OR Department"],
+                "description": "Received honorable mention from the Computer Science and Operational Research Department at the University of Montreal for outstanding project work."
+            },
+            "demo": {
+                "liveUrl": "https://picto360.netlify.app/",
+                "githubUrl": "https://github.com/ceduni/picto360",
+                "videoUrl": ""
+            }
         },
         {
             "id": 4,
-            "title": "MaVille - Java Backend Application",
-            "period": "March 2024",
-            "stack": ["Java", "REST APIs"],
-            "link": "/blog/art-of-ui-ux",
-            "image":"/projects_screenshots/athena_hopebridge.png",
-            "bullets": [
-            "Built a backend system enabling citizens to access real-time roadwork data and submit service requests.",
-            "Integrated public city APIs, handling data normalization and backend business logic.",
-            "Applied object-oriented design principles, separation of concerns, and maintainable architecture patterns."
-            ]
+            "title": "Machine Learning Image Classification Platform",
+            "image": "/projects_screenshots/image_classification_w_docker.jpg",            
+            "stack": ["Docker", "Google Cloud", "Python"],
+            "period": "Nov 2025",
+            "overview": "A containerized machine learning inference platform deployed on Google Cloud, demonstrating cloud deployment and API management expertise.",
+            "keyFeatures": [
+                "Containerized services with Docker",
+                "ML model inference APIs",
+                "Cloud-based deployment",
+                "Data flow management"
+            ],
+            "technologies": [
+                {
+                    "category": "Backend",
+                    "items": ["Python"]
+                },
+                {
+                    "category": "DevOps/Cloud",
+                    "items": ["Docker", "Google Cloud"]
+                }
+            ],
+            "challenges": [
+                {
+                    "challenge": "Deploying containerized services to cloud",
+                    "solution": "Used Docker and Google Cloud for seamless deployment and scaling"
+                },
+                {
+                    "challenge": "Managing data flow between services",
+                    "solution": "Designed APIs to handle predictions and coordinate frontend-backend communication"
+                }
+            ],
+            "outcome": {
+                "description": "Successfully deployed production-ready ML platform with hands-on experience in cloud environments and performance validation."
+            },
+            "demo": {
+            "liveUrl": "",
+            "githubUrl": "",
+            "videoUrl": ""
+            }
         },
         {
             "id": 5,
-            "title": "Personal Portfolio Website",
-            "period": "Jan 2026",
-            "stack": ["Next.js", "TypeScript", "Tailwind CSS"],
-            "link": "/blog/art-of-ui-ux",
-            "image":"/projects_screenshots/mockup_picto_360.png",
-            "bullets": [
-            "Designed and developed a personal portfolio website to showcase projects and skills.",
-            "Build strong front-end components using Next.js and Tailwind CSS for a responsive and visually appealing design.",
-            "Implemented dynamic content loading and optimized performance for a seamless user experience.",
-            "Multilingual and theme support to cater to a diverse audience."
-            ]
-        }       
+            "title": "MaVille - Java Backend Application",
+            "stack": ["Java", "REST APIs"],
+            "period": "March 2024",
+            "image":"/projects_screenshots/ma_ville.png",
+            "overview": "A backend system enabling citizens to access real-time roadwork data and submit service requests to the city.",
+            "keyFeatures": [
+            "Real-time roadwork data access",
+            "Service request submission",
+            "Public API integration",
+            "Data normalization"
+            ],
+            "technologies": [
+            {
+                "category": "Backend",
+                "items": ["Java"]
+            },
+            {
+                "category": "API",
+                "items": ["REST APIs"]
+            }
+            ],
+            "challenges": [
+            {
+                "challenge": "Integrating multiple public city APIs",
+                "solution": "Implemented data normalization and robust backend business logic"
+            },
+            {
+                "challenge": "Maintaining clean architecture",
+                "solution": "Applied OOP principles, separation of concerns, and maintainable patterns"
+            }
+            ],
+            "outcome": {
+            "description": "Delivered a robust backend system with clean architecture and seamless public API integration."
+            },
+            "demo": {
+            "liveUrl": "",
+            "githubUrl": "",
+            "videoUrl": ""
+            }
+        }
         ]
     },
     "work_exp":{
-        "my_exp":"My Work Experience"
+        "my_exp":"My Experiences"
     },
     "experiences": [
         {
