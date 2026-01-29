@@ -8,6 +8,7 @@
         "send_message":"Send Message",
         "connect_with_me":"Or connect with me on",
         "thanks_message":"Thanks! I'll get back to you shortly.",
+        "error_message":"An error occurred. Please try again later.",
         "email_placeholder":"Enter your email",
         "sending":"Sending...",
         "have_idea":"Have An Awesome Project Idea?",

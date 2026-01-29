@@ -8,6 +8,7 @@
         "send_message":"Envoyer le Message",
         "connect_with_me":"Ou connectez-vous avec moi sur",
         "thanks_message":"Merci ! Je vous répondrai sous peu.",
+        "error_message":"Une erreur s'est produite. Veuillez réessayer plus tard.",
         "email_placeholder":"Entrez votre email",
         "sending":"Envoi...",
         "have_idea":"Vous avez une idée de projet géniale ?",

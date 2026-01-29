@@ -46,7 +46,7 @@ const Hero = () => {
             {/* CTA Buttons */}
             <div className='flex flex-row gap-4 items-center justify-center pt-4'>
               <Link 
-                href="/projects"
+                href="#projects"
                 className='group bg-gradient-accent dark:bg-gradient-dark px-6 py-3 rounded-full text-white font-semibold transition-all duration-300 hover:shadow-accent-lg dark:hover:shadow-dark-glow hover:scale-105 focus:outline-none focus:ring-4 focus:ring-accent-400/50 flex items-center gap-2'
               >
                 Portfolio
@@ -128,7 +128,7 @@ const Hero = () => {
             {/* CTA Buttons */}
             <div className='flex flex-row gap-4 items-center pt-4'>
               <Link 
-                href="/projects"
+                href="#projects"
                 className='group bg-gradient-accent dark:bg-gradient-dark px-6 py-3 rounded-full text-white font-semibold transition-all duration-300 hover:shadow-accent-lg dark:hover:shadow-dark-glow hover:scale-105 focus:outline-none focus:ring-4 focus:ring-accent-400/50 flex items-center gap-2'
               >
                 Portfolio

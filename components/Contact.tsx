@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { useState } from "react";
 import { LuMail, LuGithub, LuLinkedin, LuSend } from "react-icons/lu";
+import { ThreeDots } from "react-loader-spinner"; // Import a spinner type
 
 export default function Contact() {
   const [email, setEmail] = useState("");
@@ -21,14 +22,24 @@ export default function Contact() {
 
     setLoading(true);
 
-    await fetch("/api/contact", {
+    const result = await fetch("/api/contact", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email }),
     });
 
+    const response = await result.json();
+
+    console.log('Response from server:', response);
+
+    if(response.success === false){
+      setError(response.error);
+      setSuccess(false);
+    }else{
+      setError("");
+      setSuccess(true);
+    }
     setLoading(false);
-    setSuccess(true);
     setEmail("");
   };
 
@@ -85,16 +96,33 @@ export default function Contact() {
             disabled:hover:scale-100
             w-full sm:w-auto
           "
-        >
-          {loading ? contact("sending") : <LuSend className="w-5 h-5 mx-auto" />}
-        </button>
+>
+  {loading ? (
+    <ThreeDots
+      visible={true}
+      height="20"
+      width="20"
+      color="#ffffff"
+      radius="9"
+      ariaLabel="three-dots-loading"
+      wrapperStyle={{}}
+      wrapperClass=""
+    />
+  ) : (
+    <LuSend className="w-5 h-5 mx-auto" />
+  )}
+</button>
       </div>
 
-      {success && (
+      {success ? (
         <p className="mt-4 text-green-600 font-medium text-sm md:text-base">
           {contact("thanks_message")}
+        </p> 
+      )
+      : <p className="mt-4 text-red-600 font-medium text-sm md:text-base">
+        {contact("error_message")}
         </p>
-      )}
+      }
     </section>
   );
 }
