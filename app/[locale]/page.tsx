@@ -9,6 +9,7 @@ import PortfolioShowcase from '@/components/Projects';
 import CurvedCardExample from '@/components/TestComponent';
 import Contact  from '@/components/Contact';
 
+
 export default function HomePage({
   params
 }: {
@@ -20,7 +21,7 @@ export default function HomePage({
   const t = useTranslations('contact');
 
   return (
-    <div className='relative flex flex-col items-center justify-center md:p-10 p-5 gap-16 md:gap-28 w-screen overflow-hidden"'>
+    <div className='relative flex flex-col items-center justify-center md:p-10 p-5 gap-16 md:gap-28 w-screen overflow-hidden'>
 
       {/* Top blob */}
       <div className="absolute top-[-350] left-1/2 -translate-x-1/2 md:w-[90vw] h-[40rem] w-[96vw] rounded-full blur-3xl opacity-30 bg-[radial-gradient(ellipse_at_center,var(--tw-gradient-stops))] from-accent-300 via-accent-200/40 to-transparent dark:from-accent-500 dark:via-accent-500/30 pointer-events-none" />

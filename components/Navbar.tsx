@@ -23,6 +23,7 @@ const Navbar = () => {
         .getElementById(id)
         ?.scrollIntoView({ behavior: "smooth" });
   }
+
   const contact = useTranslations("contact")
   const common = useTranslations("common")
   const nav = useTranslations("nav")
@@ -30,7 +31,9 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="sticky top-0 w-full bg-surface-light-base/80 dark:bg-surface-dark-base/80 backdrop-blur-md border-b border-border-light dark:border-border-dark shadow-sm z-50 transition-colors duration-300">
+      <nav className="sticky top-0 w-full bg-surface-light-base/80 dark:bg-surface-dark-base/80 backdrop-blur-md border-b
+       border-border-light dark:border-border-dark shadow-sm z-50 transition-colors duration-300"       
+       >
         <div className="mx-auto max-w-8xl px-3 lg:px-8 py-3 md:py-4 flex items-center justify-between">
           
           {/* Logo */}
