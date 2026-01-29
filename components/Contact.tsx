@@ -11,9 +11,9 @@ export default function Contact() {
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [messageVisible, setMessageVisible] = useState(false);
 
-  const [submitted, setSubmitted] = useState<boolean>(false);
-  const [error, setError] = useState<string | null>(null);
+  const [message, setMessage] = useState<string | null>(null);
   const emailIsValid = isValidEmail(email);
   const contact = useTranslations("contact");
 
@@ -30,15 +30,19 @@ export default function Contact() {
 
     const response = await result.json();
 
-    console.log('Response from server:', response);
-
     if(response.success === false){
-      setError(response.error);
       setSuccess(false);
+      setMessage(contact("error_message"));
     }else{
-      setError("");
-      setSuccess(true);
+      setSuccess(true); 
+      setMessage(contact("thanks_message"));
     }
+    
+    setMessageVisible(true);
+    setTimeout(() => {
+      setMessageVisible(false);
+    }, 5000);    
+    
     setLoading(false);
     setEmail("");
   };
@@ -95,34 +99,31 @@ export default function Contact() {
             disabled:cursor-not-allowed
             disabled:hover:scale-100
             w-full sm:w-auto
+            flex items-center justify-center
           "
->
-  {loading ? (
-    <ThreeDots
-      visible={true}
-      height="20"
-      width="20"
-      color="#ffffff"
-      radius="9"
-      ariaLabel="three-dots-loading"
-      wrapperStyle={{}}
-      wrapperClass=""
-    />
-  ) : (
-    <LuSend className="w-5 h-5 mx-auto" />
-  )}
-</button>
+          >
+          {loading ? (
+            <ThreeDots
+              visible={true}
+              height="20"
+              width="20"
+              color="#ffffff"
+              radius="9"
+              ariaLabel="three-dots-loading"
+              wrapperStyle={{}}
+              wrapperClass=""
+            />
+          ) : (
+            <LuSend className="w-5 h-5 mx-auto" />
+          )}
+        </button>
       </div>
 
-      {success ? (
-        <p className="mt-4 text-green-600 font-medium text-sm md:text-base">
-          {contact("thanks_message")}
-        </p> 
-      )
-      : <p className="mt-4 text-red-600 font-medium text-sm md:text-base">
-        {contact("error_message")}
+      {messageVisible && (
+        <p className={`mt-4 font-medium text-sm md:text-base ${success ? "text-green-600" : "text-red-600"}`}>
+          {message}
         </p>
-      }
+      )}
     </section>
   );
 }
