@@ -129,7 +129,7 @@ const PortfolioShowcase = () => {
                   onClick={() => openPopup(index)}
                 >
                   <Link 
-                    href="#"
+                    href="#projects"
                     className='group block relative overflow-hidden rounded-2xl md:rounded-3xl aspect-[3/4]
                       transition-all duration-300 shadow-xl shadow-amber-950/5 hover:scale-[1.02]
                       border-8 border-white bg-surface-light-elevated dark:bg-surface-dark-base 
@@ -257,19 +257,19 @@ const PortfolioShowcase = () => {
                 </div>
               ))}
             </div>
-            {
-              isPopupOpen && selectedProject !== null && (
-                <ProjectPopup 
-                  project={projects[selectedProject ?? 0]}
-                  isOpen={isPopupOpen}
-                  onClose={() => setIsPopupOpen(false)}
-                />                  
-              )
-            }
           
           </div>
          
-        </div>               
+        </div>    
+        {
+          isPopupOpen && selectedProject !== null && (
+            <ProjectPopup 
+              project={projects[selectedProject ?? 0]}
+              isOpen={isPopupOpen}
+              onClose={() => setIsPopupOpen(false)}
+            />                  
+          )
+        }                   
     </section>
   )
 }
