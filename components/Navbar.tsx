@@ -34,7 +34,7 @@ const Navbar = () => {
         <div className="mx-auto max-w-8xl px-3 lg:px-8 py-3 md:py-4 flex items-center justify-between">
           
           {/* Logo */}
-          <Link href="/" className="flex flex-row items-center gap-2 md:gap-3 group">
+          <Link href="#home" className="flex flex-row items-center gap-2 md:gap-3 group">
             <div className="bg-gradient-accent rounded-lg md:rounded-xl p-0.5 md:p-1 shadow-accent-sm 
                   group-hover:shadow-accent transition-all duration-300 group-hover:scale-105
                   shrink-0">

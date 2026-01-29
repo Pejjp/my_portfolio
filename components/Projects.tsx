@@ -257,13 +257,19 @@ const PortfolioShowcase = () => {
                 </div>
               ))}
             </div>
+            {
+              isPopupOpen && selectedProject !== null && (
+                <ProjectPopup 
+                  project={projects[selectedProject ?? 0]}
+                  isOpen={isPopupOpen}
+                  onClose={() => setIsPopupOpen(false)}
+                />                  
+              )
+            }
+          
           </div>
-        </div>
-        <ProjectPopup 
-          project={projects[selectedProject ?? 0]}
-          isOpen={isPopupOpen}
-          onClose={() => setIsPopupOpen(false)}
-        />                
+         
+        </div>               
     </section>
   )
 }
