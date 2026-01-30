@@ -14,16 +14,16 @@ const ProjectPopup: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
   const project_popup = useTranslations('project_popup');
 
   // Prevent body scroll when modal is open
-  // useEffect(() => {
-  //   if (isOpen) {
-  //     document.body.style.overflow = 'hidden';
-  //   } else {
-  //     document.body.style.overflow = 'unset';
-  //   }
-  //   return () => {
-  //     document.body.style.overflow = 'unset';
-  //   };
-  // }, [isOpen]);
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen]);
 
   // Close on ESC key
   useEffect(() => {
