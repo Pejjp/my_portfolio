@@ -42,7 +42,7 @@ const ProjectPopup: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
     <div className='fixed inset-0 z-50 flex items-center justify-center p-4 md:p-6'>
       {/* Backdrop */}
       <div 
-        className='absolute inset-0 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200'
+        className='fixed inset-0 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200'
         onClick={onClose}
       />
       
@@ -52,7 +52,7 @@ const ProjectPopup: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
                       border border-border-light dark:border-border-dark'>
         
         {/* Header - Sticky */}
-        <div className='sticky top-0 z-10 bg-surface-light-base dark:bg-surface-dark-base border-b 
+        <div className='sticky top-0 z-70 bg-surface-light-base dark:bg-surface-dark-base border-b 
                         border-border-light dark:border-border-dark px-6 md:px-8 py-4 md:py-6'>
           <div className='flex items-start justify-between gap-4'>
             <div className='flex-1 min-w-0'>
