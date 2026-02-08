@@ -1,7 +1,7 @@
 {
     "nav":{
         "home":"Welcome"
-    },    
+    },
     "contact":{
         "contact_me":"Contact me",
         "your_email":"Your Email",
@@ -81,7 +81,12 @@
         "impact":"With impact",
         "major":"Computer Science",
         "degree":"Degree",
-        "personal":"Driven to craft exceptional digital experiences by combining clean, maintainable code with high-impact, innovative solutions."
+        "personal":"Driven to craft exceptional digital experiences by combining clean, maintainable code with high-impact, innovative solutions.",
+        "download_cv":"Download CV"
+    },
+    "techStack": {
+        "title": "Tech Stack",
+        "subtitle": "Technologies I work with"
     },
     "project_popup":{
         "key_features":"Key Features",
@@ -110,7 +115,7 @@
             "id": 1,
             "title": "Personal Portfolio Website",
             "stack": ["Next.js", "TypeScript", "Tailwind CSS"],
-            "image":"/projects_screenshots/mockup_picto_360.png",            
+            "image":"/projects_screenshots/portfolio_project.jpg",
             "period": "Jan 2026",
             "overview": "A personal portfolio website showcasing projects and skills with responsive design, dynamic content, and multilingual support.",
             "keyFeatures": [
@@ -233,7 +238,7 @@
         {
             "id": 4,
             "title": "Machine Learning Image Classification Platform",
-            "image": "/projects_screenshots/image_classification_w_docker.jpg",            
+            "image": "/projects_screenshots/image_classification_w_docker.jpg",
             "stack": ["Docker", "Google Cloud", "Python"],
             "period": "Nov 2025",
             "overview": "A containerized machine learning inference platform deployed on Google Cloud, demonstrating cloud deployment and API management expertise.",

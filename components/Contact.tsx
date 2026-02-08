@@ -34,21 +34,21 @@ export default function Contact() {
       setSuccess(false);
       setMessage(contact("error_message"));
     }else{
-      setSuccess(true); 
+      setSuccess(true);
       setMessage(contact("thanks_message"));
     }
-    
+
     setMessageVisible(true);
     setTimeout(() => {
       setMessageVisible(false);
-    }, 5000);    
-    
+    }, 5000);
+
     setLoading(false);
     setEmail("");
   };
 
   return (
-    <section className="relative px-4 text-center pb-10" 
+    <section className="relative w-full text-center pb-10"
       id="contact">
       {/* Heading */}
       <h2 className="text-3xl md:text-5xl font-bold mb-8 leading-tight">

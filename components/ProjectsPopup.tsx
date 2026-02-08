@@ -41,50 +41,50 @@ const ProjectPopup: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
   return (
     <div className='fixed inset-0 z-50 flex items-center justify-center p-4 md:p-6'>
       {/* Backdrop */}
-      <div 
+      <div
         className='fixed inset-0 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200'
         onClick={onClose}
       />
-      
+
       {/* Modal */}
-      <div className='relative w-full max-w-5xl max-h-[90vh] bg-surface-light-base dark:bg-surface-dark-base 
+      <div className='relative w-full max-w-5xl max-h-[90vh] bg-surface-light-base dark:bg-surface-dark-base
                       rounded-2xl md:rounded-3xl shadow-2xl overflow-hidden animate-in zoom-in-95 duration-200
                       border border-border-light dark:border-border-dark'>
-        
+
         {/* Header - Sticky */}
-        <div className='sticky top-0 z-70 bg-surface-light-base dark:bg-surface-dark-base border-b 
+        <div className='sticky top-0 z-70 bg-surface-light-base dark:bg-surface-dark-base border-b
                         border-border-light dark:border-border-dark px-6 md:px-8 py-4 md:py-6'>
           <div className='flex items-start justify-between gap-4'>
             <div className='flex-1 min-w-0'>
-              <h2 className='text-2xl md:text-3xl lg:text-4xl font-bold text-text-light-primary 
+              <h2 className='text-2xl md:text-3xl lg:text-4xl font-bold text-text-light-primary
                             dark:text-text-dark-primary mb-3'>
                 {project.title}
               </h2>
-              
+
               {/* Tech Stack Badges */}
               <div className='flex flex-wrap gap-2 mb-2'>
                 {project.stack.map((tech, idx) => (
-                  <span key={idx} className='px-3 py-1 text-xs md:text-sm rounded-full 
+                  <span key={idx} className='px-3 py-1 text-xs md:text-sm rounded-full
                                            bg-brand-accent/10 text-brand-accent border border-brand-accent/20'>
                     {tech}
                   </span>
                 ))}
               </div>
-              
+
               {/* Period */}
               <div className='flex items-center gap-2 text-sm text-text-light-secondary dark:text-text-dark-secondary'>
                 <div className='w-1.5 h-1.5 rounded-full bg-brand-accent'></div>
                 <span>{project.period}</span>
               </div>
             </div>
-            
+
             {/* Close Button */}
             <button
               onClick={onClose}
               className='flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center
-                        bg-surface-light-elevated dark:bg-surface-dark-elevated border border-border-light 
+                        bg-surface-light-elevated dark:bg-surface-dark-elevated border border-border-light
                         dark:border-border-dark hover:bg-brand-accent hover:border-brand-accent hover:text-white
-                        transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-4 
+                        transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-4
                         focus:ring-accent-400/50'
               aria-label='Close modal'
             >
@@ -95,14 +95,14 @@ const ProjectPopup: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
 
         {/* Content - Scrollable */}
         <div className='overflow-y-auto max-h-[calc(90vh-180px)] px-6 md:px-8 pb-16 md:pb-10 pt-8 space-y-8 md:space-y-12'>
-            
+
           {/* Project Image */}
-          <div className='rounded-xl md:rounded-2xl overflow-hidden border border-border-light 
+          <div className='rounded-xl md:rounded-2xl overflow-hidden border border-border-light
                         dark:border-border-dark shadow-lg'>
-            <div className='aspect-video bg-gradient-to-br from-accent-100 to-accent-200 
+            <div className='aspect-video bg-gradient-to-br from-accent-100 to-accent-200
                           dark:from-accent-900 dark:to-accent-800 relative'>
-              <img 
-                src={project.image} 
+              <img
+                src={project.image}
                 alt={project.title}
                 className='w-full h-full object-cover'
               />
@@ -111,12 +111,12 @@ const ProjectPopup: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
 
           {/* Overview */}
           <section >
-            <h3 className='text-xl md:text-2xl font-bold text-text-light-primary dark:text-text-dark-primary 
+            <h3 className='text-xl md:text-2xl font-bold text-text-light-primary dark:text-text-dark-primary
                           mb-4 flex items-center gap-2'>
               <div className='w-1 h-6 bg-brand-accent rounded-full'></div>
               {project_popup('overview')}
             </h3>
-            <p className='text-base md:text-lg text-text-light-secondary dark:text-text-dark-secondary 
+            <p className='text-base md:text-lg text-text-light-secondary dark:text-text-dark-secondary
                          leading-relaxed'>
               {project.overview}
             </p>
@@ -124,7 +124,7 @@ const ProjectPopup: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
 
           {/* Demo */}
           <section>
-            <h3 className='text-xl md:text-2xl font-bold text-text-light-primary dark:text-text-dark-primary 
+            <h3 className='text-xl md:text-2xl font-bold text-text-light-primary dark:text-text-dark-primary
                           mb-4 flex items-center gap-2'>
               <div className='w-1 h-6 bg-brand-accent rounded-full'></div>
               {project_popup('links')}
@@ -135,10 +135,10 @@ const ProjectPopup: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
                   href={project.demo.liveUrl}
                   target='_blank'
                   rel='noopener noreferrer'
-                  className='flex-1 flex items-center justify-center gap-2 px-6 py-4 rounded-xl 
-                           bg-brand-accent text-white font-semibold hover:bg-brand-accent/90 
+                  className='flex-1 flex items-center justify-center gap-2 px-6 py-4 rounded-xl
+                           bg-brand-accent text-white font-semibold hover:bg-brand-accent/90
                            transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-brand-accent/20'
-                >                
+                >
                   <LuEye className='w-5 h-5' strokeWidth={2.5} />
                   {project_popup('demo')}
                 </a>
@@ -148,8 +148,8 @@ const ProjectPopup: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
                   href={project.demo.githubUrl}
                   target='_blank'
                   rel='noopener noreferrer'
-                  className='flex-1 flex items-center justify-center gap-2 px-6 py-4 rounded-xl 
-                           bg-surface-light-elevated dark:bg-surface-dark-elevated 
+                  className='flex-1 flex items-center justify-center gap-2 px-6 py-4 rounded-xl
+                           bg-surface-light-elevated dark:bg-surface-dark-elevated
                            border-2 border-border-light dark:border-border-dark
                            text-text-light-primary dark:text-text-dark-primary font-semibold
                            hover:border-brand-accent hover:bg-brand-accent/5
@@ -173,21 +173,21 @@ const ProjectPopup: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
                 </div>
               </div>
             )}
-          </section>          
+          </section>
 
           {/* Key Features */}
           <section>
-            <h3 className='text-xl md:text-2xl font-bold text-text-light-primary dark:text-text-dark-primary 
+            <h3 className='text-xl md:text-2xl font-bold text-text-light-primary dark:text-text-dark-primary
                           mb-4 flex items-center gap-2'>
               <div className='w-1 h-6 bg-brand-accent rounded-full'></div>
               {project_popup('key_features')}
             </h3>
             <div className='grid gap-3 md:gap-4'>
               {project.keyFeatures.map((feature, idx) => (
-                <div key={idx} className='flex items-start gap-3 p-4 rounded-xl bg-surface-light-elevated 
-                                        dark:bg-surface-dark-elevated border border-border-light 
+                <div key={idx} className='flex items-start gap-3  rounded-xl
+                                        border-border-light
                                         dark:border-border-dark'>
-                  <LuCheck className='w-5 h-5 md:w-6 md:h-6 text-brand-accent flex-shrink-0 mt-0.5' 
+                  <LuCheck className='w-5 h-5 md:w-6 md:h-6 text-brand-accent flex-shrink-0 mt-0.5'
                            strokeWidth={2.5} />
                   <span className='text-sm md:text-base text-text-light-secondary dark:text-text-dark-secondary'>
                     {feature}
@@ -199,22 +199,22 @@ const ProjectPopup: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
 
           {/* Technologies Used */}
           <section >
-            <h3 className='text-xl md:text-2xl font-bold text-text-light-primary dark:text-text-dark-primary 
+            <h3 className='text-xl md:text-2xl font-bold text-text-light-primary dark:text-text-dark-primary
                           mb-4 flex items-center gap-2'>
               <div className='w-1 h-6 bg-brand-accent rounded-full'></div>
               {project_popup('technologies_used')}
             </h3>
             <div className='grid md:grid-cols-2 gap-4 md:gap-6'>
               {project.technologies.map((tech, idx) => (
-                <div key={idx} className='p-5 rounded-xl bg-surface-light-elevated dark:bg-surface-dark-elevated 
+                <div key={idx} className='p-5 rounded-xl
                                         border border-border-light dark:border-border-dark'>
                   <h4 className='font-semibold text-text-light-primary dark:text-text-dark-primary mb-3'>
                     {tech.category}
                   </h4>
                   <div className='flex flex-wrap gap-2'>
                     {tech.items.map((item, itemIdx) => (
-                      <span key={itemIdx} className='px-3 py-1 text-xs md:text-sm rounded-full 
-                                                   bg-surface-light-base dark:bg-surface-dark-base 
+                      <span key={itemIdx} className='px-3 py-1 text-xs md:text-sm rounded-full
+                                                  bg-surface-light-elevated dark:bg-surface-dark-elevated
                                                    text-text-light-secondary dark:text-text-dark-secondary
                                                    border border-border-light dark:border-border-dark'>
                         {item}
@@ -228,14 +228,14 @@ const ProjectPopup: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
 
           {/* Challenges & Learnings */}
           <section >
-            <h3 className='text-xl md:text-2xl font-bold text-text-light-primary dark:text-text-dark-primary 
+            <h3 className='text-xl md:text-2xl font-bold text-text-light-primary dark:text-text-dark-primary
                           mb-4 flex items-center gap-2'>
               <div className='w-1 h-6 bg-brand-accent rounded-full'></div>
                 {project_popup('challenges_solutions')}
             </h3>
             <div className='space-y-4 md:space-y-6'>
               {project.challenges.map((item, idx) => (
-                <div key={idx} className='p-5 md:p-6 rounded-xl bg-surface-light-elevated 
+                <div key={idx} className='p-5 md:p-6 rounded-xl bg-surface-light-elevated
                                         dark:bg-surface-dark-elevated border-l-4 border-brand-accent'>
                   <h4 className='font-semibold text-text-light-primary dark:text-text-dark-primary mb-2'>
                     {project_popup('challenge')}
@@ -256,12 +256,12 @@ const ProjectPopup: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
 
           {/* Outcome */}
           <section>
-            <h3 className='text-xl md:text-2xl font-bold text-text-light-primary dark:text-text-dark-primary 
+            <h3 className='text-xl md:text-2xl font-bold text-text-light-primary dark:text-text-dark-primary
                           mb-4 flex items-center gap-2'>
               <div className='w-1 h-6 bg-brand-accent rounded-full'></div>
                 {project_popup('outcome')}
             </h3>
-            <div className='p-5 md:p-6 rounded-xl bg-gradient-to-br from-brand-accent/5 to-brand-accent/10 
+            <div className='p-5 md:p-6 rounded-xl bg-gradient-to-br from-brand-accent/5 to-brand-accent/10
                           border border-brand-accent/20'>
               <p className='text-base md:text-lg text-text-light-secondary dark:text-text-dark-secondary mb-4'>
                 {project.outcome.description}
@@ -269,7 +269,7 @@ const ProjectPopup: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
               {project.outcome.metrics && project.outcome.metrics.length > 0 && (
                 <div className='grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4 mt-4'>
                   {project.outcome.metrics.map((metric, idx) => (
-                    <div key={idx} className='p-4 rounded-lg bg-surface-light-base dark:bg-surface-dark-base 
+                    <div key={idx} className='p-4 rounded-lg bg-surface-light-base dark:bg-surface-dark-base
                                             border border-border-light dark:border-border-dark text-center'>
                       <span className='text-sm md:text-base font-semibold text-brand-accent'>
                         {metric}

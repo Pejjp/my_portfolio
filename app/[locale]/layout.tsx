@@ -1,7 +1,6 @@
 import { notFound } from "next/navigation";
 import {NextIntlClientProvider, hasLocale} from 'next-intl';
 import "./globals.css"
-import "../../public/logo_color_4.png"
 
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
@@ -15,15 +14,12 @@ export const metadata: Metadata = {
   description: "My personnal portfolio",
   icons: {
     icon: '/logo_color_4.png', // or '/icon.png'
-  },  
+  },
 };
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({locale}));
 }
-
-
-
 
 export default async function RootLayout({
   children,

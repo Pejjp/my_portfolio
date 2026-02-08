@@ -18,6 +18,9 @@ const Navbar = () => {
   const router = useRouter();
 
   const ScrollTo = (id: string) => {
+    const currentUrl = document.location.href.split("#")[0];
+    const targetUrl = `${currentUrl}#${id}`;
+
       router.push(`#${id}`);
       document
         .getElementById(id)
@@ -32,13 +35,13 @@ const Navbar = () => {
   return (
     <>
       <nav className="sticky top-0 w-full bg-surface-light-base/80 dark:bg-surface-dark-base/80 backdrop-blur-md border-b
-       border-border-light dark:border-border-dark shadow-sm z-50 transition-colors duration-300"       
+       border-border-light dark:border-border-dark shadow-sm z-50 transition-colors duration-300"
        >
         <div className="mx-auto max-w-8xl px-3 lg:px-8 py-3 md:py-4 flex items-center justify-between">
-          
+
           {/* Logo */}
           <Link href="#home" className="flex flex-row items-center gap-2 md:gap-3 group">
-            <div className="bg-gradient-accent rounded-lg md:rounded-xl p-0.5 md:p-1 shadow-accent-sm 
+            <div className="bg-gradient-accent rounded-lg md:rounded-xl p-0.5 md:p-1 shadow-accent-sm
                   group-hover:shadow-accent transition-all duration-300 group-hover:scale-105
                   shrink-0">
               <Image
@@ -56,41 +59,41 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex flex-row gap-6 lg:gap-8 text-sm lg:text-base text-text-light-secondary dark:text-text-dark-secondary font-semibold">
-            <Link 
-              href="#hero" 
+            <Link
+              href="#hero"
               onClick={(event)=>ScrollTo(event.currentTarget.id)}
               className="hover:text-brand-accent dark:hover:text-brand-accent transition-colors duration-200 relative group"
             >
               {nav("home")}
-            </Link>   
-            <Link 
-              href="#about" 
+            </Link>
+            <Link
+              href="#about"
               onClick={(event)=>ScrollTo(event.currentTarget.id)}
               className="hover:text-brand-accent dark:hover:text-brand-accent transition-colors duration-200 relative group"
             >
               {common("about")}
-            </Link>                     
-            <Link 
-              href="#projects" 
+            </Link>
+            <Link
+              href="#projects"
               onClick={(event)=>ScrollTo(event.currentTarget.id)}
               className="hover:text-brand-accent dark:hover:text-brand-accent transition-colors duration-200 relative group"
             >
               {common("project")}
             </Link>
-            <Link 
-              href="#work-experience" 
+            <Link
+              href="#work-experience"
               onClick={(event)=>ScrollTo(event.currentTarget.id)}
               className="hover:text-brand-accent dark:hover:text-brand-accent transition-colors duration-200 relative group"
             >
               {work_exp("my_exp")}
-            </Link>            
-            <Link 
-              href="#contact" 
+            </Link>
+            <Link
+              href="#contact"
               onClick={(event)=>ScrollTo(event.currentTarget.id)}
               className="hover:text-brand-accent dark:hover:text-brand-accent transition-colors duration-200 relative group"
             >
               {contact("contact_me")}
-            </Link>            
+            </Link>
           </div>
 
           {/* Actions */}
@@ -113,8 +116,8 @@ const Navbar = () => {
               ) : (
                 <HiMenuAlt2 className="w-5 h-5 md:w-6 md:h-6 text-text-light-primary dark:text-text-dark-primary" />
               )}
-            </button>            
-          </div>      
+            </button>
+          </div>
 
         </div>
       </nav>
@@ -136,7 +139,7 @@ const Navbar = () => {
         {/* Menu Content */}
         <div className="flex flex-col flex-1 px-4 sm:px-6 py-4 sm:py-6 space-y-4 sm:space-y-6">
           {/* Mobile Navigation Links */}
-          <nav className="space-y-2 sm:space-y-3" 
+          <nav className="space-y-2 sm:space-y-3"
             onClick={() => setIsMobileNavOpen(false)}
           >
             <Link href="#hero"
@@ -148,7 +151,7 @@ const Navbar = () => {
               border-white/30 dark:border-white/10
               shadow-[0_8px_30px_rgba(0,0,0,0.12)]
               duration-300
-             dark:hover:bg-white/15              
+             dark:hover:bg-white/15
               border-2 "
             >
               <div className="flex flex-row items-center justify-between gap-3">
@@ -158,7 +161,7 @@ const Navbar = () => {
               </div>
             </Link>
 
-            <Link href="#about" 
+            <Link href="#about"
               onClick={(event)=>ScrollTo(event.currentTarget.id)}
               className="block text-base sm:text-lg font-medium text-text-light-secondary dark:text-text-dark-secondary hover:text-brand-accent dark:hover:text-brand-accent transition-colors
               bg-light-100 p-3 rounded-full bg-opacity-75
@@ -167,7 +170,7 @@ const Navbar = () => {
               border-white/30 dark:border-white/10
               shadow-[0_8px_30px_rgba(0,0,0,0.12)]
               duration-300
-             dark:hover:bg-white/15              
+             dark:hover:bg-white/15
               border-2 "
             >
               <div className="flex flex-row items-center justify-between gap-3">
@@ -175,7 +178,7 @@ const Navbar = () => {
                 <span>{common("about")}</span>
                 <LuChevronRight className="w-5 h-5 sm:w-8 sm:h-8"/>
               </div>
-            </Link> 
+            </Link>
             <Link href="#projects"
               onClick={(event)=>ScrollTo(event.currentTarget.id)}
               className="block text-base sm:text-lg font-medium text-text-light-secondary dark:text-text-dark-secondary hover:text-brand-accent dark:hover:text-brand-accent transition-colors
@@ -185,7 +188,7 @@ const Navbar = () => {
               border-white/30 dark:border-white/10
               shadow-[0_8px_30px_rgba(0,0,0,0.12)]
               duration-300
-             dark:hover:bg-white/15              
+             dark:hover:bg-white/15
               border-2 "
             >
               <div className="flex flex-row items-center justify-between gap-3">
@@ -193,7 +196,7 @@ const Navbar = () => {
                 <span>{common("project")}</span>
                 <LuChevronRight className="w-5 h-5 sm:w-8 sm:h-8"/>
               </div>
-            </Link>                          
+            </Link>
             <Link href="#work-experience"
               onClick={(event)=>ScrollTo(event.currentTarget.id)}
               className="block text-base sm:text-lg font-medium text-text-light-secondary dark:text-text-dark-secondary hover:text-brand-accent dark:hover:text-brand-accent transition-colors
@@ -203,7 +206,7 @@ const Navbar = () => {
               border-white/30 dark:border-white/10
               shadow-[0_8px_30px_rgba(0,0,0,0.12)]
               duration-300
-             dark:hover:bg-white/15              
+             dark:hover:bg-white/15
               border-2 "
             >
               <div className="flex flex-row items-center justify-between gap-3">
@@ -211,7 +214,7 @@ const Navbar = () => {
                 <span className="line-clamp-1">{work_exp("my_exp")}</span>
                 <LuChevronRight className="w-5 h-5 sm:w-8 sm:h-8"/>
               </div>
-            </Link>     
+            </Link>
 
             <Link href="#contact"
               onClick={(event)=>ScrollTo(event.currentTarget.id)}
@@ -222,7 +225,7 @@ const Navbar = () => {
               border-white/30 dark:border-white/10
               shadow-[0_8px_30px_rgba(0,0,0,0.12)]
               duration-300
-             dark:hover:bg-white/15              
+             dark:hover:bg-white/15
               border-2 "
             >
               <div className="flex flex-row items-center justify-between gap-3">
@@ -230,7 +233,7 @@ const Navbar = () => {
                 <span>{contact("contact_me")}</span>
                 <LuChevronRight className="w-5 h-5 sm:w-8 sm:h-8"/>
               </div>
-            </Link>                     
+            </Link>
           </nav>
         </div>
       </div>

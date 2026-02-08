@@ -17,7 +17,7 @@
     "common":{
         "project": "Projets",
         "about":"Me découvrir",
-        "hire_me":"M'embocher"        
+        "hire_me":"M'embocher"
     },
     "footer": {
         "header": {
@@ -71,8 +71,8 @@
     },
     "about": {
         "why": "Pourquoi",
-        "about_me": "Je suis Étudiant en informatique spécialisé en développement Full-stack, Enthousiaste de Apprentissage Automatique et Sciences de Données. Je conçois des applications de bout en bout — des interfaces front-end intuitives aux systèmes back-end robustes — tout en développant, entraînant et déployant des pipelines de machine learning sur des données réelles. À l’aise sur l’ensemble du cycle de développement, j’aime transformer des problématiques complexes en solutions évolutives et orientées données grâce à des frameworks modernes et aux technologies infonuagiques."
-    },    
+        "about_me": "Je suis Étudiant en informatique spécialisé en développement Full-stack, Enthousiaste d'Apprentissage Automatique et Sciences de Données. Je conçois des applications de bout en bout — des interfaces front-end intuitives aux systèmes back-end robustes — tout en développant, entraînant et déployant des pipelines de machine learning sur des données réelles. À l’aise sur l’ensemble du cycle de développement, j’aime transformer des problématiques complexes en solutions évolutives et orientées données grâce à des frameworks modernes et aux technologies infonuagiques."
+    },
     "hero":{
         "hey":"Hey",
         "name":"Moi c'est",
@@ -81,8 +81,12 @@
         "impact":"Impactants",
         "major":"Informatique",
         "degree":"Dipôme",
-        "personal":"Motivé par la création d'expériences numériques remarquables, en alliant code propre, performance et solutions innovantes."
-
+        "personal":"Motivé par la création d'expériences numériques remarquables, en alliant code propre, performance et solutions innovantes.",
+        "download_cv":"Télécharger CV"
+    },
+    "techStack": {
+        "title": "Stack Technique",
+        "subtitle": "Technologies avec lesquelles je travaille"
     },
     "project_popup":{
         "key_features":"Caractéristiques Clés",
@@ -111,7 +115,7 @@
             "id": 1,
             "title": "Mon Portfolio Personnel",
             "stack": ["Next.js", "TypeScript", "Tailwind CSS"],
-            "image": "/projects_screenshots/mockup_picto_360.png",
+            "image": "/projects_screenshots/portfolio_project.jpg",
             "period": "Jan 2026",
             "overview": "Un site web de portfolio personnel mettant en avant les projets et compétences avec un design réactif, un contenu dynamique et un support multilingue.",
             "keyFeatures": [
@@ -204,7 +208,7 @@
             "technologies": [
                 {
                     "category": "Frontend",
-                    "items": ["React", "TypeScript"]
+                    "items": ["React", "TypeScript","CSS","Flutter"]
                 },
                 {
                     "category": "Backend",
@@ -223,7 +227,7 @@
             ],
             "outcome": {
                 "metrics": ["Amélioration de 30 % des performances", "Mention honorable du département Informatique et Recherche opérationnelle"],
-                "description": "Mention honorable reçue du département d'informatique et de recherche opérationnelle de l'Université de Montréal pour un travail de projet exceptionnel."
+                "description": "Optimisation réussie des performances de l'application web avec une architecture front-end robuste, recevant une reconnaissance académique pour l'excellence du projet."
             },
             "demo": {
                 "liveUrl": "https://picto360.netlify.app/",
@@ -319,7 +323,7 @@
     },
     "work_exp":{
         "my_exp":"Mon Expérience"
-    },    
+    },
     "experiences": [
         {
         "company": "Université de Montréal, Montréal, QC",
