@@ -112,6 +112,48 @@
         },
         "projectsList": [
         {
+            "id": 6,
+            "title": "Systeme de Reservation de Trajets - Backend Java",
+            "image": "/projects_screenshots/reservations_image0.jpg",
+            "stack": ["Java", "Java FX", "CSS"],
+            "period": "Mars 2026",
+            "overview": "Un système de réservation de trajets entièrement fonctionnel développé en backend Java,intégrant des fonctionnalités avancées pour améliorer l'expérience utilisateur.",
+            "keyFeatures": [
+                "Implémentation d'un système de réservation de trajets robuste",
+                "Respect des principes de programmation orientée objet pour une architecture propre",
+                "Documentation complète de l'API pour une intégration transparente",
+                "Implémentation des patrons de conception pour améliorer la maintenabilité et l'évolutivité du code."
+            ],
+            "technologies": [
+                {
+                    "category": "Frontend",
+                    "items": ["Java FX", "CSS"]
+                },
+                {
+                    "category": "Backend",
+                    "items": ["Java"]
+                }
+            ],
+            "challenges": [
+                {
+                    "challenge": "Respects des principes de conception orientée objet tout en implémentant des fonctionnalités complexes",
+                    "solution": "Application de patrons de conception et séparation claire des responsabilités pour maintenir une architecture propre"
+                },
+                {
+                    "challenge": "Assurer une documentation API complète pour les intégrations futures",
+                    "solution": "Rédaction de documentation détaillée et utilisation d'outils de documentation API pour garantir une intégration transparente"
+                }
+            ],
+            "outcome": {
+                "description": "Livraison réussie de l'application de réservation de trajets avec une architecture backend robuste, une documentation API complète et une expérience utilisateur améliorée."
+            },
+            "demo": {
+                "liveUrl": "",
+                "githubUrl": "https://github.com/Pejjp/",
+                "videoUrl": ""
+            }
+        },
+        {
             "id": 1,
             "title": "Mon Portfolio Personnel",
             "stack": ["Next.js", "TypeScript", "Tailwind CSS"],
@@ -325,6 +367,19 @@
         "my_exp":"Mon Expérience"
     },
     "experiences": [
+        {
+            "company": "Borrow'd - Python, Django, HTML, Tailwind CSS, Git, Montréal, QC",
+            "period": "Janv. 2026 - Présent",
+            "role": "Développeur Full Stack",
+            "bullets": [
+            "Contribué à une plateforme de prêt en implémentant des fonctionnalités backend en Django (Python) et des fonctionnalités d'interface utilisateur.",
+            "Conçu un flux de notifications piloté par des événements en Django avec déduplication correcte et gestion des états.",
+            "Conçu des modèles de données et documenté les entités/relations clés ; amélioré la cohérence avec des modifications sûres pour les migrations.",
+            "Collaboré avec les coéquipiers via les revues de PR, le suivi des issues et la documentation pour livrer des améliorations incrémentales.",
+            "Débogué des problèmes proches de la production en reproduisant les bugs localement, en analysant les journaux et en validant les corrections avant fusion."
+            ],
+            "isActive": true
+        },
         {
         "company": "Université de Montréal, Montréal, QC",
         "period": "Janv. 2026 - Présent",

@@ -18,9 +18,6 @@ const Navbar = () => {
   const router = useRouter();
 
   const ScrollTo = (id: string) => {
-    const currentUrl = document.location.href.split("#")[0];
-    const targetUrl = `${currentUrl}#${id}`;
-
       router.push(`#${id}`);
       document
         .getElementById(id)

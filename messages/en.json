@@ -112,6 +112,48 @@
         },
         "projectsList": [
         {
+            "id": 6,
+            "title": "Route Reservation System - Java Backend",
+            "image": "/projects_screenshots/reservations_image0.jpg",
+            "stack": ["Java", "Java FX", "CSS"],
+            "period": "March 2026",
+            "overview": "A fully functional route reservation system developed with a Java backend, featuring advanced capabilities to enhance the user experience.",
+            "keyFeatures": [
+                "Robust route reservation system implementation",
+                "Adherence to object-oriented programming principles for clean architecture",
+                "Comprehensive API documentation for seamless integration",
+                "Design pattern implementation to improve code maintainability and scalability."
+            ],
+            "technologies": [
+                {
+                    "category": "Frontend",
+                    "items": ["Java FX", "CSS"]
+                },
+                {
+                    "category": "Backend",
+                    "items": ["Java"]
+                }
+            ],
+            "challenges": [
+                {
+                    "challenge": "Balancing object-oriented design principles while implementing complex features",
+                    "solution": "Applied design patterns and clear separation of responsibilities to maintain a clean architecture"
+                },
+                {
+                    "challenge": "Ensuring complete API documentation for future integrations",
+                    "solution": "Authored detailed documentation and used API documentation tools to ensure seamless integration"
+                }
+            ],
+            "outcome": {
+                "description": "Successfully delivered the route reservation application with a robust backend architecture, complete API documentation, and an improved user experience."
+            },
+            "demo": {
+                "liveUrl": "",
+                "githubUrl": "https://github.com/Pejjp/",
+                "videoUrl": ""
+            }
+        },
+        {
             "id": 1,
             "title": "Personal Portfolio Website",
             "stack": ["Next.js", "TypeScript", "Tailwind CSS"],
@@ -325,6 +367,19 @@
         "my_exp":"My Experiences"
     },
     "experiences": [
+        {
+            "company": "Borrow'd - Python, Django, HTML, Tailwind CSS, Git , Montréal, QC",
+            "period": "Jan. 2026 - Present",
+            "role": "Full Stack Developer",
+            "bullets": [
+                "Contributed to a borrowing platform by implementing backend features in Django (Python) and  UI features .",
+                "Built an event-driven notification workflow in Django with correct deduplication and state handling.",
+                "Designed data models and documented key entities/relationships; improved consistency with migration-safe changes.",
+                "Worked with teammates through PR reviews, issue tracking, and documentation to ship incremental improvements.",
+                "Debugged production-like issues by reproducing bugs locally, analyzing logs, and validating fixes before merge."
+            ],
+            "isActive": true
+        },
         {
         "company": "University of Montreal, Montreal, QC",
         "period": "Jan 2026 - Present",
