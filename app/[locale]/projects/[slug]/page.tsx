@@ -15,8 +15,6 @@ import { accentText, card, ChipList, mutedText, StatusBadge, textLink } from '@/
 
 type Params = Promise<{ locale: string; slug: string }>
 
-export const dynamicParams = false
-
 export function generateStaticParams() {
   return routing.locales.flatMap((locale) => getPublishedProjects().map((p) => ({ locale, slug: p.slug })))
 }
