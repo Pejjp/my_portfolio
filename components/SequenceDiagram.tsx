@@ -33,17 +33,23 @@ export default function SequenceDiagram({ diagram }: { diagram: Diagram }) {
         ))}
       </ul>
 
+      {/*
+        Each step stacks the route ("A → B") above its description. The route wraps as a flex row,
+        so long participant names never spill into the description column (previous layout bug).
+      */}
       <ol className="divide-y divide-border-light dark:divide-border-dark">
         {diagram.steps[locale].map((step, i) => (
-          <li key={i} className="grid grid-cols-[2rem_1fr] gap-x-3 px-5 py-3 sm:grid-cols-[2rem_minmax(0,16rem)_1fr]">
-            <span className={`font-mono text-xs leading-6 ${mutedText}`}>{String(i + 1).padStart(2, '0')}</span>
-            <span className="font-mono text-xs leading-6 text-text-light-primary dark:text-text-dark-primary">
-              {step.from}
-              <span aria-hidden="true" className="mx-1.5 text-accent-700 dark:text-accent-500">→</span>
-              <span className="sr-only"> {t('stepTo')} </span>
-              {step.to}
-            </span>
-            <span className={`col-start-2 text-sm leading-6 sm:col-start-3 ${mutedText}`}>{step.label}</span>
+          <li key={i} className="flex gap-3 px-5 py-3">
+            <span className={`w-6 shrink-0 font-mono text-xs leading-6 ${mutedText}`}>{String(i + 1).padStart(2, '0')}</span>
+            <div className="min-w-0 flex-1">
+              <p className="flex flex-wrap items-center gap-x-1.5 font-mono text-xs leading-6 text-text-light-primary dark:text-text-dark-primary">
+                <span className="min-w-0 break-words">{step.from}</span>
+                <span aria-hidden="true" className="text-brand-accent">→</span>
+                <span className="sr-only">{t('stepTo')}</span>
+                <span className="min-w-0 break-words">{step.to}</span>
+              </p>
+              <p className={`text-sm leading-6 break-words ${mutedText}`}>{step.label}</p>
+            </div>
           </li>
         ))}
       </ol>
