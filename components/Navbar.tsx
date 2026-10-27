@@ -1,240 +1,122 @@
 "use client"
-import Link from "next/link"
-import { useState } from "react"
-import { HiBriefcase, HiCursorClick, HiFolderOpen, HiMenuAlt2, HiPhone, HiX } from "react-icons/hi";
+import { useEffect, useId, useState } from "react"
 import Image from "next/image"
-import ThemeToggle from "./ThemeToggle";
-import { LanguageSwitcher } from "./SwitchLang";
-import { useTranslations } from "next-intl";
-import { LuArrowRight, LuChevronRight } from "react-icons/lu";
-import { usePathname, useRouter } from "next/navigation";
+import { useLocale, useTranslations } from "next-intl"
+import { HiMenuAlt2, HiX } from "react-icons/hi"
+import { Link } from "@/i18n/navigation"
+import ThemeToggle from "./ThemeToggle"
+import { LanguageSwitcher } from "./SwitchLang"
+import { focusRing } from "./ui"
+import { resumeHref, type Locale } from "@/lib/content"
 
+/** Section anchors on the home page. Links work from any page because they target `/#id`. */
+const sections = [
+  { key: "home", hash: "hero" },
+  { key: "work", hash: "work-experience" },
+  { key: "projects", hash: "projects" },
+  { key: "about", hash: "about" },
+  { key: "contact", hash: "contact" },
+] as const
 
-export type Lang = "en" | "fr";
+const linkBase = `rounded-md transition-colors hover:text-accent-700 dark:hover:text-accent-500 ${focusRing}`
 
 const Navbar = () => {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false)
-  const [language, setLanguage] = useState<Lang>("en");
-  const router = useRouter();
-
-  const ScrollTo = (id: string) => {
-      router.push(`#${id}`);
-      document
-        .getElementById(id)
-        ?.scrollIntoView({ behavior: "smooth" });
-  }
-
-  const contact = useTranslations("contact")
-  const common = useTranslations("common")
   const nav = useTranslations("nav")
-  const work_exp = useTranslations("work_exp")
+  const a11y = useTranslations("a11y")
+  const locale = useLocale() as Locale
+  const menuId = useId()
+
+  // Close the mobile menu with Escape.
+  useEffect(() => {
+    if (!isMobileNavOpen) return
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setIsMobileNavOpen(false)
+    }
+    window.addEventListener("keydown", onKey)
+    return () => window.removeEventListener("keydown", onKey)
+  }, [isMobileNavOpen])
 
   return (
-    <>
-      <nav className="sticky top-0 w-full bg-surface-light-base/80 dark:bg-surface-dark-base/80 backdrop-blur-md border-b
-       border-border-light dark:border-border-dark shadow-sm z-50 transition-colors duration-300"
-       >
-        <div className="mx-auto max-w-8xl px-3 lg:px-8 py-3 md:py-4 flex items-center justify-between">
+    <header className="sticky top-0 z-50 w-full border-b border-border-light/80 dark:border-border-dark/80 bg-surface-light-base/85 dark:bg-surface-dark-base/85 backdrop-blur-md">
+      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 md:px-6">
+        {/* Logo */}
+        <Link
+          href={{ pathname: "/", hash: "hero" }}
+          className={`flex min-h-11 items-center gap-2.5 rounded-lg ${focusRing}`}
+          aria-label={a11y("homeLink")}
+        >
+          <span className="rounded-lg bg-gradient-accent p-0.5 shadow-accent-sm">
+            <Image src="/logo_white.png" alt="" width={32} height={32} className="h-8 w-8 rounded-md" />
+          </span>
+          <span className="text-lg font-bold tracking-tight text-text-light-primary dark:text-text-dark-primary">
+            Jeff Pendy
+          </span>
+        </Link>
 
-          {/* Logo */}
-          <Link href="#home" className="flex flex-row items-center gap-2 md:gap-3 group">
-            <div className="bg-gradient-accent rounded-lg md:rounded-xl p-0.5 md:p-1 shadow-accent-sm
-                  group-hover:shadow-accent transition-all duration-300 group-hover:scale-105
-                  shrink-0">
-              <Image
-                src="/logo_white.png"
-                alt="my logo"
-                width={32}
-                height={32}
-                className="md:w-10 md:h-10 rounded-md md:rounded-lg"
-              />
-            </div>
-            <h2 className="text-lg md:text-xl font-bold bg-gradient-accent-to-r bg-clip-text text-transparent">
-              JeffPendy
-            </h2>
-          </Link>
+        {/* Desktop navigation */}
+        <nav aria-label={a11y("mainNav")} className="hidden lg:block">
+          <ul className="flex items-center gap-1 text-sm font-semibold text-text-light-secondary dark:text-text-dark-secondary">
+            {sections.map((s) => (
+              <li key={s.key}>
+                <Link href={{ pathname: "/", hash: s.hash }} className={`inline-flex min-h-11 items-center px-3 ${linkBase}`}>
+                  {nav(s.key)}
+                </Link>
+              </li>
+            ))}
+            <li>
+              <a href={resumeHref(locale)} className={`inline-flex min-h-11 items-center px-3 ${linkBase}`}>
+                {nav("resume")}
+              </a>
+            </li>
+          </ul>
+        </nav>
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex flex-row gap-6 lg:gap-8 text-sm lg:text-base text-text-light-secondary dark:text-text-dark-secondary font-semibold">
-            <Link
-              href="#hero"
-              onClick={(event)=>ScrollTo(event.currentTarget.id)}
-              className="hover:text-brand-accent dark:hover:text-brand-accent transition-colors duration-200 relative group"
-            >
-              {nav("home")}
-            </Link>
-            <Link
-              href="#about"
-              onClick={(event)=>ScrollTo(event.currentTarget.id)}
-              className="hover:text-brand-accent dark:hover:text-brand-accent transition-colors duration-200 relative group"
-            >
-              {common("about")}
-            </Link>
-            <Link
-              href="#projects"
-              onClick={(event)=>ScrollTo(event.currentTarget.id)}
-              className="hover:text-brand-accent dark:hover:text-brand-accent transition-colors duration-200 relative group"
-            >
-              {common("project")}
-            </Link>
-            <Link
-              href="#work-experience"
-              onClick={(event)=>ScrollTo(event.currentTarget.id)}
-              className="hover:text-brand-accent dark:hover:text-brand-accent transition-colors duration-200 relative group"
-            >
-              {work_exp("my_exp")}
-            </Link>
-            <Link
-              href="#contact"
-              onClick={(event)=>ScrollTo(event.currentTarget.id)}
-              className="hover:text-brand-accent dark:hover:text-brand-accent transition-colors duration-200 relative group"
-            >
-              {contact("contact_me")}
-            </Link>
-          </div>
-
-          {/* Actions */}
-          <div className="flex flex-row items-center gap-2 md:gap-4">
-            <div className="flex items-center scale-90 md:scale-100">
-              <ThemeToggle />
-            </div>
-            <div className="flex items-center scale-90 md:scale-100">
-              <LanguageSwitcher />
-            </div>
-
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setIsMobileNavOpen(!isMobileNavOpen)}
-              className="lg:hidden p-1.5 md:p-2 rounded-lg hover:bg-surface-light-muted dark:hover:bg-surface-dark-muted transition-colors"
-              aria-label="Toggle menu"
-            >
-              {isMobileNavOpen ? (
-                <HiX className="w-5 h-5 md:w-6 md:h-6 text-text-light-primary dark:text-text-dark-primary" />
-              ) : (
-                <HiMenuAlt2 className="w-5 h-5 md:w-6 md:h-6 text-text-light-primary dark:text-text-dark-primary" />
-              )}
-            </button>
-          </div>
-
-        </div>
-      </nav>
-
-      {/* Mobile Menu Overlay - Blurs the entire page including navbar */}
-      <div
-        className={`lg:hidden fixed inset-0 bg-surface-dark-base/10 backdrop-blur-sm transition-opacity duration-300 z-40 ${
-          isMobileNavOpen ? "opacity-100" : "opacity-0 pointer-events-none"
-        }`}
-        onClick={() => setIsMobileNavOpen(false)}
-      />
-
-      {/* Mobile Menu - Full height sidebar */}
-      <div
-        className={`lg:hidden fixed top-16 bottom-0 right-0 w-4/6 max-w-sm h-fit transition-transform duration-300 ease-in-out z-50 ${
-          isMobileNavOpen ? "translate-x-0" : "translate-x-full"
-        }`}
-      >
-        {/* Menu Content */}
-        <div className="flex flex-col flex-1 px-4 sm:px-6 py-4 sm:py-6 space-y-4 sm:space-y-6">
-          {/* Mobile Navigation Links */}
-          <nav className="space-y-2 sm:space-y-3"
-            onClick={() => setIsMobileNavOpen(false)}
+        {/* Actions */}
+        <div className="flex items-center gap-1.5 md:gap-2">
+          <ThemeToggle />
+          <LanguageSwitcher />
+          <button
+            type="button"
+            onClick={() => setIsMobileNavOpen((open) => !open)}
+            className={`lg:hidden inline-flex h-11 w-11 items-center justify-center rounded-full text-text-light-primary dark:text-text-dark-primary hover:bg-surface-light-muted dark:hover:bg-surface-dark-muted ${focusRing}`}
+            aria-expanded={isMobileNavOpen}
+            aria-controls={menuId}
+            aria-label={isMobileNavOpen ? a11y("closeMenu") : a11y("openMenu")}
           >
-            <Link href="#hero"
-              onClick={(event)=>ScrollTo(event.currentTarget.id)}
-              className="block text-base sm:text-lg font-medium text-text-light-secondary dark:text-text-dark-secondary hover:text-brand-accent dark:hover:text-brand-accent transition-colors
-              bg-light-100 p-3 rounded-full bg-opacity-75
-              bg-light-100/60 dark:bg-white/10
-              dark:backdrop-blur-1xl
-              border-white/30 dark:border-white/10
-              shadow-[0_8px_30px_rgba(0,0,0,0.12)]
-              duration-300
-             dark:hover:bg-white/15
-              border-2 "
-            >
-              <div className="flex flex-row items-center justify-between gap-3">
-                <HiFolderOpen className="w-4 h-4 sm:w-5 sm:h-5 " />
-                <span>{nav("home")}</span>
-                <LuChevronRight className="w-5 h-5 sm:w-8 sm:h-8"/>
-              </div>
-            </Link>
-
-            <Link href="#about"
-              onClick={(event)=>ScrollTo(event.currentTarget.id)}
-              className="block text-base sm:text-lg font-medium text-text-light-secondary dark:text-text-dark-secondary hover:text-brand-accent dark:hover:text-brand-accent transition-colors
-              bg-light-100 p-3 rounded-full bg-opacity-75
-              bg-light-100/60 dark:bg-white/10
-              dark:backdrop-blur-1xl
-              border-white/30 dark:border-white/10
-              shadow-[0_8px_30px_rgba(0,0,0,0.12)]
-              duration-300
-             dark:hover:bg-white/15
-              border-2 "
-            >
-              <div className="flex flex-row items-center justify-between gap-3">
-                <HiCursorClick className="w-4 h-4 sm:w-5 sm:h-5 " />
-                <span>{common("about")}</span>
-                <LuChevronRight className="w-5 h-5 sm:w-8 sm:h-8"/>
-              </div>
-            </Link>
-            <Link href="#projects"
-              onClick={(event)=>ScrollTo(event.currentTarget.id)}
-              className="block text-base sm:text-lg font-medium text-text-light-secondary dark:text-text-dark-secondary hover:text-brand-accent dark:hover:text-brand-accent transition-colors
-              bg-light-100 p-3 rounded-full bg-opacity-75
-              bg-light-100/60 dark:bg-white/10
-              dark:backdrop-blur-1xl
-              border-white/30 dark:border-white/10
-              shadow-[0_8px_30px_rgba(0,0,0,0.12)]
-              duration-300
-             dark:hover:bg-white/15
-              border-2 "
-            >
-              <div className="flex flex-row items-center justify-between gap-3">
-                <HiFolderOpen className="w-4 h-4 sm:w-5 sm:h-5 " />
-                <span>{common("project")}</span>
-                <LuChevronRight className="w-5 h-5 sm:w-8 sm:h-8"/>
-              </div>
-            </Link>
-            <Link href="#work-experience"
-              onClick={(event)=>ScrollTo(event.currentTarget.id)}
-              className="block text-base sm:text-lg font-medium text-text-light-secondary dark:text-text-dark-secondary hover:text-brand-accent dark:hover:text-brand-accent transition-colors
-              bg-light-100 p-3 rounded-full bg-opacity-75
-              bg-light-100/60 dark:bg-white/10
-              dark:backdrop-blur-1xl
-              border-white/30 dark:border-white/10
-              shadow-[0_8px_30px_rgba(0,0,0,0.12)]
-              duration-300
-             dark:hover:bg-white/15
-              border-2 "
-            >
-              <div className="flex flex-row items-center justify-between gap-3">
-                <HiBriefcase className="w-4 h-4 sm:w-5 sm:h-5 " />
-                <span className="line-clamp-1">{work_exp("my_exp")}</span>
-                <LuChevronRight className="w-5 h-5 sm:w-8 sm:h-8"/>
-              </div>
-            </Link>
-
-            <Link href="#contact"
-              onClick={(event)=>ScrollTo(event.currentTarget.id)}
-              className="block text-base sm:text-lg font-medium text-text-light-secondary dark:text-text-dark-secondary hover:text-brand-accent dark:hover:text-brand-accent transition-colors
-              bg-light-100 p-3 rounded-full bg-opacity-75
-              bg-light-100/60 dark:bg-white/10
-              dark:backdrop-blur-1xl
-              border-white/30 dark:border-white/10
-              shadow-[0_8px_30px_rgba(0,0,0,0.12)]
-              duration-300
-             dark:hover:bg-white/15
-              border-2 "
-            >
-              <div className="flex flex-row items-center justify-between gap-3">
-                <HiPhone className="w-4 h-4 sm:w-5 sm:h-5 " />
-                <span>{contact("contact_me")}</span>
-                <LuChevronRight className="w-5 h-5 sm:w-8 sm:h-8"/>
-              </div>
-            </Link>
-          </nav>
+            {isMobileNavOpen ? <HiX className="h-6 w-6" aria-hidden="true" /> : <HiMenuAlt2 className="h-6 w-6" aria-hidden="true" />}
+          </button>
         </div>
       </div>
-    </>
+
+      {/* Mobile navigation: only rendered when open, so hidden links are never focusable. */}
+      {isMobileNavOpen && (
+        <nav
+          id={menuId}
+          aria-label={a11y("mainNav")}
+          className="lg:hidden border-t border-border-light dark:border-border-dark bg-surface-light-base dark:bg-surface-dark-base"
+        >
+          <ul className="mx-auto max-w-6xl px-4 py-3 text-base font-semibold text-text-light-secondary dark:text-text-dark-secondary">
+            {sections.map((s) => (
+              <li key={s.key}>
+                <Link
+                  href={{ pathname: "/", hash: s.hash }}
+                  onClick={() => setIsMobileNavOpen(false)}
+                  className={`flex min-h-12 items-center px-2 ${linkBase}`}
+                >
+                  {nav(s.key)}
+                </Link>
+              </li>
+            ))}
+            <li>
+              <a href={resumeHref(locale)} className={`flex min-h-12 items-center px-2 ${linkBase}`}>
+                {nav("resume")}
+              </a>
+            </li>
+          </ul>
+        </nav>
+      )}
+    </header>
   )
 }
 
