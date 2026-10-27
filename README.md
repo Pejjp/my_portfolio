@@ -1,61 +1,28 @@
-# My Portfolio
+# Jeff Pendy — Portfolio
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Bilingual (EN/FR) portfolio built with Next.js (App Router), TypeScript, Tailwind CSS, next-intl and next-themes. Live at [jeffpendy.com](https://www.jeffpendy.com).
 
-## Project Overview
+## Structure
 
-A modern portfolio website showcasing my projects and skills. Built with Next.js for optimal performance and SEO, this site demonstrates my expertise in full-stack web development.
+- `app/[locale]/` — home page, `projects/` index and `projects/[slug]` case studies (statically generated per locale), Open Graph image.
+- `app/api/contact/` — contact endpoint (Nodemailer). Needs `EMAIL_USER`, `EMAIL_PASS`, `EMAIL_TO` and optionally `EMAIL_FROM`. Without them it returns 503 and the form offers a mailto fallback.
+- `app/sitemap.ts`, `app/robots.ts` — generated from the content model.
+- `lib/content/` — typed, bilingual content: projects, experience, skills, site links.
+- `messages/` — UI strings per locale.
+- `components/` — page sections and shared UI.
+- `tests/` — Vitest checks for content integrity, translation parity and contact validation.
 
-### Key Features
-- **Multilingual support** for accessibility
-- **Reusable and Dynamic components rendering** for clean and modern interface.
-
-
-
-### Key Design Choices
-
-- **Server-side rendering** for improved performance and SEO
-- **Responsive design** ensuring compatibility across all devices
-- **Modern typography** with optimized fonts for better readability
-- **Light and dark theme support** for diversity.
-
-### Technical Stack
-
-- **Framework**: [Next.js](https://nextjs.org) - React framework for production
-- **Styling**: CSS Modules / Tailwind CSS
-- **Font Optimization**: [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) with [Geist](https://vercel.com/font)
-- **Deployment**: [Vercel Platform](https://vercel.com)
-
-## Getting Started
-
-First, run the development server:
+## Development
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev      # http://localhost:3000
+npm run lint
+npx tsc --noEmit
+npm test
+npm run build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Editing content
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-
+See [docs/CONTENT.md](docs/CONTENT.md) for updating jobs, projects, translations, screenshots, the résumé and metadata.
