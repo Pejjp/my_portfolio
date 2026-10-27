@@ -16,7 +16,10 @@
     "themeToDark": "Switch to dark theme",
     "themeLoading": "Theme toggle",
     "newTab": "(opens in a new tab)",
-    "homeLink": "Jeff Pendy, home"
+    "homeLink": "Jeff Pendy, home",
+    "github": "Jeff Pendy on GitHub",
+    "linkedin": "Jeff Pendy on LinkedIn",
+    "email": "Email Jeff Pendy"
   },
   "nav": {
     "home": "Home",
@@ -28,7 +31,7 @@
   },
   "hero": {
     "eyebrow": "Software Engineer · Montréal, Canada",
-    "headline": "Building reliable software, from user experiences to cloud systems.",
+    "headline": "Building <hl>reliable software</hl>, from user experiences to cloud systems.",
     "intro": "I'm Jeff Pendy, a Computer Science graduate from Université de Montréal. I build full-stack applications, backend workflows, and applied AI systems, with a focus on reliability, maintainability, and real-world impact.",
     "ctaPrimary": "Explore my work",
     "ctaSecondary": "View résumé",
@@ -37,13 +40,14 @@
   },
   "trust": {
     "label": "At a glance",
-    "degree": "B.Sc. Computer Science, Université de Montréal",
-    "current": "Currently building software at SMARDT",
-    "focus": "Full-stack · Backend · Applied AI"
+    "focus": "Full-stack · Backend · Applied AI",
+    "degreeValue": "Computer Science",
+    "degreeLabel": "B.Sc., Université de Montréal",
+    "roleValue": "SMARDT",
+    "roleLabel": "Current role"
   },
   "projects": {
-    "eyebrow": "Selected work",
-    "title": "Projects",
+    "title": "Let's have a look at my",
     "intro": "Three projects where I can show the problem, the decisions and the evidence. Each links to a full case study.",
     "more": "More projects",
     "readCaseStudy": "Read the case study",
@@ -53,7 +57,8 @@
     "role": "Role",
     "outcome": "Outcome",
     "allProjects": "All projects",
-    "indexIntro": "Case studies follow the same structure: problem, context, my role, architecture, decisions, tradeoffs, outcome and what I'd improve next."
+    "indexIntro": "Case studies follow the same structure: problem, context, my role, architecture, decisions, tradeoffs, outcome and what I'd improve next.",
+    "titleHighlight": "Portfolio"
   },
   "status": {
     "label": "Status",
@@ -86,16 +91,15 @@
     "stepTo": "to"
   },
   "experience": {
-    "eyebrow": "Work",
-    "title": "Experience",
+    "title": "My",
     "present": "Present",
     "earlier": "Earlier experience",
     "education": "Education",
-    "stack": "Stack"
+    "stack": "Stack",
+    "titleHighlight": "Experience"
   },
   "focus": {
-    "eyebrow": "Engineering focus",
-    "title": "What I work on",
+    "title": "What I",
     "pillars": {
       "product": {
         "title": "Full-stack product engineering",
@@ -117,19 +121,20 @@
       "project": "Hands-on projects",
       "exploring": "Exploring"
     },
-    "practices": "Practices"
+    "practices": "Practices",
+    "titleHighlight": "work on",
+    "pillarsTitle": "Engineering focus"
   },
   "about": {
-    "eyebrow": "About",
-    "title": "The problems behind the product",
+    "title": "The problems behind",
     "body": "I enjoy solving the engineering problems behind great products: making uploads resilient, designing APIs that are easy to maintain, debugging tricky failures, and turning machine-learning experiments into usable services. My work spans TypeScript and Python backends, React interfaces, cloud deployment, testing, and collaborative development. I care about understanding how a system behaves in production—not just making a demo work.",
     "approachTitle": "How I work",
     "approach": "I start by reproducing the problem and reading the code that is already there. I prefer small pull requests with tests, I write down decisions and tradeoffs so the next person doesn't have to guess, and I measure before saying something got faster.",
-    "portraitAlt": "Portrait of Jeff Pendy"
+    "portraitAlt": "Portrait of Jeff Pendy",
+    "titleHighlight": "the product"
   },
   "contact": {
-    "eyebrow": "Contact",
-    "title": "Have a product or engineering challenge worth solving?",
+    "title": "Have a product or engineering challenge",
     "intro": "I'd love to hear about the team, the problem, and what you're building.",
     "emailCta": "Email Jeff",
     "github": "GitHub",
@@ -148,13 +153,15 @@
     "fallback": "You can email me directly at",
     "invalidEmail": "Enter a valid email address.",
     "messageTooLong": "Keep the message under {max} characters.",
-    "honeypotLabel": "Leave this field empty"
+    "honeypotLabel": "Leave this field empty",
+    "titleHighlight": "worth solving?"
   },
   "footer": {
     "tagline": "Software engineer in Montréal building full-stack applications, backend workflows and applied AI systems.",
     "navigation": "Navigation",
     "elsewhere": "Elsewhere",
     "rights": "All rights reserved.",
-    "source": "Source code"
+    "source": "Source code",
+    "title": "Let's Connect"
   }
 }
