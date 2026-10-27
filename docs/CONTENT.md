@@ -64,4 +64,20 @@ npm run build
 
 ## Pending approvals
 
-Items marked `REVIEW` in source are waiting for Jeff's confirmation. Search for `REVIEW` to find them all. The full list, with locations, is in the PR description and in `docs/portfolio-v2-audit.md`.
+Items marked `REVIEW` in source are waiting for Jeff's confirmation (search for `REVIEW`). As of 2026-10-26:
+
+1. **Résumé PDFs** (`public/cv/*.pdf`, paths in `lib/content/site.ts:20`): dated Feb 2026, missing SMARDT and Borrow'd, include the phone number, and still claim Picto "60%", "$7,500+/year" and Code to Give "60%". Provide public versions.
+2. **SMARDT title** (`lib/content/experience.ts:11`): the brief says "Software Developer Intern", the Oct 2026 résumé says "Full Stack Developer".
+3. **SMARDT bullets** (`lib/content/experience.ts:29`): sanitized drafts from the résumé, not rendered. The 1,300-project and 500k-line figures were left out. The safe temporary summary is shown for now.
+4. **Borrow'd title and start date** (`lib/content/experience.ts:48`): résumé wording ("Software Developer (open source)", Feb 2026) is used. The old site said "Full Stack Developer", Jan 2026.
+5. **TA end date** (`lib/content/experience.ts:102`): shown as "Winter 2026".
+6. **TA "more than 150 students"** (`lib/content/experience.ts:113`).
+7. **Degree title and completion date** (`lib/content/experience.ts:165`): shown as "B.Sc. in Computer Science, 2023 – 2026".
+8. **"Software Engineer" title** (`messages/en.json:3`, `messages/en.json:30`): approved in the brief, but "engineer" is a regulated title in Québec (OIQ). French copy uses "Développeur logiciel". JSON-LD uses "Software Developer".
+9. **Public email** (`lib/content/site.ts:14`) and **LinkedIn URL** (`lib/content/site.ts:18`, taken from the existing site and résumé).
+10. **Project statuses**: Picto360 (`lib/content/projects.ts:28`) and Borrow'd (`:279`) are marked "In progress".
+11. **Code to Give RAG chatbot** (`lib/content/projects.ts:534`): the résumé says Jeff integrated it, but GitHub doesn't attribute the service to him. The copy stays neutral.
+12. **ML image classification** (`lib/content/projects.ts:720`): deployment status, model, repository and screenshot rights.
+13. **MaVille** (`lib/content/projects.ts:763`) and **Route reservation** (`:806`): status, dates and repository links.
+14. **Sentiment-analysis case study** (`lib/content/projects.ts:841`): draft, not published. Needs a repository, the serving model, deployment status and reproducible evaluation.
+15. **Photos**: the hero avatar (`components/Hero.tsx:5`) and the About portrait (`components/About.tsx:3`) were carried over from the previous site. Confirm both are still approved.
