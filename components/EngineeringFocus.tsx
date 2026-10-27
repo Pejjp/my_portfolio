@@ -26,8 +26,8 @@ const EngineeringFocus = () => {
   const levels: SkillLevel[] = ['work', 'project', 'exploring']
 
   return (
-    <section id="skills" aria-labelledby="focus-title" className="w-full">
-      <SectionHeader id="focus-title" eyebrow={t('eyebrow')} title={t('title')} />
+    <section id="skills" aria-labelledby="focus-title" className="w-full max-w-7xl mx-auto">
+      <SectionHeader id="focus-title" title={t('title')} highlight={t('titleHighlight')} />
 
       <ul className="grid gap-6 md:grid-cols-3">
         {pillars.map(({ key, Icon }) => (

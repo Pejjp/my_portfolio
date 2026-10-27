@@ -1,14 +1,14 @@
 import Image from 'next/image'
 import { useLocale, useTranslations } from 'next-intl'
-import { LuArrowRight, LuArrowUpRight } from 'react-icons/lu'
+import { LuArrowRight, LuArrowUpRight, LuLink2 } from 'react-icons/lu'
 import { Link } from '@/i18n/navigation'
 import type { Locale, Project } from '@/lib/content'
-import { accentText, card, ChipList, focusRing, mutedText, StatusBadge } from './ui'
+import { accentText, ChipList, focusRing, mutedText, StatusBadge } from './ui'
 
-const secondaryLink = `relative z-10 inline-flex min-h-11 items-center gap-1 rounded text-sm font-semibold text-text-light-secondary dark:text-text-dark-secondary hover:text-accent-700 dark:hover:text-accent-500 ${focusRing}`
+const secondaryLink = `relative z-10 inline-flex min-h-11 items-center gap-1 rounded text-sm font-semibold text-text-light-secondary dark:text-text-dark-secondary hover:text-brand-accent dark:hover:text-brand-accent ${focusRing}`
 
-/** Featured card. The title link is stretched over the card; secondary links sit above it. */
-export function ProjectCard({ project, headingLevel = 'h3' }: { project: Project; headingLevel?: 'h2' | 'h3' }) {
+/** Featured card, in the original framed style (thick white border, warm shadow, round arrow badge). The title link is stretched over the card; secondary links sit above it. */
+export function ProjectCard({ project, index = 0, headingLevel = 'h3' }: { project: Project; index?: number; headingLevel?: 'h2' | 'h3' }) {
   const locale = useLocale() as Locale
   const t = useTranslations('projects')
   const status = useTranslations('status')
@@ -16,8 +16,23 @@ export function ProjectCard({ project, headingLevel = 'h3' }: { project: Project
   const Heading = headingLevel
 
   return (
-    <article className={`${card} group relative flex flex-col overflow-hidden transition-shadow hover:shadow-dark-lg dark:hover:shadow-accent`}>
-      <div className="relative aspect-[16/10] overflow-hidden border-b border-border-light dark:border-border-dark bg-surface-light-muted dark:bg-surface-dark-muted">
+    <article
+      className="group relative flex flex-col overflow-hidden rounded-2xl md:rounded-3xl border-8 border-white dark:border-border-dark
+        bg-surface-light-elevated dark:bg-surface-dark-base shadow-xl shadow-amber-950/5 hover:shadow-xl
+        motion-safe:transition-all motion-safe:duration-300 motion-safe:hover:scale-[1.02]"
+    >
+      <div className="relative aspect-[16/10] overflow-hidden rounded-xl md:rounded-2xl bg-gradient-light dark:bg-gradient-dark">
+        {/* Round arrow badge from the original cards, alternating gold and dark. */}
+        <div aria-hidden="true" className="absolute top-4 right-4 z-20">
+          <div
+            className={`relative w-12 h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center transition-all duration-300 motion-safe:group-hover:scale-110 ${
+              index % 2 === 1 ? 'bg-brand-accent text-white' : 'bg-text-dark-primary text-dark-800 dark:bg-text-light-primary dark:text-white'
+            }`}
+          >
+            <LuArrowUpRight className="absolute w-5 h-5 md:w-6 md:h-6 transition-all duration-300 opacity-100 group-hover:opacity-0" strokeWidth={2.5} />
+            <LuLink2 className="absolute w-5 h-5 md:w-6 md:h-6 transition-all duration-300 opacity-0 group-hover:opacity-100" strokeWidth={2.5} />
+          </div>
+        </div>
         {project.image ? (
           <Image
             src={project.image.src}
@@ -28,27 +43,27 @@ export function ProjectCard({ project, headingLevel = 'h3' }: { project: Project
           />
         ) : (
           // No approved screenshot: a plain typographic panel rather than an invented visual.
-          <div aria-hidden="true" className="flex h-full flex-col justify-end bg-gradient-to-br from-accent-100 to-light-100 p-6 dark:from-dark-800 dark:to-dark-950">
-            <span className="font-mono text-xs uppercase tracking-[0.18em] text-accent-800 dark:text-accent-500">
+          <div aria-hidden="true" className="flex h-full flex-col justify-end bg-gradient-accent-soft p-6 dark:bg-gradient-dark">
+            <span className="font-mono text-xs uppercase tracking-[0.18em] text-dark-900 dark:text-brand-accent">
               {project.chips.slice(0, 3).join(' · ')}
             </span>
-            <span className="mt-2 text-3xl font-bold tracking-tight text-text-light-primary dark:text-text-dark-primary">
+            <span className="mt-2 text-3xl font-bold text-dark-900 dark:text-text-dark-primary">
               {project.title[locale]}
             </span>
           </div>
         )}
       </div>
 
-      <div className="flex flex-1 flex-col gap-4 p-6">
+      <div className="flex flex-1 flex-col gap-4 p-5 md:px-6">
         <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
           <StatusBadge status={project.status} label={status(project.status)} />
           <span className={`text-xs ${mutedText}`}>{project.period[locale]}</span>
         </div>
 
-        <Heading className="text-xl font-bold tracking-tight text-text-light-primary dark:text-text-dark-primary">
+        <Heading className="text-lg md:text-xl lg:text-2xl font-bold text-text-light-primary dark:text-text-dark-primary">
           <Link
             href={`/projects/${project.slug}`}
-            className={`rounded after:absolute after:inset-0 after:content-[''] ${focusRing}`}
+            className={`rounded after:absolute after:inset-0 after:content-[''] group-hover:text-brand-accent transition-colors ${focusRing}`}
           >
             {project.title[locale]}
           </Link>
@@ -107,7 +122,7 @@ export function ProjectRow({ project }: { project: Project }) {
         <h3 className="text-lg font-semibold text-text-light-primary dark:text-text-dark-primary">
           <Link
             href={`/projects/${project.slug}`}
-            className={`rounded after:absolute after:inset-0 after:content-[''] group-hover:text-accent-700 dark:group-hover:text-accent-500 ${focusRing}`}
+            className={`rounded after:absolute after:inset-0 after:content-[''] group-hover:text-brand-accent ${focusRing}`}
           >
             {project.title[locale]}
           </Link>

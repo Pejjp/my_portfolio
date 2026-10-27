@@ -36,14 +36,13 @@ export default function HomePage({
   setRequestLocale(locale);
 
   return (
-    <div className='relative w-full overflow-x-clip'>
-      {/* Single, subtle decorative glow. */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute left-1/2 top-[-18rem] -z-10 h-[36rem] w-[90vw] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,var(--tw-gradient-stops))] from-accent-200/50 via-accent-100/20 to-transparent blur-3xl dark:from-accent-500/15 dark:via-accent-500/5"
-      />
+    <div className='relative flex flex-col items-center justify-center md:p-10 p-5 w-full overflow-hidden'>
+      {/* Original gold gradient glows: top and bottom of the page. */}
+      <div aria-hidden="true" className="absolute top-0 left-1/2 -translate-x-1/2 md:w-[90vw] h-[40rem] w-[96vw] rounded-full blur-3xl opacity-30 bg-[radial-gradient(ellipse_at_center,var(--tw-gradient-stops))] from-accent-300 via-accent-200/40 to-transparent dark:from-accent-500 dark:via-accent-500/30 pointer-events-none -z-10" />
+      <div aria-hidden="true" className="absolute top-0 left-1/2 -translate-x-1/2 md:w-[90vw] h-[40rem] w-[96vw] rounded-full blur-3xl opacity-30 bg-[radial-gradient(ellipse_at_center,var(--tw-gradient-stops))] from-accent-300 via-accent-200/40 to-transparent dark:from-accent-500 dark:via-accent-500/30 pointer-events-none -z-10" />
+      <div aria-hidden="true" className="absolute bottom-0 left-1/2 -translate-x-1/2 md:w-[90vw] h-[40rem] w-[96vw] rounded-full blur-3xl opacity-30 bg-[radial-gradient(ellipse_at_center,var(--tw-gradient-stops))] from-accent-300 via-accent-200/40 to-transparent dark:from-accent-500 dark:via-accent-500/30 pointer-events-none -z-10" />
       <JsonLd data={personJsonLd(locale)} />
-      <div className='mx-auto flex max-w-6xl flex-col gap-24 px-4 pb-8 md:gap-32 md:px-6'>
+      <div className='mx-auto flex w-full max-w-7xl flex-col gap-16 md:gap-28'>
         <Hero/>
         <Projects/>
         <WorkExperience/>

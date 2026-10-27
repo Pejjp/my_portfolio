@@ -34,7 +34,7 @@ export default async function OpenGraphImage({ params }: { params: Promise<{ loc
           {hero('eyebrow')}
         </div>
         <div style={{ display: 'flex', fontSize: 64, fontWeight: 700, lineHeight: 1.1, maxWidth: 1000 }}>
-          {hero('headline')}
+          {hero.markup('headline', { hl: (chunks) => chunks })}
         </div>
         <div style={{ display: 'flex', alignItems: 'center', fontSize: 32 }}>
           <div style={{ width: 16, height: 16, borderRadius: 8, background: '#c08301', marginRight: 16 }} />

@@ -2,51 +2,70 @@ import type { ReactNode } from 'react';
 import type { ProjectStatus } from '@/lib/content';
 
 /**
- * Shared visual primitives. Accent text uses accent-700 on light backgrounds
- * (the brand gold #c08301 is below 4.5:1 on white) and accent-500 on dark ones.
+ * Shared visual primitives, matching the original site's look: gold gradient buttons,
+ * brand-accent highlights and warm elevated surfaces.
+ * Small accent text uses accent-700 in light mode for contrast; large text uses the brand gold.
  */
 
-export const accentText = 'text-accent-700 dark:text-accent-500';
+export const accentText = 'text-accent-700 dark:text-brand-accent';
+export const brandText = 'text-brand-accent';
 
 export const focusRing =
-  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-600 focus-visible:ring-offset-2 focus-visible:ring-offset-surface-light-base dark:focus-visible:ring-accent-500 dark:focus-visible:ring-offset-surface-dark-base';
+  'focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-accent-400/60 dark:focus-visible:ring-accent-500/60';
 
-export const buttonPrimary = `inline-flex min-h-11 items-center justify-center gap-2 rounded-full px-6 py-2.5 font-semibold
-  bg-accent-700 text-white hover:bg-accent-800
-  dark:bg-accent-500 dark:text-dark-950 dark:hover:bg-accent-400
-  transition-colors ${focusRing}`;
+/** Legacy primary button: gold gradient in light mode, dark gradient in dark mode. */
+export const buttonPrimary = `group inline-flex min-h-11 items-center justify-center gap-2 rounded-full px-6 py-3 font-semibold text-white
+  bg-gradient-accent dark:bg-gradient-dark dark:ring-1 dark:ring-accent-500/40
+  shadow-accent-sm hover:shadow-accent-lg
+  motion-safe:transition-all motion-safe:duration-300 motion-safe:hover:scale-105 ${focusRing}`;
 
-export const buttonSecondary = `inline-flex min-h-11 items-center justify-center gap-2 rounded-full px-6 py-2.5 font-semibold
-  border border-border-light-strong dark:border-border-dark-strong
+/** Legacy outlined button. */
+export const buttonSecondary = `inline-flex min-h-11 items-center justify-center gap-2 rounded-full px-6 py-3 font-semibold
+  border-2 border-border-light dark:border-border-dark
   text-text-light-primary dark:text-text-dark-primary
   hover:bg-surface-light-elevated dark:hover:bg-surface-dark-elevated
-  transition-colors ${focusRing}`;
+  motion-safe:transition-all motion-safe:duration-300 motion-safe:hover:scale-105 ${focusRing}`;
+
+/** Legacy outlined gold button (the old "Hire me" style). */
+export const buttonAccentOutline = `inline-flex min-h-11 items-center justify-center gap-2 rounded-full px-8 py-3 font-semibold
+  border-2 border-brand-accent text-accent-700 dark:text-brand-accent
+  hover:bg-brand-accent hover:text-white dark:hover:text-white hover:shadow-accent-lg
+  motion-safe:transition-all motion-safe:duration-300 motion-safe:hover:scale-105 ${focusRing}`;
+
+/** Round icon button used for social links (GitHub, LinkedIn). */
+export const iconButtonPrimary = `inline-flex h-12 w-12 items-center justify-center rounded-full text-white
+  bg-gradient-accent dark:bg-gradient-dark dark:ring-1 dark:ring-accent-500/40 hover:shadow-accent-lg
+  motion-safe:transition-all motion-safe:duration-300 motion-safe:hover:scale-105 ${focusRing}`;
+export const iconButtonSecondary = `inline-flex h-12 w-12 items-center justify-center rounded-full
+  border-2 border-border-light dark:border-border-dark text-text-light-primary dark:text-text-dark-primary
+  hover:bg-surface-light-elevated dark:hover:bg-surface-dark-elevated
+  motion-safe:transition-all motion-safe:duration-300 motion-safe:hover:scale-105 ${focusRing}`;
 
 export const textLink = `inline-flex min-h-11 items-center gap-1.5 font-semibold underline-offset-4 hover:underline ${accentText} ${focusRing} rounded`;
 
+/** Legacy elevated card surface. */
 export const card =
-  'rounded-2xl border border-border-light dark:border-border-dark bg-surface-light-base dark:bg-surface-dark-elevated';
+  'rounded-2xl border border-border-light dark:border-border-dark bg-surface-light-elevated dark:bg-surface-dark-elevated';
 
-export const mutedText = 'text-text-light-muted dark:text-text-dark-muted';
+export const mutedText = 'text-text-light-secondary dark:text-text-dark-secondary';
 
+/** Centered, two-tone section title like the original site ("Let's have a look at my **Portfolio**"). */
 export function SectionHeader({
   id,
-  eyebrow,
   title,
+  highlight,
   intro,
 }: {
   id: string;
-  eyebrow?: string;
   title: string;
+  highlight?: string;
   intro?: string;
 }) {
   return (
-    <header className="mb-10 md:mb-14 max-w-3xl">
-      {eyebrow && (
-        <p className={`font-mono text-xs md:text-sm uppercase tracking-[0.18em] mb-3 ${accentText}`}>{eyebrow}</p>
-      )}
-      <h2 id={id} className="text-3xl md:text-4xl font-bold tracking-tight text-text-light-primary dark:text-text-dark-primary">
+    <header className="mx-auto mb-10 md:mb-14 max-w-3xl text-center">
+      <h2 id={id} className="text-3xl md:text-4xl lg:text-5xl font-bold text-text-light-primary dark:text-text-dark-primary text-balance">
         {title}
+        {highlight && <span className={brandText}> {highlight}</span>}
       </h2>
       {intro && <p className={`mt-4 text-base md:text-lg ${mutedText}`}>{intro}</p>}
     </header>

@@ -16,7 +16,10 @@
     "themeToDark": "Passer au thème sombre",
     "themeLoading": "Sélecteur de thème",
     "newTab": "(s'ouvre dans un nouvel onglet)",
-    "homeLink": "Jeff Pendy, accueil"
+    "homeLink": "Jeff Pendy, accueil",
+    "github": "Jeff Pendy sur GitHub",
+    "linkedin": "Jeff Pendy sur LinkedIn",
+    "email": "Écrire à Jeff Pendy"
   },
   "nav": {
     "home": "Accueil",
@@ -28,7 +31,7 @@
   },
   "hero": {
     "eyebrow": "Développeur logiciel · Montréal, Canada",
-    "headline": "Je conçois des logiciels fiables, de l'expérience utilisateur aux systèmes infonuagiques.",
+    "headline": "Je conçois des <hl>logiciels fiables</hl>, de l'expérience utilisateur aux systèmes infonuagiques.",
     "intro": "Je suis Jeff Pendy, diplômé en informatique de l'Université de Montréal. Je développe des applications full-stack, des systèmes backend et des solutions d'IA appliquée, en privilégiant la fiabilité, la maintenabilité et l'impact concret.",
     "ctaPrimary": "Découvrir mes projets",
     "ctaSecondary": "Voir mon CV",
@@ -37,13 +40,14 @@
   },
   "trust": {
     "label": "En bref",
-    "degree": "Baccalauréat en informatique, Université de Montréal",
-    "current": "Développement logiciel chez SMARDT",
-    "focus": "Full-stack · Backend · IA appliquée"
+    "focus": "Full-stack · Backend · IA appliquée",
+    "degreeValue": "Informatique",
+    "degreeLabel": "Baccalauréat, Université de Montréal",
+    "roleValue": "SMARDT",
+    "roleLabel": "Poste actuel"
   },
   "projects": {
-    "eyebrow": "Réalisations choisies",
-    "title": "Projets",
+    "title": "Découvrez mon",
     "intro": "Trois projets où je peux montrer le problème, les décisions et les preuves. Chacun mène à une étude de cas complète.",
     "more": "Autres projets",
     "readCaseStudy": "Lire l'étude de cas",
@@ -53,7 +57,8 @@
     "role": "Rôle",
     "outcome": "Résultat",
     "allProjects": "Tous les projets",
-    "indexIntro": "Les études de cas suivent la même structure : problème, contexte, mon rôle, architecture, décisions, compromis, résultats et prochaines améliorations."
+    "indexIntro": "Les études de cas suivent la même structure : problème, contexte, mon rôle, architecture, décisions, compromis, résultats et prochaines améliorations.",
+    "titleHighlight": "portfolio"
   },
   "status": {
     "label": "Statut",
@@ -86,16 +91,15 @@
     "stepTo": "vers"
   },
   "experience": {
-    "eyebrow": "Expérience",
-    "title": "Parcours professionnel",
+    "title": "Mon",
     "present": "aujourd'hui",
     "earlier": "Expérience antérieure",
     "education": "Formation",
-    "stack": "Technologies"
+    "stack": "Technologies",
+    "titleHighlight": "parcours"
   },
   "focus": {
-    "eyebrow": "Champs d'expertise",
-    "title": "Ce sur quoi je travaille",
+    "title": "Ce sur quoi je",
     "pillars": {
       "product": {
         "title": "Développement de produits full-stack",
@@ -117,19 +121,20 @@
       "project": "Projets concrets",
       "exploring": "En exploration"
     },
-    "practices": "Pratiques"
+    "practices": "Pratiques",
+    "titleHighlight": "travaille",
+    "pillarsTitle": "Champs d'expertise"
   },
   "about": {
-    "eyebrow": "À propos",
-    "title": "Les problèmes derrière le produit",
+    "title": "Les problèmes derrière",
     "body": "J'aime résoudre les problèmes techniques qui se cachent derrière les bons produits : rendre les téléversements robustes, concevoir des API faciles à maintenir, déboguer des pannes difficiles et transformer des expériences d'apprentissage automatique en services utilisables. Mon travail couvre des backends TypeScript et Python, des interfaces React, le déploiement infonuagique, les tests et le développement en équipe. Je tiens à comprendre comment un système se comporte en production, pas seulement à faire fonctionner une démo.",
     "approachTitle": "Ma façon de travailler",
     "approach": "Je commence par reproduire le problème et par lire le code existant. Je privilégie de petites demandes de tirage accompagnées de tests, je documente les décisions et les compromis pour que la personne suivante n'ait pas à deviner, et je mesure avant d'affirmer que quelque chose est plus rapide.",
-    "portraitAlt": "Portrait de Jeff Pendy"
+    "portraitAlt": "Portrait de Jeff Pendy",
+    "titleHighlight": "le produit"
   },
   "contact": {
-    "eyebrow": "Contact",
-    "title": "Un défi produit ou technique à relever?",
+    "title": "Un défi produit ou technique",
     "intro": "J'aimerais en savoir plus sur votre équipe, le problème à résoudre et ce que vous bâtissez.",
     "emailCta": "Écrire à Jeff",
     "github": "GitHub",
@@ -148,13 +153,15 @@
     "fallback": "Vous pouvez m'écrire directement à",
     "invalidEmail": "Entrez une adresse courriel valide.",
     "messageTooLong": "Le message doit compter moins de {max} caractères.",
-    "honeypotLabel": "Laissez ce champ vide"
+    "honeypotLabel": "Laissez ce champ vide",
+    "titleHighlight": "à relever?"
   },
   "footer": {
     "tagline": "Développeur logiciel à Montréal : applications full-stack, systèmes backend et solutions d'IA appliquée.",
     "navigation": "Navigation",
     "elsewhere": "Ailleurs",
     "rights": "Tous droits réservés.",
-    "source": "Code source"
+    "source": "Code source",
+    "title": "Restons en contact"
   }
 }
