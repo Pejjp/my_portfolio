@@ -530,12 +530,13 @@ export const projects: Project[] = [
       },
       role: {
         en: [
-          'My commits cover the donor-facing React flows: the donation flow and donation causes, impact feedback that changes with the amount, the home page, statistics, the quiz and its completion page, the authentication context, dark mode and confirmation emails to real addresses.',
-          'Teammates built the Django back end and a FastAPI service that powers a retrieval-augmented donor chatbot.',
+          'I worked across the React front end and the Django back end, mostly on donor-facing flows: the donation flow and donation causes, impact feedback that changes with the amount, the home page, statistics, the quiz and its completion page, the authentication context, dark mode and confirmation emails to real addresses.',
+          // REVIEW: the résumé says Jeff integrated the RAG chatbot; GitHub does not attribute the chatbot service to him. Kept neutral.
+          'The team also shipped a FastAPI service for a retrieval-augmented (RAG) donor chatbot.',
         ],
         fr: [
-          'Mes commits couvrent les parcours React destinés aux donateurs : le parcours de don et les causes, la rétroaction sur l’impact qui varie selon le montant, la page d’accueil, les statistiques, le jeu-questionnaire et sa page de fin, le contexte d’authentification, le mode sombre et les courriels de confirmation à de vraies adresses.',
-          'Mes coéquipiers ont développé le backend Django et un service FastAPI qui alimente un agent conversationnel pour les donateurs, basé sur la génération augmentée par récupération (RAG).',
+          'J’ai travaillé sur l’interface React et le backend Django, surtout sur les parcours destinés aux donateurs : le parcours de don et les causes, la rétroaction sur l’impact qui varie selon le montant, la page d’accueil, les statistiques, le jeu-questionnaire et sa page de fin, le contexte d’authentification, le mode sombre et les courriels de confirmation à de vraies adresses.',
+          'L’équipe a aussi livré un service FastAPI pour un agent conversationnel destiné aux donateurs, basé sur la génération augmentée par récupération (RAG).',
         ],
       },
       architecture: {
