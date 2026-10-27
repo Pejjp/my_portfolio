@@ -1,407 +1,160 @@
 {
-    "nav":{
-        "home":"Bienvenue"
+  "meta": {
+    "title": "Jeff Pendy — Développeur logiciel | Full-stack, backend et IA appliquée",
+    "description": "Jeff Pendy est un développeur logiciel montréalais, diplômé en informatique de l'Université de Montréal, qui conçoit des applications full-stack, des systèmes backend et des solutions d'IA appliquée.",
+    "projectsTitle": "Projets",
+    "projectsDescription": "Études de cas et projets de Jeff Pendy : problèmes, architecture, décisions, compromis et résultats.",
+    "ogAlt": "Jeff Pendy — Développeur logiciel, Montréal"
+  },
+  "a11y": {
+    "skipToContent": "Passer au contenu principal",
+    "mainNav": "Navigation principale",
+    "openMenu": "Ouvrir le menu",
+    "closeMenu": "Fermer le menu",
+    "switchLanguage": "Read in English",
+    "themeToLight": "Passer au thème clair",
+    "themeToDark": "Passer au thème sombre",
+    "themeLoading": "Sélecteur de thème",
+    "newTab": "(s'ouvre dans un nouvel onglet)",
+    "homeLink": "Jeff Pendy, accueil"
+  },
+  "nav": {
+    "home": "Accueil",
+    "work": "Expérience",
+    "projects": "Projets",
+    "about": "À propos",
+    "contact": "Contact",
+    "resume": "CV"
+  },
+  "hero": {
+    "eyebrow": "Développeur logiciel · Montréal, Canada",
+    "headline": "Je conçois des logiciels fiables, de l'expérience utilisateur aux systèmes infonuagiques.",
+    "intro": "Je suis Jeff Pendy, diplômé en informatique de l'Université de Montréal. Je développe des applications full-stack, des systèmes backend et des solutions d'IA appliquée, en privilégiant la fiabilité, la maintenabilité et l'impact concret.",
+    "ctaPrimary": "Découvrir mes projets",
+    "ctaSecondary": "Voir mon CV",
+    "ctaTertiary": "Me contacter",
+    "avatarAlt": "Avatar illustré de Jeff Pendy"
+  },
+  "trust": {
+    "label": "En bref",
+    "degree": "Baccalauréat en informatique, Université de Montréal",
+    "current": "Développement logiciel chez SMARDT",
+    "focus": "Full-stack · Backend · IA appliquée"
+  },
+  "projects": {
+    "eyebrow": "Réalisations choisies",
+    "title": "Projets",
+    "intro": "Trois projets où je peux montrer le problème, les décisions et les preuves. Chacun mène à une étude de cas complète.",
+    "more": "Autres projets",
+    "readCaseStudy": "Lire l'étude de cas",
+    "viewDetails": "Voir les détails",
+    "viewCode": "Code source",
+    "viewLive": "Site en ligne",
+    "role": "Rôle",
+    "outcome": "Résultat",
+    "allProjects": "Tous les projets",
+    "indexIntro": "Les études de cas suivent la même structure : problème, contexte, mon rôle, architecture, décisions, compromis, résultats et prochaines améliorations."
+  },
+  "status": {
+    "label": "Statut",
+    "shipped": "Livré",
+    "inProgress": "En cours",
+    "prototype": "Prototype",
+    "concept": "Concept"
+  },
+  "caseStudy": {
+    "backToProjects": "Retour aux projets",
+    "period": "Période",
+    "role": "Rôle",
+    "stack": "Technologies",
+    "links": "Liens",
+    "problem": "Problème",
+    "context": "Contexte et contraintes",
+    "myRole": "Mon rôle",
+    "architecture": "Architecture",
+    "decisions": "Décisions techniques clés",
+    "tradeoffs": "Compromis",
+    "outcome": "Résultats et preuves",
+    "next": "Prochaines améliorations",
+    "highlights": "Faits saillants",
+    "evidence": "Preuves",
+    "diagram_implemented": "Tel qu'implémenté",
+    "diagram_illustrative": "À titre indicatif",
+    "diagram_proposed": "Proposé, non implémenté",
+    "otherProjects": "Autres projets",
+    "noCaseStudy": "L'étude de cas complète n'est pas encore rédigée; voici les faits saillants vérifiés.",
+    "stepTo": "vers"
+  },
+  "experience": {
+    "eyebrow": "Expérience",
+    "title": "Parcours professionnel",
+    "present": "aujourd'hui",
+    "earlier": "Expérience antérieure",
+    "education": "Formation",
+    "stack": "Technologies"
+  },
+  "focus": {
+    "eyebrow": "Champs d'expertise",
+    "title": "Ce sur quoi je travaille",
+    "pillars": {
+      "product": {
+        "title": "Développement de produits full-stack",
+        "body": "React, TypeScript, Node.js, Python, API REST, interfaces adaptatives, authentification et modélisation des données."
+      },
+      "backend": {
+        "title": "Backend, infonuagique et fiabilité",
+        "body": "Stockage infonuagique, téléversements reprenables, traitement asynchrone, tâches en arrière-plan, nouvelles tentatives, observabilité, Docker, CI/CD et Google Cloud."
+      },
+      "ai": {
+        "title": "IA et apprentissage automatique appliqués",
+        "body": "Flux de données en Python, évaluation de modèles, API d'inférence et déploiement conteneurisé. Le RAG, le RAG en continu et les agents sont des intérêts techniques actuels."
+      }
     },
-    "contact":{
-        "contact_me":"Contactez-moi",
-        "your_email":"Votre Email",
-        "send_message":"Envoyer le Message",
-        "connect_with_me":"Ou connectez-vous avec moi sur",
-        "thanks_message":"Merci ! Je vous répondrai sous peu.",
-        "error_message":"Une erreur s'est produite. Veuillez réessayer plus tard.",
-        "email_placeholder":"Entrez votre email",
-        "sending":"Envoi...",
-        "have_idea":"Vous avez une idée de projet géniale ?",
-        "lets_discuss":"Discutons-en"
+    "skillsTitle": "Compétences par domaine",
+    "legend": "Comment je l'ai utilisé",
+    "levels": {
+      "work": "Travail d'équipe ou professionnel",
+      "project": "Projets concrets",
+      "exploring": "En exploration"
     },
-    "common":{
-        "project": "Projets",
-        "about":"Me découvrir",
-        "hire_me":"M'embocher"
-    },
-    "footer": {
-        "header": {
-            "title": "Connectons",
-            "cta": "Je suis toujours ouvert à discuter de nouveaux projets, idées créatives ou opportunités de collaboration. N'hésitez pas à me contacter via les plateformes ci-dessous."
-        },
-        "brand": {
-            "name": "Votre Entreprise",
-            "description": "Description de votre entreprise."
-        },
-        "navigation": {
-            "title": "Navigation",
-            "links": {
-                "home": "Accueil",
-                "aboutUs": "À propos de nous",
-                "service": "Services",
-                "resume": "CV",
-                "project": "Projets"
-            }
-        },
-        "contact": {
-            "title": "Contact",
-            "phone": "Téléphone",
-            "website": "Site Web",
-            "email": "Email"
-        },
-        "newsletter": {
-            "title": "Inscrivez-vous à notre newsletter",
-            "placeholder": "Entrez votre email",
-            "ariaLabel": "Champ d'inscription à la newsletter"
-        },
-        "copyright": {
-            "text": "Copyright ©",
-            "brandName": "Jeff Pendy",
-            "rights": "Tous droits réservés."
-        },
-        "legal": {
-            "terms": "Conditions d'utilisation",
-            "privacy": "Politique de confidentialité",
-            "separator": "et"
-        },
-        "socialMedia": {
-            "ariaLabels": {
-                "facebook": "Lien vers Facebook",
-                "behance": "Lien vers Behance",
-                "youtube": "Lien vers YouTube",
-                "twitter": "Lien vers Twitter",
-                "instagram": "Lien vers Instagram"
-            }
-        }
-    },
-    "about": {
-        "why": "Pourquoi",
-        "about_me": "Je suis Étudiant en informatique spécialisé en développement Full-stack, Enthousiaste d'Apprentissage Automatique et Sciences de Données. Je conçois des applications de bout en bout — des interfaces front-end intuitives aux systèmes back-end robustes — tout en développant, entraînant et déployant des pipelines de machine learning sur des données réelles. À l’aise sur l’ensemble du cycle de développement, j’aime transformer des problématiques complexes en solutions évolutives et orientées données grâce à des frameworks modernes et aux technologies infonuagiques."
-    },
-    "hero":{
-        "hey":"Hey",
-        "name":"Moi c'est",
-        "welcome":"Bienvenue dans mon espace",
-        "space":"espace",
-        "impact":"Impactants",
-        "major":"Informatique",
-        "degree":"Dipôme",
-        "personal":"Motivé par la création d'expériences numériques remarquables, en alliant code propre, performance et solutions innovantes.",
-        "download_cv":"Mon CV"
-    },
-    "techStack": {
-        "title": "Stack Technique",
-        "subtitle": "Technologies avec lesquelles je travaille"
-    },
-    "project_popup":{
-        "key_features":"Caractéristiques Clés",
-        "technologies_used":"Technologies Utilisées",
-        "overview":"Aperçu",
-        "challenges_solutions":"Défis & Solutions",
-        "outcome":"Résultat",
-        "links":"Liens",
-        "demo":"Voir la Démo en Direct",
-        "code":"Voir le Code Source",
-        "video":"Voir la Vidéo",
-        "challenge":"Défi",
-        "solution":"Solution"
-    },
-    "projects": {
-        "sectionTitle": {
-            "prefix": "Découvrez mon",
-            "highlight": "Portfolio"
-        },
-        "aria": {
-            "previous": "Projet précédent",
-            "next": "Projet suivant"
-        },
-        "projectsList": [
-        {
-            "id": 6,
-            "title": "Systeme de Reservation de Trajets - Backend Java",
-            "image": "/projects_screenshots/reservations_image0.jpg",
-            "stack": ["Java", "Java FX", "CSS"],
-            "period": "Mars 2026",
-            "overview": "Un système de réservation de trajets entièrement fonctionnel développé en backend Java,intégrant des fonctionnalités avancées pour améliorer l'expérience utilisateur.",
-            "keyFeatures": [
-                "Implémentation d'un système de réservation de trajets robuste",
-                "Respect des principes de programmation orientée objet pour une architecture propre",
-                "Documentation complète de l'API pour une intégration transparente",
-                "Implémentation des patrons de conception pour améliorer la maintenabilité et l'évolutivité du code."
-            ],
-            "technologies": [
-                {
-                    "category": "Frontend",
-                    "items": ["Java FX", "CSS"]
-                },
-                {
-                    "category": "Backend",
-                    "items": ["Java"]
-                }
-            ],
-            "challenges": [
-                {
-                    "challenge": "Respects des principes de conception orientée objet tout en implémentant des fonctionnalités complexes",
-                    "solution": "Application de patrons de conception et séparation claire des responsabilités pour maintenir une architecture propre"
-                },
-                {
-                    "challenge": "Assurer une documentation API complète pour les intégrations futures",
-                    "solution": "Rédaction de documentation détaillée et utilisation d'outils de documentation API pour garantir une intégration transparente"
-                }
-            ],
-            "outcome": {
-                "description": "Livraison réussie de l'application de réservation de trajets avec une architecture backend robuste, une documentation API complète et une expérience utilisateur améliorée."
-            },
-            "demo": {
-                "liveUrl": "",
-                "githubUrl": "https://github.com/Pejjp/",
-                "videoUrl": ""
-            }
-        },
-        {
-            "id": 1,
-            "title": "Mon Portfolio Personnel",
-            "stack": ["Next.js", "TypeScript", "Tailwind CSS"],
-            "image": "/projects_screenshots/portfolio_project.jpg",
-            "period": "Jan 2026",
-            "overview": "Un site web de portfolio personnel mettant en avant les projets et compétences avec un design réactif, un contenu dynamique et un support multilingue.",
-            "keyFeatures": [
-                "Design réactif",
-                "Chargement dynamique du contenu",
-                "Support multilingue",
-                "Support des thèmes",
-                "Performance optimisée"
-            ],
-            "technologies": [
-                {
-                    "category": "Frontend",
-                    "items": ["Next.js", "TypeScript", "Tailwind CSS"]
-                }
-            ],
-            "challenges": [
-                {
-                    "challenge": "Créer un design visuellement attrayant et réactif",
-                    "solution": "Utilisation de Next.js et Tailwind CSS pour des composants modernes et évolutifs"
-                },
-                {
-                    "challenge": "Support de plusieurs langues et thèmes",
-                    "solution": "Implémentation du chargement dynamique du contenu et des mécanismes de basculement de thème"
-                }
-            ],
-            "outcome": {
-                "description": "Création réussie d'un site web de portfolio moderne avec expérience utilisateur transparente, support multilingue et performance optimisée."
-            },
-            "demo": {
-                "liveUrl": "",
-                "githubUrl": "https://github.com/Pejjp/my_portfolio",
-                "videoUrl": ""
-            }
-        },
-        {
-            "id": 2,
-            "title": "Morgan Stanley Coder pour s'engager - Athena HopeBridge",
-            "image": "/projects_screenshots/mockup_athena_hopebridge.jpg",
-            "stack": ["Python", "Django", "React", "JavaScript", "FastAPI"],
-            "period": "Nov 2025",
-            "overview": "Une application web entièrement fonctionnelle développée pour l'initiative Code to Give de Morgan Stanley, intégrant des fonctionnalités basées sur l'IA avec des technologies web modernes pour soutenir la mission HopeBridge.",
-            "keyFeatures": [
-                "Intégration de fonctionnalités pilotées par l'IA",
-                "Services backend évolutifs avec FastAPI",
-                "Composants front-end réactifs",
-                "Implémentation du flux Agile"
-            ],
-            "technologies": [
-                {
-                    "category": "Frontend",
-                    "items": ["React", "JavaScript"]
-                },
-                {
-                    "category": "Backend",
-                    "items": ["Python", "Django", "FastAPI"]
-                }
-            ],
-            "challenges": [
-                {
-                    "challenge": "Intégration de plusieurs services et fonctionnalités IA",
-                    "solution": "Architecture évolutive construite avec FastAPI et travail d'équipe coordonné à l'aide de Git"
-                },
-                {
-                    "challenge": "Répondre aux exigences des parties prenantes dans les délais impartis",
-                    "solution": "Adoption d'un flux Agile pour itérer et recueillir continuellement des commentaires"
-                }
-            ],
-            "outcome": {
-                "description": "Livraison réussie d'une application web prête pour la production avec capacités IA intégrées, démontrant expertise en développement full-stack."
-            },
-            "demo": {
-                "liveUrl": "",
-                "githubUrl": "https://github.com/ParsaMakari/CodeToGive_2025",
-                "videoUrl": ""
-            }
-        },
-        {
-            "id": 3,
-            "title": "Picto 360 - Application Web Full Stack",
-            "image": "/projects_screenshots/mockup_picto_360.png",
-            "stack": ["React", "TypeScript", "Node.js", "MongoDB"],
-            "period": "Mai 2025 - Présent",
-            "overview": "Une application web full-stack mettant en avant les performances optimisées, les contrats d'API propres et l'architecture de composants réutilisables reconnue par l'Université de Montréal.",
-            "keyFeatures": [
-                "Amélioration de 30 % des performances par optimisation",
-                "Composants front-end réutilisables",
-                "Modèles de données soutenus par MongoDB",
-                "Intégration API transparente"
-            ],
-            "technologies": [
-                {
-                    "category": "Frontend",
-                    "items": ["React", "TypeScript","CSS","Flutter"]
-                },
-                {
-                    "category": "Backend",
-                    "items": ["Node.js", "MongoDB"]
-                }
-            ],
-            "challenges": [
-                {
-                    "challenge": "Performance de chargement et de rendu lente",
-                    "solution": "Optimisation de la gestion d'état et restructuration des composants, réalisant une amélioration de 30 %"
-                },
-                {
-                    "challenge": "Assurer la cohérence sur la plateforme",
-                    "solution": "Conception et livraison de composants front-end réutilisables"
-                }
-            ],
-            "outcome": {
-                "metrics": ["Amélioration de 30 % des performances", "Mention honorable du département Informatique et Recherche opérationnelle"],
-                "description": "Optimisation réussie des performances de l'application web avec une architecture front-end robuste, recevant une reconnaissance académique pour l'excellence du projet."
-            },
-            "demo": {
-                "liveUrl": "https://picto360.netlify.app/",
-                "githubUrl": "https://github.com/ceduni/picto360",
-                "videoUrl": ""
-            }
-        },
-        {
-            "id": 4,
-            "title": "Plateforme de Classification d'Images par Apprentissage Automatique",
-            "image": "/projects_screenshots/image_classification_w_docker.jpg",
-            "stack": ["Docker", "Google Cloud", "Python"],
-            "period": "Nov 2025",
-            "overview": "Une plateforme d'inférence d'apprentissage automatique conteneurisée déployée sur Google Cloud, démontrant expertise en déploiement cloud et gestion d'API.",
-            "keyFeatures": [
-                "Services conteneurisés avec Docker",
-                "API d'inférence de modèle ML",
-                "Déploiement basé sur le cloud",
-                "Gestion du flux de données"
-            ],
-            "technologies": [
-                {
-                    "category": "Backend",
-                    "items": ["Python"]
-                },
-                {
-                    "category": "DevOps/Cloud",
-                    "items": ["Docker", "Google Cloud"]
-                }
-            ],
-            "challenges": [
-                {
-                    "challenge": "Déploiement de services conteneurisés sur le cloud",
-                    "solution": "Utilisation de Docker et Google Cloud pour un déploiement et une mise à l'échelle transparents"
-                },
-                {
-                    "challenge": "Gestion du flux de données entre les services",
-                    "solution": "Conception d'API pour gérer les prédictions et coordonner la communication frontend-backend"
-                }
-            ],
-            "outcome": {
-                "description": "Déploiement réussi d'une plateforme ML prête pour la production avec expérience pratique en environnements cloud et validation des performances."
-            },
-            "demo": {
-                "liveUrl": "",
-                "githubUrl": "",
-                "videoUrl": ""
-            }
-        },
-        {
-            "id": 5,
-            "title": "MaVille – Application Backend Java",
-            "stack": ["Java", "REST APIs"],
-            "period": "Mars 2024",
-            "image": "/projects_screenshots/ma_ville.png",
-            "overview": "Un système backend permettant aux citoyens d'accéder aux données de travaux routiers en temps réel et de soumettre des demandes de service à la ville.",
-            "keyFeatures": [
-                "Accès aux données de travaux routiers en temps réel",
-                "Soumission de demandes de service",
-                "Intégration d'API publiques",
-                "Normalisation des données"
-            ],
-            "technologies": [
-                {
-                    "category": "Backend",
-                    "items": ["Java"]
-                },
-                {
-                    "category": "API",
-                    "items": ["REST APIs"]
-                }
-            ],
-            "challenges": [
-                {
-                    "challenge": "Intégration de plusieurs API publiques municipales",
-                    "solution": "Implémentation de la normalisation des données et d'une logique métier backend robuste"
-                },
-                {
-                    "challenge": "Maintenir une architecture propre",
-                    "solution": "Application des principes POO, séparation des responsabilités et modèles maintenables"
-                }
-            ],
-            "outcome": {
-                "description": "Livraison d'un système backend robuste avec architecture propre et intégration API publique transparente."
-            },
-            "demo": {
-                "liveUrl": "",
-                "githubUrl": "",
-                "videoUrl": ""
-            }
-        }
-    ]
-    },
-    "work_exp":{
-        "my_exp":"Mon Expérience"
-    },
-    "experiences": [
-        {
-            "company": "Borrow'd - Python, Django, HTML, Tailwind CSS, Git, Montréal, QC",
-            "period": "Janv. 2026 - Présent",
-            "role": "Développeur Full Stack",
-            "bullets": [
-            "Contribué à une plateforme de prêt en implémentant des fonctionnalités backend en Django (Python) et des fonctionnalités d'interface utilisateur.",
-            "Conçu un flux de notifications piloté par des événements en Django avec déduplication correcte et gestion des états.",
-            "Conçu des modèles de données et documenté les entités/relations clés ; amélioré la cohérence avec des modifications sûres pour les migrations.",
-            "Collaboré avec les coéquipiers via les revues de PR, le suivi des issues et la documentation pour livrer des améliorations incrémentales.",
-            "Débogué des problèmes proches de la production en reproduisant les bugs localement, en analysant les journaux et en validant les corrections avant fusion."
-            ],
-            "isActive": true
-        },
-        {
-        "company": "Université de Montréal, Montréal, QC",
-        "period": "Janv. 2026 - Présent",
-        "role": "Auxiliaire d'enseignement",
-        "bullets": [
-            "Soutien de plus de 150 étudiants en répondant à des questions techniques et en expliquant les concepts du cours Systèmes d'exploitation (ift2245).",
-            "Gestion de l'infrastructure d'évaluation automatisée en utilisant GitHub Classroom et GitHub Actions (CI), incluant les scripts de test, la validation des soumissions et le dépannage des pipelines défaillants.",
-            "Correction des travaux et évaluations des étudiants et fourniture de rétroactions.",
-            "Assistance aux étudiants pendant les laboratoires et les heures de bureau pour clarifier les concepts du cours."
-        ],
-        "isActive": true
-        },
-        {
-        "company": "Voilà par IGA, Pointe-Claire, QC",
-        "period": "Août 2023 - Août 2025",
-        "role": "Commis à l'inventaire",
-        "bullets": [
-            "Réalisation de plus de 15 audits d'inventaire critiques par jour avec une grande précision.",
-            "Collaboration avec plusieurs équipes à l'échelle de l'entrepôt afin d'assurer la fiabilité des stocks.",
-            "Application d'un fort souci du détail et de compétences en résolution de problèmes sous contraintes opérationnelles."
-        ],
-        "isActive": false
-        }
-    ]
+    "practices": "Pratiques"
+  },
+  "about": {
+    "eyebrow": "À propos",
+    "title": "Les problèmes derrière le produit",
+    "body": "J'aime résoudre les problèmes techniques qui se cachent derrière les bons produits : rendre les téléversements robustes, concevoir des API faciles à maintenir, déboguer des pannes difficiles et transformer des expériences d'apprentissage automatique en services utilisables. Mon travail couvre des backends TypeScript et Python, des interfaces React, le déploiement infonuagique, les tests et le développement en équipe. Je tiens à comprendre comment un système se comporte en production, pas seulement à faire fonctionner une démo.",
+    "approachTitle": "Ma façon de travailler",
+    "approach": "Je commence par reproduire le problème et par lire le code existant. Je privilégie de petites demandes de tirage accompagnées de tests, je documente les décisions et les compromis pour que la personne suivante n'ait pas à deviner, et je mesure avant d'affirmer que quelque chose est plus rapide.",
+    "portraitAlt": "Portrait de Jeff Pendy"
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "title": "Un défi produit ou technique à relever?",
+    "intro": "J'aimerais en savoir plus sur votre équipe, le problème à résoudre et ce que vous bâtissez.",
+    "emailCta": "Écrire à Jeff",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "formTitle": "Ou laissez vos coordonnées",
+    "emailLabel": "Votre courriel",
+    "emailPlaceholder": "vous@entreprise.com",
+    "messageLabel": "Message (facultatif)",
+    "messagePlaceholder": "Quelques mots sur le poste ou le projet",
+    "submit": "Envoyer",
+    "sending": "Envoi…",
+    "success": "Merci! Votre message a bien été envoyé. Je vous répondrai sous peu.",
+    "error": "Une erreur est survenue et votre message n'a pas été envoyé.",
+    "rateLimited": "Trop de tentatives. Veuillez patienter quelques minutes avant de réessayer.",
+    "unavailable": "Le formulaire de contact est temporairement indisponible.",
+    "fallback": "Vous pouvez m'écrire directement à",
+    "invalidEmail": "Entrez une adresse courriel valide.",
+    "messageTooLong": "Le message doit compter moins de {max} caractères.",
+    "honeypotLabel": "Laissez ce champ vide"
+  },
+  "footer": {
+    "tagline": "Développeur logiciel à Montréal : applications full-stack, systèmes backend et solutions d'IA appliquée.",
+    "navigation": "Navigation",
+    "elsewhere": "Ailleurs",
+    "rights": "Tous droits réservés.",
+    "source": "Code source"
+  }
 }

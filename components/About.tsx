@@ -1,54 +1,36 @@
 import { useTranslations } from 'next-intl'
-import Link from 'next/link'
 import Image from 'next/image'
-import React from 'react'
-import myImageDaylight from '../public/personal_image3.jpeg';
+import portrait from '../public/personal_image3.jpeg'
+import { mutedText, SectionHeader } from './ui'
 
 const AboutMe = () => {
-  const about = useTranslations("about")
-  const common = useTranslations("common")
+  const about = useTranslations('about')
 
   return (
-    <section id="about"
-      className='max-w-7xl mx-auto px-4 md:px-6 lg:px-8 flex flex-col items-center gap-8'
-    >
-      {/* Heading */}
-      <h2 className='text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 text-center'>
-        {about("why")}  <span className='text-brand-accent'> {common("hire_me")} </span> ?
-      </h2>
-
-      <div className='flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12 lg:gap-16'>
-
-        {/* Image */}
-        <div className='relative w-full md:w-1/2 flex justify-center md:justify-start'>
-            <div className='w-72 h-72 md:w-96 md:h-96 lg:w-[450px] lg:h-[450px] top-100 flex items-end justify-center'>
-              <Image
-                src={myImageDaylight}
-                alt='Jeff Pendy'
-                width={600}
-                height={600}
-                className='w-full h-full object-cover object-center rounded-5xl '
-              />
-            </div>
+    <section id="about" aria-labelledby="about-title" className="w-full">
+      <div className="grid items-start gap-10 md:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] md:gap-14">
+        <div className="mx-auto w-full max-w-sm md:max-w-none">
+          <Image
+            src={portrait}
+            alt={about('portraitAlt')}
+            sizes="(min-width: 768px) 40vw, 384px"
+            placeholder="blur"
+            className="aspect-[4/5] w-full rounded-3xl object-cover object-center"
+          />
         </div>
 
-        {/* Right side - Content */}
-        <div className='w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left'>
-          {/* Description */}
-          <p className='text-sm md:text-base lg:text-lg text-text-light-secondary dark:text-text-dark-secondary mb-8 md:mb-10 max-w-xl'>
-          {about("about_me")}
+        <div>
+          <SectionHeader id="about-title" eyebrow={about('eyebrow')} title={about('title')} />
+          <p className="-mt-4 text-base md:text-lg leading-relaxed text-text-light-secondary dark:text-text-dark-secondary">
+            {about('body')}
           </p>
-          {/* CTA Button */}
-          <Link
-            href="#contact"
-            className='px-8 md:px-10 py-3 md:py-4 rounded-full border-2 border-brand-accent text-brand-accent font-semibold text-base md:text-lg transition-all duration-300 hover:bg-brand-accent hover:text-white hover:shadow-accent-lg hover:scale-105 focus:outline-none focus:ring-4 focus:ring-accent-400/50'
-          >
-            {common("hire_me")}
-          </Link>
+          <h3 className="mt-10 text-lg font-bold tracking-tight text-text-light-primary dark:text-text-dark-primary">
+            {about('approachTitle')}
+          </h3>
+          <p className={`mt-2 text-base leading-relaxed ${mutedText}`}>{about('approach')}</p>
         </div>
       </div>
     </section>
-
   )
 }
 

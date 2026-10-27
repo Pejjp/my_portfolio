@@ -30,8 +30,7 @@
   body {
     @apply bg-surface-light-base dark:bg-surface-dark-base 
            text-text-light-primary dark:text-text-dark-primary
-           font-sans antialiased
-           transition-colors duration-300;
+           font-sans antialiased;
   }
 }
 
@@ -62,10 +61,36 @@
   }
 }
 
-html {
-  scroll-behavior: smooth;
+/* Smooth anchor scrolling only for people who have not asked for reduced motion. */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
-section {
-  scroll-margin-top: 96px; /* navbar height */
+/* Respect reduced motion everywhere, including third-party and utility transitions. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Visible keyboard focus for anything that does not set its own ring. */
+:focus-visible {
+  outline: 2px solid #a67001;
+  outline-offset: 2px;
+}
+.dark :focus-visible {
+  outline-color: #fbbf24;
+}
+
+/* Anchor targets clear the sticky header. */
+section[id],
+[id='main'] {
+  scroll-margin-top: 5rem;
 }

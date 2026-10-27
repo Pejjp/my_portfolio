@@ -1,129 +1,48 @@
-"use client";
-
-import { isValidEmail } from "@/lib/helpers/email_validator";
 import { useTranslations } from "next-intl";
-import Link from "next/link";
-import { useState } from "react";
-import { LuMail, LuGithub, LuLinkedin, LuSend } from "react-icons/lu";
-import { ThreeDots } from "react-loader-spinner"; // Import a spinner type
+import { LuArrowUpRight, LuGithub, LuLinkedin, LuMail } from "react-icons/lu";
+import { site } from "@/lib/content/site";
+import ContactForm from "./ContactForm";
+import { accentText, buttonPrimary, buttonSecondary, card, mutedText } from "./ui";
 
 export default function Contact() {
-  const [email, setEmail] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [success, setSuccess] = useState(false);
-  const [messageVisible, setMessageVisible] = useState(false);
-
-  const [message, setMessage] = useState<string | null>(null);
-  const emailIsValid = isValidEmail(email);
-  const contact = useTranslations("contact");
-
-  const submit = async () => {
-    if (!email) return;
-
-    setLoading(true);
-
-    const result = await fetch("/api/contact", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email }),
-    });
-
-    const response = await result.json();
-
-    if(response.success === false){
-      setSuccess(false);
-      setMessage(contact("error_message"));
-    }else{
-      setSuccess(true);
-      setMessage(contact("thanks_message"));
-    }
-
-    setMessageVisible(true);
-    setTimeout(() => {
-      setMessageVisible(false);
-    }, 5000);
-
-    setLoading(false);
-    setEmail("");
-  };
+  const t = useTranslations("contact");
+  const a11y = useTranslations("a11y");
 
   return (
-    <section className="relative w-full text-center pb-10"
-      id="contact">
-      {/* Heading */}
-      <h2 className="text-3xl md:text-5xl font-bold mb-8 leading-tight">
-        <span className="block">{contact("have_idea")}</span>
-        <span className="block text-brand-accent">
-          {contact("lets_discuss")}
-        </span>
-      </h2>
+    <section id="contact" aria-labelledby="contact-title" className="w-full">
+      <div className={`${card} grid gap-10 p-6 sm:p-10 md:grid-cols-2 md:gap-14`}>
+        <div>
+          <p className={`font-mono text-xs md:text-sm uppercase tracking-[0.18em] ${accentText}`}>{t("eyebrow")}</p>
+          <h2 id="contact-title" className="mt-3 text-3xl md:text-4xl font-bold tracking-tight text-text-light-primary dark:text-text-dark-primary text-balance">
+            {t("title")}
+          </h2>
+          <p className={`mt-4 text-base md:text-lg ${mutedText}`}>{t("intro")}</p>
 
-      {/* Email Input */}
-      <div
-        className="
-          max-w-xl mx-auto
-          flex flex-col sm:flex-row
-          items-stretch sm:items-center
-          gap-3
-          bg-white dark:bg-surface-dark-elevated
-          border rounded-2xl sm:rounded-full
-          px-4 py-3
-          shadow-md
-        "
-      >
-        <div className="hidden sm:flex w-10 h-10 items-center justify-center rounded-full bg-brand-accent/20">
-          <LuMail className="text-brand-accent" />
+          <div className="mt-8 flex flex-wrap gap-3">
+            <a href={`mailto:${site.email}`} className={buttonPrimary}>
+              <LuMail className="h-5 w-5" aria-hidden="true" />
+              {t("emailCta")}
+            </a>
+            <a href={site.github} target="_blank" rel="noopener noreferrer" className={buttonSecondary}>
+              <LuGithub className="h-5 w-5" aria-hidden="true" />
+              {t("github")}
+              <LuArrowUpRight className="h-4 w-4" aria-hidden="true" />
+              <span className="sr-only"> {a11y("newTab")}</span>
+            </a>
+            <a href={site.linkedin} target="_blank" rel="noopener noreferrer" className={buttonSecondary}>
+              <LuLinkedin className="h-5 w-5" aria-hidden="true" />
+              {t("linkedin")}
+              <LuArrowUpRight className="h-4 w-4" aria-hidden="true" />
+              <span className="sr-only"> {a11y("newTab")}</span>
+            </a>
+          </div>
         </div>
 
-        <input
-          type="email"
-          placeholder={contact("email_placeholder")}
-          className="
-            flex-1 bg-transparent outline-none
-            px-2 py-2
-            text-sm md:text-base
-          "
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-
-        <button
-          onClick={submit}
-          disabled={loading || !emailIsValid}
-          className="
-          bg-brand-accent text-white
-            px-6 py-3 rounded-full
-            font-semibold transition
-            hover:scale-105
-            disabled:opacity-50
-            disabled:cursor-not-allowed
-            disabled:hover:scale-100
-            w-full sm:w-auto
-            flex items-center justify-center
-          "
-          >
-          {loading ? (
-            <ThreeDots
-              visible={true}
-              height="20"
-              width="20"
-              color="#ffffff"
-              radius="9"
-              ariaLabel="three-dots-loading"
-              wrapperStyle={{}}
-              wrapperClass=""
-            />
-          ) : (
-            <LuSend className="w-5 h-5 mx-auto" />
-          )}
-        </button>
+        <div className="relative">
+          <h3 className="mb-5 text-lg font-bold tracking-tight text-text-light-primary dark:text-text-dark-primary">{t("formTitle")}</h3>
+          <ContactForm />
+        </div>
       </div>
-
-      {messageVisible && (
-        <p className={`mt-4 font-medium text-sm md:text-base ${success ? "text-green-600" : "text-red-600"}`}>
-          {message}
-        </p>
-      )}
     </section>
   );
 }

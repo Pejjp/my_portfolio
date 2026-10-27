@@ -1,115 +1,82 @@
-'use client';
-import { isValidEmail } from "@/lib/helpers/email_validator";
-import type { FooterProps } from "@/lib/types/footer";
-import { useTranslations } from 'next-intl';
-import React, { useState, FormEvent, ChangeEvent } from 'react';
-import { LuFacebook, LuInstagram, LuLinkedin, LuTwitter, LuYoutube } from 'react-icons/lu';
+import { useLocale, useTranslations } from 'next-intl';
+import { Link } from '@/i18n/navigation';
+import { resumeHref, site, type Locale } from '@/lib/content';
+
+const sections = [
+  { key: 'work', hash: 'work-experience' },
+  { key: 'projects', hash: 'projects' },
+  { key: 'about', hash: 'about' },
+  { key: 'contact', hash: 'contact' },
+] as const;
+
+// Footer is always dark, so it uses the light-on-dark text tokens in both themes.
+const footerLink =
+  'inline-flex min-h-11 items-center rounded text-text-dark-secondary hover:text-accent-400 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-400';
 
 export default function Footer() {
-  const [email, setEmail] = useState<string>('');  
-  const t = useTranslations();
-  const footer : FooterProps = t.raw('footer') ;
-
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    console.log('Email submitted:', email);
-    setEmail('');
-  };
-
-  const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setEmail(e.target.value);
-  };
+  const t = useTranslations('footer');
+  const nav = useTranslations('nav');
+  const a11y = useTranslations('a11y');
+  const locale = useLocale() as Locale;
 
   return (
-    <footer className="relative bg-brand-dark dark:bg-gradient-dark text-text-dark-primary overflow-hidden rounded-t-5xl">
+    <footer className="mt-24 rounded-t-4xl bg-brand-dark text-text-dark-primary">
+      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 md:grid-cols-[2fr_1fr_1fr] md:px-6">
+        <div>
+          <p className="text-xl font-bold">{site.name}</p>
+          <p className="mt-3 max-w-sm text-sm leading-relaxed text-text-dark-muted">{t('tagline')}</p>
+        </div>
 
-      {/* Main footer content */}
-      <div className="relative pt-12 pb-8 px-6 md:px-12 lg:px-20">
-        {/* Header section */}
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-12 gap-6">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-tight">
-            {footer.header.title}
+        <nav aria-labelledby="footer-nav">
+          <h2 id="footer-nav" className="text-sm font-semibold uppercase tracking-[0.18em] text-accent-500">
+            {t('navigation')}
           </h2>
+          <ul className="mt-3 text-sm">
+            {sections.map((s) => (
+              <li key={s.key}>
+                <Link href={{ pathname: '/', hash: s.hash }} className={footerLink}>
+                  {nav(s.key)}
+                </Link>
+              </li>
+            ))}
+            <li>
+              <a href={resumeHref(locale)} className={footerLink}>
+                {nav('resume')}
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <div>
+          <h2 className="text-sm font-semibold uppercase tracking-[0.18em] text-accent-500">{t('elsewhere')}</h2>
+          <ul className="mt-3 text-sm">
+            <li>
+              <a href={site.github} target="_blank" rel="noopener noreferrer" className={footerLink}>
+                github.com/Pejjp<span className="sr-only"> {a11y('newTab')}</span>
+              </a>
+            </li>
+            <li>
+              <a href={site.linkedin} target="_blank" rel="noopener noreferrer" className={footerLink}>
+                LinkedIn<span className="sr-only"> {a11y('newTab')}</span>
+              </a>
+            </li>
+            <li>
+              <a href={`mailto:${site.email}`} className={`${footerLink} break-all`}>
+                {site.email}
+              </a>
+            </li>
+          </ul>
         </div>
+      </div>
 
-        <div className="border-t border-border-dark pt-12">
-          {/* Main grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-8">
-            
-            {/* Brand section */}
-            <div className="space-y-6">
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 bg-gradient-accent rounded-full flex items-center justify-center shadow-accent">
-                  <span className="text-2xl font-bold text-brand-light">J</span>
-                </div>
-                <h3 className="text-2xl font-semibold">jeff</h3>
-              </div>
-              <p className="text-text-dark-muted leading-relaxed text-sm">
-                {footer.header.cta}
-              </p>
-              <div className="flex gap-4">
-                <a 
-                  href="https://www.facebook.com/jeff.pendy.2025/" 
-                  className="w-10 h-10 bg-dark-700 hover:bg-brand-accent rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-glow-accent"
-                  aria-label="Facebook"
-                >
-                  <LuFacebook className="w-5 h-5" />
-                </a>
-                <a 
-                  href="http://linkedin.com/in/jeff-pendy-910b502b2" 
-                  className="w-10 h-10 bg-dark-700 hover:bg-brand-accent rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-glow-accent"
-                  aria-label="LinkedIn"
-                >
-                  <LuLinkedin className="w-5 h-5" />
-                </a>
-                <a 
-                  href="#" 
-                  className="w-10 h-10 bg-dark-700 hover:bg-brand-accent rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-glow-accent"
-                  aria-label="YouTube"
-                >
-                  <LuYoutube className="w-5 h-5" />
-                </a>
-                <a 
-                  href="https://www.instagram.com/jeff_pendy/" 
-                  className="w-10 h-10 bg-dark-700 hover:bg-brand-accent rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-glow-accent"
-                  aria-label="Instagram"
-                >
-                  <LuInstagram className="w-5 h-5" />
-                </a>
-              </div>
-            </div>
-
-            {/* Contact */}
-            <div className="flex flex-col tems-start md:items-end">
-              <h4 className="text-brand-accent text-lg font-semibold mb-6">Contact</h4>
-              <ul className="text-start md:text-end space-y-3">
-                <li>
-                  <a href="tel:+1-438-855-1291" className="text-text-dark-secondary hover:text-brand-accent transition-colors duration-200">
-                    +1 (438)-855-1291
-                  </a>
-                </li>
-                <li>
-                  <a href="https://github.com/Pejjp" target="_blank" rel="noopener noreferrer" className="text-text-dark-secondary hover:text-brand-accent transition-colors duration-200">
-                    www.mygithub.com
-                  </a>
-                </li>
-                <li>
-                  <a href="mailto:jeffpendy33@gmail.com" className="text-text-dark-secondary hover:text-brand-accent transition-colors duration-200">
-                    jeffpendy33@gmail.com
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            {/* Newsletter */}
-          </div>
-        </div>
-
-        {/* Bottom section */}
-        <div className="border-t border-border-dark mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-text-dark-muted text-sm text-center md:text-left">
-            {footer.copyright.text} {new Date().getFullYear().toString()} <span className="text-brand-accent font-medium">Jeff Pendy</span>. {footer.copyright.rights}
+      <div className="border-t border-border-dark">
+        <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-6 text-xs text-text-dark-muted md:flex-row md:items-center md:justify-between md:px-6">
+          <p>
+            © {new Date().getFullYear()} {site.name}. {t('rights')}
           </p>
+          <a href={site.sourceRepo} target="_blank" rel="noopener noreferrer" className={footerLink}>
+            {t('source')}<span className="sr-only"> {a11y('newTab')}</span>
+          </a>
         </div>
       </div>
     </footer>

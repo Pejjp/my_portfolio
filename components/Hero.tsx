@@ -1,194 +1,67 @@
-import { useTranslations,useLocale } from 'next-intl'
-import Link from 'next/link'
-import { LuGithub, LuLinkedin, LuArrowRight, LuDownload } from 'react-icons/lu'
-import myAvatarCol from '../public/my_avatar_transp_col.png';
-
-import Image from 'next/image';
+import { useLocale, useTranslations } from 'next-intl'
+import Image from 'next/image'
+import { LuArrowRight, LuFileText } from 'react-icons/lu'
+import { Link } from '@/i18n/navigation'
+import myAvatarCol from '../public/my_avatar_transp_col.png'
+import { resumeHref, type Locale } from '@/lib/content'
+import { accentText, buttonPrimary, buttonSecondary, mutedText, textLink } from './ui'
 
 const Hero = () => {
-  const hero = useTranslations("hero");
-  const common = useTranslations("common");
-  const videoAvatar = "../public/my_avatar_anim.mp4";
-  const locale = useLocale();
-  const cv_en = '/cv/cv_jeff.pdf';
-  const cv_fr = '/cv/cv_jeff_fr.pdf';
+  const hero = useTranslations('hero')
+  const trust = useTranslations('trust')
+  const locale = useLocale() as Locale
 
   return (
-
-    <section
-      className='relative w-full'
-      id="hero">
-      {/* Mobile: Image on top with text overlay */}
-      <div className='w-full md:hidden flex flex-col items-center gap-2 justify-center '>
-        {/* Top greeting */}
-        <div className='w-fit bg-surface-light-elevated dark:bg-surface-dark-elevated px-4 py-2 rounded-full border border-border-light dark:border-border-dark shadow-sm'>
-          <p className='text-base text-text-light-secondary dark:text-text-dark-secondary'>{hero("hey")}!</p>
-        </div>
-        <div className='flex flex-col items-center'>
-          <h1 className='text-5xl lg:text-9xl font-bold'>
-             {hero("name")} <span className='text-brand-accent'>Jeff</span>,
+    <section id="hero" aria-labelledby="hero-title" className="relative w-full pt-10 md:pt-16">
+      <div className="grid items-center gap-10 md:grid-cols-[1fr_auto]">
+        <div className="max-w-3xl">
+          <p className={`font-mono text-xs md:text-sm uppercase tracking-[0.18em] ${accentText}`}>{hero('eyebrow')}</p>
+          <h1
+            id="hero-title"
+            className="mt-4 text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.08] text-text-light-primary dark:text-text-dark-primary text-balance"
+          >
+            {hero('headline')}
           </h1>
-          <h2 className='text-xl lg:text-2xl text-text-light-secondary dark:text-text-dark-secondary mt-2'>
-            {hero("welcome")}
-          </h2>
+          <p className={`mt-6 max-w-2xl text-lg md:text-xl leading-relaxed ${mutedText}`}>{hero('intro')}</p>
+
+          <div className="mt-8 flex flex-wrap items-center gap-3">
+            <Link href={{ pathname: '/', hash: 'projects' }} className={buttonPrimary}>
+              {hero('ctaPrimary')}
+              <LuArrowRight className="h-5 w-5" aria-hidden="true" />
+            </Link>
+            <a href={resumeHref(locale)} className={buttonSecondary}>
+              <LuFileText className="h-5 w-5" aria-hidden="true" />
+              {hero('ctaSecondary')}
+            </a>
+            <Link href={{ pathname: '/', hash: 'contact' }} className={`${textLink} px-2`}>
+              {hero('ctaTertiary')}
+            </Link>
+          </div>
         </div>
 
-        <div className='relative w-full flex justify-center'>
+        <div className="hidden md:block">
           <Image
             src={myAvatarCol}
-            alt='my_avatar'
-            width={300}
-            height={300}
-            className='w-64 h-auto object-contain'
+            alt={hero('avatarAlt')}
+            sizes="(min-width: 1024px) 260px, 200px"
+            className="h-auto w-[200px] lg:w-[260px] object-contain"
+            preload
           />
         </div>
-
-        <div className='flex flex-col items-center space-y-3'>
-          <div className='flex-1 flex-col items-center space-y-6'>
-            {/* CTA Buttons */}
-            <div className='flex flex-row gap-4 items-center justify-center pt-4'>
-              <Link
-                href="#projects"
-                className='group bg-gradient-accent dark:bg-gradient-dark px-6 py-3 rounded-full text-white font-semibold transition-all duration-300 hover:shadow-accent-lg dark:hover:shadow-dark-glow hover:scale-105 focus:outline-none focus:ring-4 focus:ring-accent-400/50 flex items-center gap-2'
-              >
-                Portfolio
-                <LuArrowRight className='w-5 h-5 group-hover:translate-x-1 transition-transform' strokeWidth={2}/>
-              </Link>
-              <Link
-                href={locale === "en" ? cv_en : cv_fr}
-                className='flex px-6 py-3 rounded-full border-2 border-border-light dark:border-border-dark text-text-light-primary dark:text-text-dark-primary font-semibold transition-all duration-300 hover:bg-surface-light-elevated dark:hover:bg-surface-dark-elevated hover:scale-105 focus:outline-none focus:ring-4 focus:ring-accent-400/50'
-              >
-                <LuDownload className='w-5 h-5 mr-1' strokeWidth={2}/>
-                {hero("download_cv")}
-              </Link>
-            </div>
-
-            {/* Stats */}
-            <div className='flex items-start justify-end gap-3'>
-              <div className='flex-1 flex flex-col items-end justify-end'>
-                <p className='text-2xl font-bold text-brand-accent'>{common("project")}</p>
-                <p className='text-sm text-text-light-secondary dark:text-text-dark-secondary'>{hero("impact")}</p>
-              </div>
-              <div className='w-px h-16 bg-border-light dark:bg-border-dark'></div>
-              <div className='flex-1 flex-wrap'>
-                <p className='text-2xl font-bold text-brand-accent'>{hero("major")}</p>
-                <p className='text-sm text-text-light-secondary dark:text-text-dark-secondary'>{hero("degree")}</p>
-              </div>
-            </div>
-          </div>
-
-          {/* - Social links  */}
-          <div className='flex flex-row gap-3'>
-            <Link
-              href="https://github.com/Pejjp"
-              className='group bg-gradient-accent dark:bg-gradient-dark px-5 py-2 rounded-full text-white font-semibold transition-all duration-300 hover:shadow-accent-lg dark:hover:shadow-dark-glow hover:scale-105 focus:outline-none focus:ring-4 focus:ring-accent-400/50 flex items-center gap-2'
-            >
-              <LuGithub className='w-5 h-5' strokeWidth={2}/>
-            </Link>
-            <Link
-              href="http://linkedin.com/in/jeff-pendy-910b502b2"
-              className='px-5 py-2 rounded-full border-2 border-border-light dark:border-border-dark text-text-light-primary dark:text-text-dark-primary font-semibold transition-all duration-300 hover:bg-surface-light-elevated dark:hover:bg-surface-dark-elevated hover:scale-105 focus:outline-none focus:ring-4 focus:ring-accent-400/50'
-
-            >
-              <LuLinkedin className='w-5 h-5' strokeWidth={2}/>
-            </Link>
-          </div>
-        </div>
       </div>
 
-      {/* Desktop: Professional layout with centered image */}
-      <div className='hidden md:flex flex-col items-center justify-center'>
-        {/* Top greeting */}
-        <div className='w-fit bg-surface-light-elevated dark:bg-surface-dark-elevated px-4 py-2 rounded-full border border-border-light dark:border-border-dark shadow-sm'>
-          <p className='text-base text-text-light-secondary dark:text-text-dark-secondary'>{hero("hey")}!</p>
-        </div>
-        <div className='flex flex-col items-center'>
-          <h1 className='text-5xl lg:text-9xl font-bold'>
-             {hero("name")} <span className='text-brand-accent'>Jeff</span>,
-          </h1>
-          <h2 className='text-xl lg:text-2xl text-text-light-secondary dark:text-text-dark-secondary mt-2'>
-            {hero("welcome")}
-          </h2>
-        </div>
-        <div className='flex flex-row items-start justify-between max-w-7xl'>
-          {/* Left side content */}
-          <div className='flex-1 flex-col items-center space-y-6 pt-32'>
-            {/* Stats */}
-            <div className='flex items-center gap-8'>
-              <div>
-                <p className='text-2xl font-bold text-brand-accent'>{common("project")}</p>
-                <p className='text-sm text-text-light-secondary dark:text-text-dark-secondary'>{hero("impact")}</p>
-              </div>
-              <div className='w-px h-12 bg-border-light dark:bg-border-dark'></div>
-              <div className='flex items-center gap-2'>
-                <div>
-                  <p className='text-2xl font-bold text-brand-accent'>{hero("major")}</p>
-                  <p className='text-sm text-text-light-secondary dark:text-text-dark-secondary'>{hero("degree")}</p>
-                </div>
-              </div>
-            </div>
-
-            {/* CTA Buttons */}
-            <div className='flex flex-row gap-4 items-center pt-4'>
-              <Link
-                href="#projects"
-                className='group bg-gradient-accent dark:bg-gradient-dark px-6 py-3 rounded-full text-white font-semibold transition-all duration-300 hover:shadow-accent-lg dark:hover:shadow-dark-glow hover:scale-105 focus:outline-none focus:ring-4 focus:ring-accent-400/50 flex items-center gap-2'
-              >
-                Portfolio
-                <LuArrowRight className='w-5 h-5 group-hover:translate-x-1 transition-transform' strokeWidth={2}/>
-              </Link>
-              <Link
-                href={locale === "en" ? cv_en : cv_fr}
-                className='flex px-6 py-3 rounded-full border-2 border-border-light dark:border-border-dark text-text-light-primary dark:text-text-dark-primary font-semibold transition-all duration-300 hover:bg-surface-light-elevated dark:hover:bg-surface-dark-elevated hover:scale-105 focus:outline-none focus:ring-4 focus:ring-accent-400/50'
-              >
-                <LuDownload className='w-5 h-5 mr-1' strokeWidth={2}/>
-                {hero("download_cv")}
-              </Link>
-            </div>
-          </div>
-
-          {/* Avatar */}
-          <div className="flex flex-1 justify-center items-center">
-              <Image
-                src={myAvatarCol}
-                alt="my_avatar"
-                width={200}
-                height={200}
-                className="w-auto h-auto object-contain"
-              />
-          </div>
-
-
-          {/* Right side */}
-          <div className='flex-1 flex flex-col items-end space-y-4 pt-32'>
-            {/* Testimonial/Quote */}
-            <div className='flex flex-row'>
-              <span className='relative top-[-30] text-6xl text-brand-accent'>"</span>
-              <p className='text-lg text-text-light-secondary dark:text-text-dark-secondary font-semibold'>
-                {hero("personal")}
-              </p>
-            </div>
-
-
-            {/* - Social links  */}
-            <div className='flex flex-row gap-3'>
-              <Link
-                href="https://github.com/Pejjp"
-                className='group bg-gradient-accent dark:bg-gradient-dark px-6 py-3 rounded-full text-white font-semibold transition-all duration-300 hover:shadow-accent-lg dark:hover:shadow-dark-glow hover:scale-105 focus:outline-none focus:ring-4 focus:ring-accent-400/50 flex items-center gap-2'
-              >
-                <LuGithub className='w-6 h-6' strokeWidth={2}/>
-              </Link>
-              <Link
-                href="http://linkedin.com/in/jeff-pendy-910b502b2"
-                className='px-6 py-3 rounded-full border-2 border-border-light dark:border-border-dark text-text-light-primary dark:text-text-dark-primary font-semibold transition-all duration-300 hover:bg-surface-light-elevated dark:hover:bg-surface-dark-elevated hover:scale-105 focus:outline-none focus:ring-4 focus:ring-accent-400/50'
-
-              >
-                <LuLinkedin className='w-6 h-6' strokeWidth={2}/>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </div>
+      {/* Compact trust strip: facts only, no counters. */}
+      <ul
+        aria-label={trust('label')}
+        className="mt-12 flex flex-col gap-3 border-y border-border-light dark:border-border-dark py-5 text-sm md:flex-row md:flex-wrap md:items-center md:gap-x-8 text-text-light-secondary dark:text-text-dark-secondary"
+      >
+        {(['degree', 'current', 'focus'] as const).map((key) => (
+          <li key={key} className="flex items-center gap-2.5">
+            <span aria-hidden="true" className="h-1.5 w-1.5 shrink-0 rounded-full bg-accent-600 dark:bg-accent-500" />
+            {trust(key)}
+          </li>
+        ))}
+      </ul>
     </section>
   )
 }
