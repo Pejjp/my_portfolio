@@ -10,7 +10,7 @@ import {
   type ContactResponse,
 } from "@/lib/contact";
 import { site } from "@/lib/content/site";
-import { buttonPrimary, focusRing, textLink } from "./ui";
+import { buttonPrimary, textLink } from "./ui";
 
 type Status =
   | { kind: "idle" }
@@ -18,7 +18,9 @@ type Status =
   | { kind: "success" }
   | { kind: "error"; reason: "error" | "rateLimited" | "unavailable" };
 
-const fieldClass = `w-full rounded-2xl border bg-white dark:bg-surface-dark-elevated shadow-md px-4 py-3 text-base text-text-light-primary dark:text-text-dark-primary placeholder:text-text-light-muted/70 dark:placeholder:text-text-dark-muted/70 ${focusRing}`;
+const inputClass =
+  "min-h-11 flex-1 bg-transparent px-2 py-2 text-base text-text-light-primary dark:text-text-dark-primary placeholder:text-text-light-muted dark:placeholder:text-text-dark-muted focus:outline-none";
+const errorClass = "text-sm font-medium text-error-dark dark:text-[#fca5a5]";
 
 export default function ContactForm() {
   const t = useTranslations("contact");
@@ -78,19 +80,19 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={submit} noValidate className="mx-auto max-w-xl space-y-4 text-left" aria-describedby={`${id}-status`}>
-      {/* Original pill-shaped email field with a mail icon and the send button inside. */}
-      <div>
-        <label htmlFor={`${id}-email`} className="sr-only">
-          {t("emailLabel")}
-        </label>
-        <div
-          className={`flex flex-col sm:flex-row items-stretch sm:items-center gap-3 bg-white dark:bg-surface-dark-elevated border rounded-2xl sm:rounded-full px-4 py-3 shadow-md focus-within:ring-4 focus-within:ring-accent-400/40 ${
-            emailError ? "border-error-dark dark:border-error" : "border-border-light dark:border-border-dark"
-          }`}
-        >
-          <div aria-hidden="true" className="hidden sm:flex w-10 h-10 shrink-0 items-center justify-center rounded-full bg-brand-accent/20">
+      {/* One compose card: email, message and send read as a single action. */}
+      <div
+        className={`overflow-hidden rounded-3xl border bg-white dark:bg-surface-dark-elevated shadow-md focus-within:ring-4 focus-within:ring-accent-400/40 ${
+          emailError || messageError ? "border-error-dark dark:border-error" : "border-border-light dark:border-border-dark"
+        }`}
+      >
+        <div className="flex items-center gap-3 px-4 py-3">
+          <div aria-hidden="true" className="flex w-10 h-10 shrink-0 items-center justify-center rounded-full bg-brand-accent/20">
             <LuMail className="text-brand-accent" />
           </div>
+          <label htmlFor={`${id}-email`} className="sr-only">
+            {t("emailLabel")}
+          </label>
           <input
             id={`${id}-email`}
             name="email"
@@ -102,8 +104,39 @@ export default function ContactForm() {
             placeholder={t("emailPlaceholder")}
             aria-invalid={emailError ? true : undefined}
             aria-describedby={emailError ? `${id}-email-error` : undefined}
-            className="min-h-11 flex-1 bg-transparent px-2 py-2 text-base text-text-light-primary dark:text-text-dark-primary placeholder:text-text-light-muted dark:placeholder:text-text-dark-muted focus:outline-none"
+            className={inputClass}
           />
+        </div>
+        {emailError && (
+          <p id={`${id}-email-error`} className={`-mt-1 pb-2 pl-[4.25rem] pr-4 ${errorClass}`}>
+            {emailError}
+          </p>
+        )}
+
+        <div className="border-t border-border-light dark:border-border-dark px-4 pt-3">
+          <label htmlFor={`${id}-message`} className="block px-2 text-sm font-semibold text-text-light-secondary dark:text-text-dark-secondary">
+            {t("messageLabel")}
+          </label>
+          <textarea
+            id={`${id}-message`}
+            name="message"
+            rows={4}
+            maxLength={CONTACT_MESSAGE_MAX + 200}
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            placeholder={t("messagePlaceholder")}
+            aria-invalid={messageError ? true : undefined}
+            aria-describedby={messageError ? `${id}-message-error` : undefined}
+            className={`${inputClass} block w-full resize-y`}
+          />
+          {messageError && (
+            <p id={`${id}-message-error`} className={`px-2 pb-2 ${errorClass}`}>
+              {messageError}
+            </p>
+          )}
+        </div>
+
+        <div className="flex justify-end px-4 pb-4 pt-2">
           <button type="submit" disabled={sending} className={`${buttonPrimary} w-full sm:w-auto disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:scale-100`}>
             {sending ? (
               <LuLoader className="h-5 w-5 motion-safe:animate-spin" aria-hidden="true" />
@@ -113,34 +146,6 @@ export default function ContactForm() {
             {sending ? t("sending") : t("submit")}
           </button>
         </div>
-        {emailError && (
-          <p id={`${id}-email-error`} className="mt-2 px-4 text-sm font-medium text-error-dark dark:text-[#fca5a5]">
-            {emailError}
-          </p>
-        )}
-      </div>
-
-      <div>
-        <label htmlFor={`${id}-message`} className="block px-4 text-sm font-semibold text-text-light-secondary dark:text-text-dark-secondary">
-          {t("messageLabel")}
-        </label>
-        <textarea
-          id={`${id}-message`}
-          name="message"
-          rows={3}
-          maxLength={CONTACT_MESSAGE_MAX + 200}
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-          placeholder={t("messagePlaceholder")}
-          aria-invalid={messageError ? true : undefined}
-          aria-describedby={messageError ? `${id}-message-error` : undefined}
-          className={`mt-2 ${fieldClass} ${messageError ? "border-error-dark dark:border-error" : "border-border-light dark:border-border-dark"}`}
-        />
-        {messageError && (
-          <p id={`${id}-message-error`} className="mt-2 px-4 text-sm font-medium text-error-dark dark:text-[#fca5a5]">
-            {messageError}
-          </p>
-        )}
       </div>
 
       {/* Honeypot: hidden from people and assistive tech, often filled by bots. */}
