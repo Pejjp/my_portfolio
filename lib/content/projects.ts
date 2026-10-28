@@ -5,6 +5,7 @@ import portfolioImage from '@/public/projects_screenshots/portfolio_project.jpg'
 import mlImage from '@/public/projects_screenshots/image_classification_w_docker.jpg';
 import maVilleImage from '@/public/projects_screenshots/ma_ville.png';
 import reservationImage from '@/public/projects_screenshots/reservations_image0.jpg';
+import borrowdImage from '@/public/projects_screenshots/borrowd.png';
 
 /**
  * Projects and case studies.
@@ -285,6 +286,13 @@ export const projects: Project[] = [
     },
     stack: ['Python', 'Django', 'PostgreSQL', 'HTMX', 'Alpine.js', 'Web Push (VAPID)', 'Sentry', 'GitHub Actions'],
     chips: ['Python', 'Django', 'PostgreSQL', 'HTMX'],
+    image: {
+      src: borrowdImage,
+      alt: {
+        en: 'Borrow’d home page: “Share what you have; Borrow what you need.”',
+        fr: 'Page d’accueil de Borrow’d : « Share what you have; Borrow what you need. »',
+      },
+    },
     summary: {
       en: 'Members of a community lending platform needed to hear about requests, returns and availability without duplicate or noisy messages.',
       fr: 'Les membres d’une plateforme communautaire de prêt devaient être avisés des demandes, des retours et des disponibilités, sans messages en double ni bruit inutile.',
