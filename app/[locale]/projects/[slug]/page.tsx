@@ -53,17 +53,26 @@ function Paragraphs({ items }: { items: string[] }) {
   )
 }
 
-/** Decisions and tradeoffs: neutral cards (white / softly lifted in dark), equal height per row, no accent stripe. */
-function Callouts({ items }: { items: Callout[] }) {
+const calloutTone = {
+  // Decisions carry the brand: a soft gold wash and gold-tinted border.
+  decision:
+    'border-accent-200/80 bg-gradient-to-br from-accent-50 to-white hover:border-accent-300 dark:border-accent-500/25 dark:from-accent-500/[0.10] dark:to-white/[0.02] dark:hover:border-accent-500/45',
+  // Tradeoffs stay neutral so the two sections read differently at a glance.
+  tradeoff:
+    'border-border-light bg-surface-light-muted hover:border-border-light-strong dark:border-white/[0.08] dark:bg-white/[0.03] dark:hover:border-white/[0.16]',
+}
+
+/** Decisions and tradeoffs as equal-height cards; colour comes from a tinted surface, not an accent stripe. */
+function Callouts({ items, tone }: { items: Callout[]; tone: keyof typeof calloutTone }) {
   return (
     <ul className="grid gap-4 md:grid-cols-2">
-      {items.map((c) => (
-        <li
-          key={c.title}
-          className="h-full rounded-2xl border p-6 motion-safe:transition-colors
-            border-border-light bg-white shadow-[0_1px_2px_rgba(24,19,6,0.05)] hover:border-border-light-strong
-            dark:border-white/[0.08] dark:bg-white/[0.03] dark:shadow-none dark:hover:border-white/[0.16]"
-        >
+      {items.map((c, i) => (
+        <li key={c.title} className={`h-full rounded-2xl border p-6 motion-safe:transition-colors ${calloutTone[tone]}`}>
+          {tone === 'decision' && (
+            <span aria-hidden="true" className="mb-3 block font-mono text-xs font-semibold text-accent-700 dark:text-brand-accent">
+              {String(i + 1).padStart(2, '0')}
+            </span>
+          )}
           <h3 className="text-base font-semibold leading-snug text-text-light-primary dark:text-text-dark-primary">{c.title}</h3>
           <p className="mt-3 text-sm leading-relaxed text-text-light-muted dark:text-text-dark-muted">{c.body}</p>
         </li>
@@ -191,8 +200,8 @@ export default async function ProjectPage({ params }: { params: Params }) {
                 </div>
               )}
             </Section>
-            <Section id="decisions" title={t('decisions')}><Callouts items={cs.decisions[l]} /></Section>
-            <Section id="tradeoffs" title={t('tradeoffs')}><Callouts items={cs.tradeoffs[l]} /></Section>
+            <Section id="decisions" title={t('decisions')}><Callouts items={cs.decisions[l]} tone="decision" /></Section>
+            <Section id="tradeoffs" title={t('tradeoffs')}><Callouts items={cs.tradeoffs[l]} tone="tradeoff" /></Section>
             <Section id="outcome" title={t('outcome')}>
               <ul className="list-disc space-y-3 pl-5 marker:text-accent-600 dark:marker:text-accent-500">
                 {cs.outcome[l].map((item) => (
