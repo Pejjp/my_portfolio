@@ -22,14 +22,17 @@ const Hero = () => {
       <div className="flex flex-col items-center text-center">
         {/* Top greeting pill */}
         <p className="w-fit bg-surface-light-elevated dark:bg-surface-dark-elevated px-4 py-2 rounded-full border border-border-light dark:border-border-dark shadow-sm text-sm md:text-base text-text-light-secondary dark:text-text-dark-secondary">
-          {hero('eyebrow')}
+          {hero('greeting')}
         </p>
         <h1
           id="hero-title"
-          className="mt-5 max-w-5xl text-4xl sm:text-5xl lg:text-7xl font-bold leading-[1.08] text-text-light-primary dark:text-text-dark-primary text-balance"
+          className="mt-5 text-5xl sm:text-6xl lg:text-9xl font-bold leading-[1.05] text-text-light-primary dark:text-text-dark-primary"
         >
-          {hero.rich('headline', { hl: (chunks) => <span className={brandText}>{chunks}</span> })}
+          {hero.rich('title', { hl: (chunks) => <span className={brandText}>{chunks}</span> })}
         </h1>
+        <p className="mt-3 max-w-3xl text-xl lg:text-2xl font-medium text-text-light-secondary dark:text-text-dark-secondary text-balance">
+          {hero.rich('headline', { hl: (chunks) => <span className={brandText}>{chunks}</span> })}
+        </p>
       </div>
 
       <div className="mt-8 grid items-start gap-8 md:mt-4 md:grid-cols-[1fr_minmax(0,300px)_1fr] md:gap-8 max-w-7xl mx-auto">

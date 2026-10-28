@@ -30,6 +30,8 @@
     "resume": "Résumé"
   },
   "hero": {
+    "greeting": "Hey!",
+    "title": "I'm <hl>Jeff</hl>,",
     "eyebrow": "Software Engineer · Montréal, Canada",
     "headline": "Building <hl>reliable software</hl>, from user experiences to cloud systems.",
     "intro": "I'm Jeff Pendy, a Computer Science graduate from Université de Montréal. I build full-stack applications, backend workflows, and applied AI systems, with a focus on reliability, maintainability, and real-world impact.",
