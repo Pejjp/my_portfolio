@@ -1,6 +1,6 @@
 import { useLocale, useTranslations } from 'next-intl'
 import type { Diagram, Locale } from '@/lib/content'
-import { mutedText } from './ui'
+import { card, mutedText } from './ui'
 
 const kindStyle: Record<Diagram['kind'], string> = {
   implemented: 'border-success-dark/40 text-success-dark dark:border-success/40 dark:text-success',
@@ -17,11 +17,7 @@ export default function SequenceDiagram({ diagram }: { diagram: Diagram }) {
   const t = useTranslations('caseStudy')
 
   return (
-    <figure
-      className={`overflow-hidden rounded-2xl border border-border-light bg-white shadow-[0_1px_2px_rgba(24,19,6,0.05)] dark:border-white/[0.08] dark:bg-white/[0.03] dark:shadow-none ${
-        diagram.kind === 'proposed' ? 'border-dashed' : ''
-      }`}
-    >
+    <figure className={`${card} overflow-hidden ${diagram.kind === 'proposed' ? 'border-dashed' : ''}`}>
       <div className="flex flex-wrap items-center justify-between gap-3 border-b border-border-light dark:border-border-dark px-5 py-4">
         <figcaption className="font-semibold text-text-light-primary dark:text-text-dark-primary">{diagram.title[locale]}</figcaption>
         <span className={`rounded-full border px-2.5 py-0.5 text-xs font-semibold ${kindStyle[diagram.kind]}`}>
