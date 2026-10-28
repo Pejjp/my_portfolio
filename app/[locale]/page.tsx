@@ -37,9 +37,9 @@ export default function HomePage({
 
   return (
     <div className='relative flex flex-col items-center justify-center md:p-10 p-5 w-full overflow-hidden'>
-      {/* Original gold gradient glows: top and bottom of the page. */}
-      <div aria-hidden="true" className="absolute top-0 left-1/2 -translate-x-1/2 md:w-[90vw] h-[40rem] w-[96vw] rounded-full blur-3xl opacity-30 bg-[radial-gradient(ellipse_at_center,var(--tw-gradient-stops))] from-accent-300 via-accent-200/40 to-transparent dark:from-accent-500 dark:via-accent-500/30 pointer-events-none -z-10" />
-      <div aria-hidden="true" className="absolute top-0 left-1/2 -translate-x-1/2 md:w-[90vw] h-[40rem] w-[96vw] rounded-full blur-3xl opacity-30 bg-[radial-gradient(ellipse_at_center,var(--tw-gradient-stops))] from-accent-300 via-accent-200/40 to-transparent dark:from-accent-500 dark:via-accent-500/30 pointer-events-none -z-10" />
+      {/* Original gold gradient glows: centred on the top edge (just under the nav bar) and at the bottom. */}
+      <div aria-hidden="true" className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 md:w-[90vw] h-[40rem] w-[96vw] rounded-full blur-3xl opacity-30 bg-[radial-gradient(ellipse_at_center,var(--tw-gradient-stops))] from-accent-300 via-accent-200/40 to-transparent dark:from-accent-500 dark:via-accent-500/30 pointer-events-none -z-10" />
+      <div aria-hidden="true" className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 md:w-[90vw] h-[40rem] w-[96vw] rounded-full blur-3xl opacity-30 bg-[radial-gradient(ellipse_at_center,var(--tw-gradient-stops))] from-accent-300 via-accent-200/40 to-transparent dark:from-accent-500 dark:via-accent-500/30 pointer-events-none -z-10" />
       <div aria-hidden="true" className="absolute bottom-0 left-1/2 -translate-x-1/2 md:w-[90vw] h-[40rem] w-[96vw] rounded-full blur-3xl opacity-30 bg-[radial-gradient(ellipse_at_center,var(--tw-gradient-stops))] from-accent-300 via-accent-200/40 to-transparent dark:from-accent-500 dark:via-accent-500/30 pointer-events-none -z-10" />
       <JsonLd data={personJsonLd(locale)} />
       <div className='mx-auto flex w-full max-w-7xl flex-col gap-16 md:gap-28'>
