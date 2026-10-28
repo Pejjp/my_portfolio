@@ -30,6 +30,8 @@
     "resume": "CV"
   },
   "hero": {
+    "greeting": "Hey!",
+    "title": "Moi c'est <hl>Jeff</hl>,",
     "eyebrow": "Développeur logiciel · Montréal, Canada",
     "headline": "Je conçois des <hl>logiciels fiables</hl>, de l'expérience utilisateur aux systèmes infonuagiques.",
     "intro": "Je suis Jeff Pendy, diplômé en informatique de l'Université de Montréal. Je développe des applications full-stack, des systèmes backend et des solutions d'IA appliquée, en privilégiant la fiabilité, la maintenabilité et l'impact concret.",
