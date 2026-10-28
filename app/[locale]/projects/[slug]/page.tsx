@@ -11,7 +11,7 @@ import { alternatesFor, ogLocale } from '@/lib/seo'
 import JsonLd from '@/components/JsonLd'
 import SequenceDiagram from '@/components/SequenceDiagram'
 import { ProjectRow } from '@/components/ProjectCard'
-import { accentText, card, ChipList, mutedText, StatusBadge, textLink } from '@/components/ui'
+import { accentText, ChipList, mutedText, StatusBadge, textLink } from '@/components/ui'
 
 type Params = Promise<{ locale: string; slug: string }>
 
@@ -53,16 +53,19 @@ function Paragraphs({ items }: { items: string[] }) {
   )
 }
 
-function Callouts({ items, tone }: { items: Callout[]; tone: 'decision' | 'tradeoff' }) {
+/** Decisions and tradeoffs: neutral cards (white / softly lifted in dark), equal height per row, no accent stripe. */
+function Callouts({ items }: { items: Callout[] }) {
   return (
     <ul className="grid gap-4 md:grid-cols-2">
       {items.map((c) => (
         <li
           key={c.title}
-          className={`${card} border-l-4 p-5 ${tone === 'decision' ? 'border-l-accent-600 dark:border-l-accent-500' : 'border-l-border-light-strong dark:border-l-border-dark-strong'}`}
+          className="h-full rounded-2xl border p-6 motion-safe:transition-colors
+            border-border-light bg-white shadow-[0_1px_2px_rgba(24,19,6,0.05)] hover:border-border-light-strong
+            dark:border-white/[0.08] dark:bg-white/[0.03] dark:shadow-none dark:hover:border-white/[0.16]"
         >
-          <h3 className="font-semibold text-text-light-primary dark:text-text-dark-primary">{c.title}</h3>
-          <p className={`mt-2 text-sm leading-relaxed ${mutedText}`}>{c.body}</p>
+          <h3 className="text-base font-semibold leading-snug text-text-light-primary dark:text-text-dark-primary">{c.title}</h3>
+          <p className="mt-3 text-sm leading-relaxed text-text-light-muted dark:text-text-dark-muted">{c.body}</p>
         </li>
       ))}
     </ul>
@@ -188,8 +191,8 @@ export default async function ProjectPage({ params }: { params: Params }) {
                 </div>
               )}
             </Section>
-            <Section id="decisions" title={t('decisions')}><Callouts items={cs.decisions[l]} tone="decision" /></Section>
-            <Section id="tradeoffs" title={t('tradeoffs')}><Callouts items={cs.tradeoffs[l]} tone="tradeoff" /></Section>
+            <Section id="decisions" title={t('decisions')}><Callouts items={cs.decisions[l]} /></Section>
+            <Section id="tradeoffs" title={t('tradeoffs')}><Callouts items={cs.tradeoffs[l]} /></Section>
             <Section id="outcome" title={t('outcome')}>
               <ul className="list-disc space-y-3 pl-5 marker:text-accent-600 dark:marker:text-accent-500">
                 {cs.outcome[l].map((item) => (
