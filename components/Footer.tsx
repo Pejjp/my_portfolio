@@ -26,10 +26,28 @@ export default function Footer() {
   return (
     <footer className="relative bg-brand-dark dark:bg-gradient-dark text-text-dark-primary overflow-hidden rounded-t-5xl">
       <div className="relative pt-12 pb-8 px-6 md:px-12 lg:px-20">
-        <p className="mb-12 text-3xl md:text-4xl lg:text-5xl font-light tracking-tight">{t('title')}</p>
+        <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+          <p className="text-3xl md:text-4xl lg:text-5xl font-light tracking-tight">{t('title')}</p>
+
+          {/* Navigation */}
+          <nav aria-labelledby="footer-nav">
+            <h2 id="footer-nav" className="sr-only">
+              {t('navigation')}
+            </h2>
+            <ul className="flex flex-wrap items-center gap-x-8 gap-y-1">
+              {sections.map((s) => (
+                <li key={s.key}>
+                  <Link href={{ pathname: '/', hash: s.hash }} className={footerLink}>
+                    {nav(s.key)}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </div>
 
         <div className="border-t border-border-dark pt-12">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-8">
             {/* Brand */}
             <div className="space-y-6">
               <div className="flex items-center gap-3">
@@ -54,22 +72,6 @@ export default function Footer() {
                 </a>
               </div>
             </div>
-
-            {/* Navigation */}
-            <nav aria-labelledby="footer-nav" className="flex flex-col items-start md:items-center">
-              <h2 id="footer-nav" className="text-brand-accent text-lg font-semibold mb-4">
-                {t('navigation')}
-              </h2>
-              <ul className="text-start md:text-center">
-                {sections.map((s) => (
-                  <li key={s.key}>
-                    <Link href={{ pathname: '/', hash: s.hash }} className={footerLink}>
-                      {nav(s.key)}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </nav>
 
             {/* Contact */}
             <div className="flex flex-col items-start md:items-end">
