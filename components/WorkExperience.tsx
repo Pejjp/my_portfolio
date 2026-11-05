@@ -1,185 +1,145 @@
-import { useTranslations } from 'next-intl'
-import React from 'react'
+import { useLocale, useTranslations } from 'next-intl'
+import { LuArrowUpRight, LuChevronDown } from 'react-icons/lu'
+import { Link } from '@/i18n/navigation'
+import { education, experiences, formatPeriod, type Experience, type Locale } from '@/lib/content'
+import { brandText, card, ChipList, focusRing, mutedText, SectionHeader, textLink } from './ui'
 
-type Experience = {
-  company: string;
-  period: string;
-  role: string;
-  bullets:string[],
-  description?: string;
-  isActive?: boolean;
+/**
+ * Original alternating timeline: company and dates on one side, the role card on the other,
+ * with a center line on desktop. Each entry is rendered once (the previous version rendered
+ * a mobile copy and a desktop copy of every entry).
+ */
+function ExperienceItem({ exp, index, locale }: { exp: Experience; index: number; locale: Locale }) {
+  const t = useTranslations('experience')
+  const a11y = useTranslations('a11y')
+  const current = exp.end === null
+  const flipped = index % 2 === 1
+
+  return (
+    <li className="relative pl-8 md:pl-0 md:grid md:grid-cols-2 md:gap-8 lg:gap-12">
+      {/* Timeline dot: left on mobile, centered on desktop */}
+      <span
+        aria-hidden="true"
+        className={`absolute left-0 md:left-1/2 -translate-x-1/2 top-1 w-5 h-5 lg:w-6 lg:h-6 rounded-full border-4 ${
+          current
+            ? 'bg-brand-accent border-brand-accent shadow-accent'
+            : 'bg-surface-light-muted dark:bg-surface-dark-muted border-border-light dark:border-border-dark'
+        }`}
+      />
+
+      {/* Company and dates */}
+      <div className={`mb-3 md:mb-0 ${flipped ? 'md:order-2 md:pl-8 lg:pl-12' : 'md:text-right md:pr-8 lg:pr-12'}`}>
+        <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-text-light-primary dark:text-text-dark-primary">{exp.company}</h3>
+        <p className={`mt-1 md:mt-2 text-sm lg:text-base ${mutedText}`}>{formatPeriod(exp, locale, t('present'))}</p>
+        <p className={`text-sm ${mutedText}`}>{exp.location[locale]}</p>
+      </div>
+
+      {/* Role card */}
+      <div className={flipped ? 'md:order-1 md:pr-8 lg:pr-12' : 'md:pl-8 lg:pl-12'}>
+        <div className={`${card} p-4 md:p-6 rounded-xl hover:shadow-lg transition-shadow duration-300`}>
+          <h4 className={`text-base md:text-lg lg:text-xl font-semibold mb-2 md:mb-3 ${brandText}`}>{exp.role[locale]}</h4>
+          <p className={`text-sm lg:text-base italic ${mutedText}`}>{exp.summary[locale]}</p>
+
+          {exp.bullets[locale].length > 0 && (
+            <ul className="mt-3 list-disc space-y-2 pl-5 text-sm lg:text-base text-text-light-secondary dark:text-text-dark-secondary marker:text-brand-accent">
+              {exp.bullets[locale].map((bullet) => (
+                <li key={bullet}>{bullet}</li>
+              ))}
+            </ul>
+          )}
+
+          {exp.stack && exp.stack.length > 0 && (
+            <div className="mt-4">
+              <ChipList items={exp.stack} label={t('stack')} />
+            </div>
+          )}
+
+          {exp.links && exp.links.length > 0 && (
+            <div className="mt-2 flex flex-wrap gap-x-5">
+              {exp.links.map((link) =>
+                link.href.startsWith('/') ? (
+                  <Link key={link.href} href={link.href} className={textLink}>
+                    {link.label[locale]}
+                  </Link>
+                ) : (
+                  <a key={link.href} href={link.href} target="_blank" rel="noopener noreferrer" className={textLink}>
+                    {link.label[locale]}
+                    <LuArrowUpRight className="h-4 w-4" aria-hidden="true" />
+                    <span className="sr-only"> {a11y('newTab')}</span>
+                  </a>
+                ),
+              )}
+            </div>
+          )}
+        </div>
+      </div>
+    </li>
+  )
+}
+
+function Timeline({ items, locale }: { items: Experience[]; locale: Locale }) {
+  return (
+    <div className="relative">
+      {/* Line: left on mobile, center on desktop */}
+      <div aria-hidden="true" className="absolute left-0 md:left-1/2 -translate-x-1/2 top-0 bottom-0 w-0.5 bg-border-light dark:bg-border-dark" />
+      <ol className="space-y-10 md:space-y-12">
+        {items.map((exp, index) => (
+          <ExperienceItem key={exp.id} exp={exp} index={index} locale={locale} />
+        ))}
+      </ol>
+    </div>
+  )
 }
 
 const WorkExperience = () => {
-    const t = useTranslations();
-    const experiences = t.raw("experiences") as Experience[];  
-    const work_exp = useTranslations("work_exp")
+  const t = useTranslations('experience')
+  const locale = useLocale() as Locale
+  const primary = experiences.filter((e) => e.tier === 'primary')
+  const earlier = experiences.filter((e) => e.tier === 'earlier')
 
   return (
-      <section 
-        className='max-w-7xl mx-auto px-4 md:px-6 lg:px-8'
-        id="work-experience">
-        {/* Section Title */}
-        <h2 className='text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-12 md:mb-16 text-text-light-primary dark:text-text-dark-primary'>
-          {work_exp("my_exp")}
-        </h2>
+    <section id="work-experience" aria-labelledby="work-title" className="w-full max-w-7xl mx-auto">
+      <SectionHeader id="work-title" title={t('title')} highlight={t('titleHighlight')} />
 
-        {/* Timeline */}
-        <div className='relative'>
-          {/* Center line - hidden on mobile */}
-          <div className='hidden md:block absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-0.5 bg-border-light dark:bg-border-dark'></div>
+      <Timeline items={primary} locale={locale} />
 
-          {/* Experience items */}
-          <div className='space-y-8 md:space-y-12'>
-            {experiences.map((exp, index) => (
-              <div 
-                key={index}
-                className='relative'
-              >
-                {/* Mobile layout */}
-                <div className='md:hidden flex gap-4'>
-                  {/* Left side - Timeline dot and line */}
-                  <div className='flex flex-col items-center'>
-                    <div className={`w-4 h-4 rounded-full border-4 ${
-                      exp.isActive 
-                        ? 'bg-brand-accent border-brand-accent shadow-accent' 
-                        : 'bg-surface-light-muted dark:bg-surface-dark-muted border-border-light dark:border-border-dark'
-                    }`}></div>
-                    {index !== experiences.length && (
-                      <div className='w-0.5 flex-1 bg-border-light dark:bg-border-dark mt-2'></div>
-                    )}
-                  </div>
-
-                  {/* Right side - Content */}
-                  <div className='flex-1 pb-8'>
-                    <div className='mb-3'>
-                      <h3 className='text-lg font-bold text-text-light-primary dark:text-text-dark-primary'>
-                        {exp.company}
-                      </h3>
-                      <p className='text-sm text-text-light-secondary dark:text-text-dark-secondary mt-1'>
-                        {exp.period}
-                      </p>
-                    </div>
-                    <div className='bg-surface-light-elevated dark:bg-surface-dark-elevated p-4 rounded-xl border border-border-light dark:border-border-dark'>
-                      <h4 className='text-base font-semibold text-brand-accent mb-2'>
-                        {exp.role}
-                      </h4>
-                      <p 
-                      className='text-sm italic text-text-light-secondary dark:text-text-dark-secondary'
-                      >
-                        {exp.description}
-                      </p>                      
-                      <ul
-                        className="space-y-2 list-disc list-inside"
-                      >
-                        {exp.bullets.map((bullet,index)=>(
-                            <li key={index}
-                                className='text-sm text-text-light-secondary dark:text-text-dark-secondary'
-                            >
-                                {bullet}
-                            </li>
-                        ))}
-                      </ul>
-
-                    </div>
-                  </div>
-                </div>
-
-                {/* Desktop layout */}
-                <div className='hidden md:grid md:grid-cols-2 md:gap-8 lg:gap-12'>
-                  {/* Alternate sides */}
-                  {index % 2 === 0 ? (
-                    <>
-                      {/* Left side - Company info */}
-                      <div className='text-right pr-8 lg:pr-12'>
-                        <h3 className='text-xl lg:text-2xl font-bold text-text-light-primary dark:text-text-dark-primary'>
-                          {exp.company}
-                        </h3>
-                        <p className='text-sm lg:text-base text-text-light-secondary dark:text-text-dark-secondary mt-2'>
-                          {exp.period}
-                        </p>
-                      </div>
-
-                      {/* Right side - Role & description */}
-                      <div className='pl-8 lg:pl-12'>
-                        <div className='bg-surface-light-elevated dark:bg-surface-dark-elevated p-6 rounded-xl border border-border-light dark:border-border-dark hover:shadow-lg transition-shadow duration-300'>
-                          <h4 className='text-lg lg:text-xl font-semibold text-brand-accent mb-3'>
-                            {exp.role}
-                          </h4>
-                          <p className='text-sm lg:text-base italic text-text-light-secondary dark:text-text-dark-secondary'>
-                            {exp.description}
-                          </p>
-                            <ul
-                                className="space-y-2 list-disc list-inside"
-                            >
-                                {exp.bullets.map((bullet,index)=>(
-                                    <li key={index}
-                                        className='text-text-light-secondary dark:text-text-dark-secondary'
-                                    >
-                                        {bullet}
-                                    </li>
-                                ))}
-                            </ul>                          
-                        </div>
-                      </div>
-                    </>
-                  ) : (
-                    <>
-                      {/* Left side - Role & description */}
-                      <div className='text-right pr-8 lg:pr-12'>
-                        <div className='bg-surface-light-elevated dark:bg-surface-dark-elevated p-6 rounded-xl border border-border-light dark:border-border-dark hover:shadow-lg transition-shadow duration-300'>
-                          <h4 className='text-lg lg:text-xl font-semibold text-brand-accent mb-3'>
-                            {exp.role}
-                          </h4>
-                          <p className='text-sm lg:text-base italic text-text-light-secondary dark:text-text-dark-secondary'>
-                            {exp.description}
-                          </p>
-                            <ul className="mt-4 space-y-3">
-                            {exp.bullets.map((bullet, i) => (
-                                <li
-                                    key={i}
-                                    className="flex items-start justify-between gap-4"
-                                >
-                                {/* Text */}
-                                <span className="text-text-light-secondary dark:text-text-dark-secondary">
-                                    {bullet}
-                                </span>
-
-                                {/* Right bullet */}
-                                <span className="mt-2 w-[5px] h-[5px] rounded-full bg-text-light-secondary dark:bg-text-dark-secondary shrink-0" />
-                                </li>
-                            ))}
-                            </ul>                         
-                        </div>
-                      </div>
-
-                      {/* Right side - Company info */}
-                      <div className='pl-8 lg:pl-12'>
-                        <h3 className='text-xl lg:text-2xl font-bold text-text-light-primary dark:text-text-dark-primary'>
-                          {exp.company}
-                        </h3>
-                        <p className='text-sm lg:text-base text-text-light-secondary dark:text-text-dark-secondary mt-2'>
-                          {exp.period}
-                        </p>
-                      </div>
-                    </>
-                  )}
-
-                {/* Center dot */}
-                <div className='absolute left-1/2 transform -translate-x-1/2 top-0'>
-                <div className={`w-5 h-5 lg:w-6 lg:h-6 rounded-full border-4 ${
-                    exp.isActive 
-                    ? 'bg-brand-accent border-brand-accent shadow-accent' 
-                    : 'bg-surface-light-muted dark:bg-surface-dark-muted border-border-light dark:border-border-dark'
-                }`}></div>
-                </div>
-
-                </div>
-              </div>
-            ))}
+      {earlier.length > 0 && (
+        <details className={`${card} group mt-12 max-w-3xl mx-auto`}>
+          <summary
+            className={`flex min-h-12 cursor-pointer list-none items-center justify-between gap-4 rounded-2xl px-6 py-3 font-semibold text-text-light-primary dark:text-text-dark-primary [&::-webkit-details-marker]:hidden ${focusRing}`}
+          >
+            {t('earlier')}
+            <LuChevronDown className="h-5 w-5 motion-safe:transition-transform group-open:rotate-180" aria-hidden="true" />
+          </summary>
+          <div className="px-6 pb-6 pt-2">
+            <ol className="ml-2">
+              {earlier.map((exp) => (
+                <li key={exp.id} className="relative border-l-2 border-border-light dark:border-border-dark pl-6">
+                  <h4 className={`text-lg font-semibold ${brandText}`}>{exp.role[locale]}</h4>
+                  <p className="text-sm font-semibold text-text-light-primary dark:text-text-dark-primary">
+                    {exp.company} <span className={`font-normal ${mutedText}`}>· {exp.location[locale]} · {formatPeriod(exp, locale, t('present'))}</span>
+                  </p>
+                  <p className={`mt-2 text-sm italic ${mutedText}`}>{exp.summary[locale]}</p>
+                  <ul className="mt-2 list-disc space-y-1.5 pl-5 text-sm text-text-light-secondary dark:text-text-dark-secondary marker:text-brand-accent">
+                    {exp.bullets[locale].map((bullet) => (
+                      <li key={bullet}>{bullet}</li>
+                    ))}
+                  </ul>
+                </li>
+              ))}
+            </ol>
           </div>
-        </div>
-      </section>
+        </details>
+      )}
+
+      <div className="mt-12 text-center">
+        <h3 className={`text-sm font-semibold uppercase tracking-[0.18em] ${mutedText}`}>{t('education')}</h3>
+        <p className="mt-2 text-lg md:text-xl font-bold text-text-light-primary dark:text-text-dark-primary">{education.degree[locale]}</p>
+        <p className={mutedText}>
+          {education.school} · {education.period[locale]}
+        </p>
+      </div>
+    </section>
   )
 }
 

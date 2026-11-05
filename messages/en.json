@@ -1,410 +1,169 @@
 {
-    "nav":{
-        "home":"Welcome"
+  "meta": {
+    "title": "Jeff Pendy — Software Engineer | Full-Stack, Backend & Applied AI",
+    "description": "Jeff Pendy is a Montréal software engineer and Université de Montréal Computer Science graduate building full-stack applications, backend workflows and applied AI systems.",
+    "projectsTitle": "Projects",
+    "projectsDescription": "Case studies and projects by Jeff Pendy: problems, architecture, decisions, tradeoffs and outcomes.",
+    "ogAlt": "Jeff Pendy — Software Engineer, Montréal"
+  },
+  "a11y": {
+    "skipToContent": "Skip to main content",
+    "mainNav": "Main navigation",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "switchLanguage": "Lire en français",
+    "themeToLight": "Switch to light theme",
+    "themeToDark": "Switch to dark theme",
+    "themeLoading": "Theme toggle",
+    "newTab": "(opens in a new tab)",
+    "homeLink": "Jeff Pendy, home",
+    "github": "Jeff Pendy on GitHub",
+    "linkedin": "Jeff Pendy on LinkedIn",
+    "email": "Email Jeff Pendy"
+  },
+  "nav": {
+    "home": "Home",
+    "work": "Work",
+    "projects": "Projects",
+    "about": "About",
+    "contact": "Contact",
+    "resume": "Résumé"
+  },
+  "hero": {
+    "greeting": "Hey!",
+    "title": "I'm <hl>Jeff</hl>,",
+    "eyebrow": "Software Engineer · Montréal, Canada",
+    "headline": "Building <hl>reliable software</hl>, from user experiences to cloud systems.",
+    "intro": "I'm Jeff Pendy, a Computer Science graduate from Université de Montréal. I build full-stack applications, backend workflows, and applied AI systems, with a focus on reliability, maintainability, and real-world impact.",
+    "ctaPrimary": "Explore my work",
+    "ctaSecondary": "View résumé",
+    "ctaTertiary": "Let's connect",
+    "avatarAlt": "Illustrated avatar of Jeff Pendy"
+  },
+  "trust": {
+    "label": "At a glance",
+    "focus": "Full-stack · Backend · Applied AI",
+    "degreeValue": "Computer Science",
+    "degreeLabel": "B.Sc., Université de Montréal",
+    "roleValue": "SMARDT",
+    "roleLabel": "Current role"
+  },
+  "projects": {
+    "title": "Let's have a look at my",
+    "intro": "Three projects where I can show the problem, the decisions and the evidence. Each links to a full case study.",
+    "more": "More projects",
+    "readCaseStudy": "Read the case study",
+    "viewDetails": "View details",
+    "viewCode": "Source code",
+    "viewLive": "Live site",
+    "role": "Role",
+    "outcome": "Outcome",
+    "allProjects": "All projects",
+    "indexIntro": "Case studies follow the same structure: problem, context, my role, architecture, decisions, tradeoffs, outcome and what I'd improve next.",
+    "titleHighlight": "Portfolio"
+  },
+  "status": {
+    "label": "Status",
+    "shipped": "Shipped",
+    "inProgress": "In progress",
+    "prototype": "Prototype",
+    "concept": "Concept"
+  },
+  "caseStudy": {
+    "backToProjects": "Back to projects",
+    "period": "Period",
+    "role": "Role",
+    "stack": "Stack",
+    "links": "Links",
+    "problem": "Problem",
+    "context": "Context and constraints",
+    "myRole": "My role",
+    "architecture": "Architecture",
+    "decisions": "Key engineering decisions",
+    "tradeoffs": "Tradeoffs",
+    "outcome": "Outcome and evidence",
+    "next": "What I'd improve next",
+    "highlights": "Highlights",
+    "evidence": "Evidence",
+    "diagram_implemented": "As implemented",
+    "diagram_illustrative": "Illustrative",
+    "diagram_proposed": "Proposed, not implemented",
+    "otherProjects": "Other projects",
+    "noCaseStudy": "A full case study is not written yet; these are the verified highlights.",
+    "stepTo": "to"
+  },
+  "experience": {
+    "title": "My",
+    "present": "Present",
+    "earlier": "Earlier experience",
+    "education": "Education",
+    "stack": "Stack",
+    "titleHighlight": "Experience"
+  },
+  "focus": {
+    "title": "What I",
+    "pillars": {
+      "product": {
+        "title": "Full-stack product engineering",
+        "body": "React, TypeScript, Node.js, Python, REST APIs, responsive interfaces, authentication and data modeling."
+      },
+      "backend": {
+        "title": "Backend, cloud & reliability",
+        "body": "Cloud storage, resumable uploads, asynchronous processing, background jobs, retries, observability, Docker, CI/CD and Google Cloud."
+      },
+      "ai": {
+        "title": "Applied AI & ML",
+        "body": "Python data workflows, model evaluation, inference APIs and containerized deployment. RAG, streaming RAG and agents are current technical interests."
+      }
     },
-    "contact":{
-        "contact_me":"Contact me",
-        "your_email":"Your Email",
-        "send_message":"Send Message",
-        "connect_with_me":"Or connect with me on",
-        "thanks_message":"Thanks! I'll get back to you shortly.",
-        "error_message":"An error occurred. Please try again later.",
-        "email_placeholder":"Enter your email",
-        "sending":"Sending...",
-        "have_idea":"Have An Awesome Project Idea?",
-        "lets_discuss":"Let's Discuss"
+    "skillsTitle": "Skills by domain",
+    "legend": "How I've used it",
+    "levels": {
+      "work": "Team or professional work",
+      "project": "Hands-on projects",
+      "exploring": "Exploring"
     },
-    "common":{
-        "project": "Projects",
-        "about":"Discover me",
-        "hire_me":"Hire Me"
-    },
-    "footer":{
-        "header": {
-            "title": "Let's Connect",
-            "cta": "I'm always open to discussing new projects, creative ideas, or collaboration opportunities."
-        },
-        "brand": {
-            "name": "My Portfolio",
-            "description": "Full-stack developer and machine learning enthusiast showcasing projects and expertise."
-        },
-        "navigation": {
-            "title": "Navigation",
-            "links": {
-                "home": "Home",
-                "aboutUs": "About Me",
-                "service": "Services",
-                "resume": "Resume",
-                "project": "Projects"
-            }
-        },
-        "contact": {
-            "title": "Get In Touch",
-            "phone": "+1 (555) 123-4567",
-            "website": "myportfolio.com",
-            "email": "contact@myportfolio.com"
-        },
-        "newsletter": {
-            "title": "Subscribe to Updates",
-            "placeholder": "Enter your email",
-            "ariaLabel": "Subscribe to newsletter"
-        },
-        "copyright": {
-            "text": "Copyright ©",
-            "brandName": "Jeff Pendy",
-            "rights": "All rights reserved."
-        },
-        "legal": {
-            "terms": "Terms of Service",
-            "privacy": "Privacy Policy",
-            "separator": "|"
-        },
-        "socialMedia": {
-            "ariaLabels": {
-                "facebook": "Visit our Facebook",
-                "behance": "Visit our Behance",
-                "youtube": "Visit our YouTube",
-                "twitter": "Visit our Twitter",
-                "instagram": "Visit our Instagram"
-            }
-        }
-    },
-    "about":{
-        "why":"Why",
-        "about_me":"I'm a Computer Science student specializing in full-stack development; Machine learning and Data Science enthousiaste. I build end-to-end applications—from intuitive front-end interfaces to robust back-end systems—while designing, training, and deploying machine learning pipelines on real-world data. Comfortable working across the full development cycle, I enjoy turning complex problems into scalable, data-driven solutions using modern frameworks and cloud technologies."
-    },
-    "hero":{
-        "hey":"Hey",
-        "name":"I'm",
-        "welcome":"Welcome to my space",
-        "space":"space",
-        "impact":"With impact",
-        "major":"Computer Science",
-        "degree":"Degree",
-        "personal":"Driven to craft exceptional digital experiences by combining clean, maintainable code with high-impact, innovative solutions.",
-        "download_cv":"My CV"
-    },
-    "techStack": {
-        "title": "Tech Stack",
-        "subtitle": "Technologies I work with"
-    },
-    "project_popup":{
-        "key_features":"Key Features",
-        "overview":"Overview",
-        "technologies_used":"Technologies Used",
-        "challenges_solutions":"Challenges & Solutions",
-        "outcome":"Outcome",
-        "links":"Links",
-        "demo":"View Live Demo",
-        "code":"View Source Code",
-        "video":"Watch Video",
-        "challenge":"Challenge",
-        "solution":"Solution"
-    },
-    "projects": {
-        "sectionTitle": {
-            "prefix": "Let's Have a Look at my",
-            "highlight": "Portfolio"
-        },
-        "aria": {
-            "previous": "Previous project",
-            "next": "Next project"
-        },
-        "projectsList": [
-        {
-            "id": 6,
-            "title": "Route Reservation System - Java Backend",
-            "image": "/projects_screenshots/reservations_image0.jpg",
-            "stack": ["Java", "Java FX", "CSS"],
-            "period": "March 2026",
-            "overview": "A fully functional route reservation system developed with a Java backend, featuring advanced capabilities to enhance the user experience.",
-            "keyFeatures": [
-                "Robust route reservation system implementation",
-                "Adherence to object-oriented programming principles for clean architecture",
-                "Comprehensive API documentation for seamless integration",
-                "Design pattern implementation to improve code maintainability and scalability."
-            ],
-            "technologies": [
-                {
-                    "category": "Frontend",
-                    "items": ["Java FX", "CSS"]
-                },
-                {
-                    "category": "Backend",
-                    "items": ["Java"]
-                }
-            ],
-            "challenges": [
-                {
-                    "challenge": "Balancing object-oriented design principles while implementing complex features",
-                    "solution": "Applied design patterns and clear separation of responsibilities to maintain a clean architecture"
-                },
-                {
-                    "challenge": "Ensuring complete API documentation for future integrations",
-                    "solution": "Authored detailed documentation and used API documentation tools to ensure seamless integration"
-                }
-            ],
-            "outcome": {
-                "description": "Successfully delivered the route reservation application with a robust backend architecture, complete API documentation, and an improved user experience."
-            },
-            "demo": {
-                "liveUrl": "",
-                "githubUrl": "https://github.com/Pejjp/",
-                "videoUrl": ""
-            }
-        },
-        {
-            "id": 1,
-            "title": "Personal Portfolio Website",
-            "stack": ["Next.js", "TypeScript", "Tailwind CSS"],
-            "image":"/projects_screenshots/portfolio_project.jpg",
-            "period": "Jan 2026",
-            "overview": "A personal portfolio website showcasing projects and skills with responsive design, dynamic content, and multilingual support.",
-            "keyFeatures": [
-                "Responsive design",
-                "Dynamic content loading",
-                "Multilingual support",
-                "Theme support",
-                "Optimized performance"
-            ],
-            "technologies": [
-            {
-                "category": "Frontend",
-                "items": ["Next.js", "TypeScript", "Tailwind CSS"]
-            }
-            ],
-            "challenges": [
-            {
-                "challenge": "Creating visually appealing and responsive design",
-                "solution": "Used Next.js and Tailwind CSS for modern, scalable components"
-            },
-            {
-                "challenge": "Supporting multiple languages and themes",
-                "solution": "Implemented dynamic content loading and theme switching mechanisms"
-            }
-            ],
-            "outcome": {
-            "description": "Successfully built a modern portfolio website with seamless user experience, multilingual support, and optimized performance."
-            },
-            "demo": {
-            "liveUrl": "",
-            "githubUrl": "https://github.com/Pejjp/my_portfolio",
-            "videoUrl": ""
-            }
-        },
-        {
-            "id": 2,
-            "title": "Morgan Stanley Code to Give – Athena HopeBridge",
-            "image": "/projects_screenshots/mockup_athena_hopebridge.jpg",
-            "stack": ["Python", "Django", "React", "JavaScript", "FastAPI"],
-            "period": "Nov 2025",
-            "overview": "A fully functional web application developed for Morgan Stanley's Code to Give initiative, integrating AI-driven features with modern web technologies to support the HopeBridge mission.",
-            "keyFeatures": [
-                "AI-driven feature integration",
-                "Scalable backend services with FastAPI",
-                "Responsive front-end components",
-                "Agile workflow implementation"
-            ],
-            "technologies": [
-                {
-                    "category": "Frontend",
-                    "items": ["React", "JavaScript"]
-                },
-                {
-                    "category": "Backend",
-                    "items": ["Python", "Django", "FastAPI"]
-                }
-            ],
-            "challenges": [
-                {
-                    "challenge": "Integrating multiple services and AI features",
-                    "solution": "Built scalable architecture with FastAPI and coordinated teamwork using Git"
-                },
-                {
-                    "challenge": "Meeting stakeholder requirements in time constraints",
-                    "solution": "Adopted Agile workflow to iterate and gather feedback continuously"
-                }
-            ],
-            "outcome": {
-                "description": "Successfully delivered a production-ready web application with integrated AI capabilities, demonstrating full-stack development expertise."
-            },
-            "demo": {
-                "liveUrl": "",
-                "githubUrl": "https://github.com/ParsaMakari/CodeToGive_2025",
-                "videoUrl": ""
-            }
-        },
-        {
-            "id": 3,
-            "title": "Picto 360 – Full-Stack Web Application",
-            "image": "/projects_screenshots/mockup_picto_360.png",
-            "stack": ["React", "TypeScript", "Node.js", "MongoDB"],
-            "period": "May 2025 – Present",
-            "overview": "A full-stack web application showcasing optimized performance, clean API contracts, and reusable component architecture recognized by the University of Montreal.",
-            "keyFeatures": [
-                "30% performance improvement through optimization",
-                "Reusable frontend components",
-                "MongoDB-backed data models",
-                "Seamless API integration"
-            ],
-            "technologies": [
-                {
-                    "category": "Frontend",
-                    "items": ["React", "TypeScript"]
-                },
-                {
-                    "category": "Backend",
-                    "items": ["Node.js", "MongoDB"]
-                }
-            ],
-            "challenges": [
-                {
-                    "challenge": "Slow load and render performance",
-                    "solution": "Optimized state management and restructured components, achieving 30% improvement"
-                },
-                {
-                    "challenge": "Ensuring consistency across platform",
-                    "solution": "Designed and shipped reusable frontend components"
-                }
-            ],
-            "outcome": {
-                "metrics": ["30% performance improvement", "Honorable mention from CS/OR Department"],
-                "description": "Received honorable mention from the Computer Science and Operational Research Department at the University of Montreal for outstanding project work."
-            },
-            "demo": {
-                "liveUrl": "https://picto360.netlify.app/",
-                "githubUrl": "https://github.com/ceduni/picto360",
-                "videoUrl": ""
-            }
-        },
-        {
-            "id": 4,
-            "title": "Machine Learning Image Classification Platform",
-            "image": "/projects_screenshots/image_classification_w_docker.jpg",
-            "stack": ["Docker", "Google Cloud", "Python"],
-            "period": "Nov 2025",
-            "overview": "A containerized machine learning inference platform deployed on Google Cloud, demonstrating cloud deployment and API management expertise.",
-            "keyFeatures": [
-                "Containerized services with Docker",
-                "ML model inference APIs",
-                "Cloud-based deployment",
-                "Data flow management"
-            ],
-            "technologies": [
-                {
-                    "category": "Backend",
-                    "items": ["Python"]
-                },
-                {
-                    "category": "DevOps/Cloud",
-                    "items": ["Docker", "Google Cloud"]
-                }
-            ],
-            "challenges": [
-                {
-                    "challenge": "Deploying containerized services to cloud",
-                    "solution": "Used Docker and Google Cloud for seamless deployment and scaling"
-                },
-                {
-                    "challenge": "Managing data flow between services",
-                    "solution": "Designed APIs to handle predictions and coordinate frontend-backend communication"
-                }
-            ],
-            "outcome": {
-                "description": "Successfully deployed production-ready ML platform with hands-on experience in cloud environments and performance validation."
-            },
-            "demo": {
-            "liveUrl": "",
-            "githubUrl": "",
-            "videoUrl": ""
-            }
-        },
-        {
-            "id": 5,
-            "title": "MaVille - Java Backend Application",
-            "stack": ["Java", "REST APIs"],
-            "period": "March 2024",
-            "image":"/projects_screenshots/ma_ville.png",
-            "overview": "A backend system enabling citizens to access real-time roadwork data and submit service requests to the city.",
-            "keyFeatures": [
-            "Real-time roadwork data access",
-            "Service request submission",
-            "Public API integration",
-            "Data normalization"
-            ],
-            "technologies": [
-            {
-                "category": "Backend",
-                "items": ["Java"]
-            },
-            {
-                "category": "API",
-                "items": ["REST APIs"]
-            }
-            ],
-            "challenges": [
-            {
-                "challenge": "Integrating multiple public city APIs",
-                "solution": "Implemented data normalization and robust backend business logic"
-            },
-            {
-                "challenge": "Maintaining clean architecture",
-                "solution": "Applied OOP principles, separation of concerns, and maintainable patterns"
-            }
-            ],
-            "outcome": {
-            "description": "Delivered a robust backend system with clean architecture and seamless public API integration."
-            },
-            "demo": {
-            "liveUrl": "",
-            "githubUrl": "",
-            "videoUrl": ""
-            }
-        }
-        ]
-    },
-    "work_exp":{
-        "my_exp":"My Experiences"
-    },
-    "experiences": [
-        {
-            "company": "Borrow'd - Python, Django, HTML, Tailwind CSS, Git , Montréal, QC",
-            "period": "Jan. 2026 - Present",
-            "role": "Full Stack Developer",
-            "bullets": [
-                "Contributed to a borrowing platform by implementing backend features in Django (Python) and  UI features .",
-                "Built an event-driven notification workflow in Django with correct deduplication and state handling.",
-                "Designed data models and documented key entities/relationships; improved consistency with migration-safe changes.",
-                "Worked with teammates through PR reviews, issue tracking, and documentation to ship incremental improvements.",
-                "Debugged production-like issues by reproducing bugs locally, analyzing logs, and validating fixes before merge."
-            ],
-            "isActive": true
-        },
-        {
-        "company": "University of Montreal, Montreal, QC",
-        "period": "Jan 2026 - Present",
-        "role": "Teaching Assistant",
-        "bullets": [
-            "Support more than 150 students by answering technical questions and explaining concepts in the course Operating Systems (ift2245).",
-            "Manage autograding infrastructure using GitHub Classroom and GitHub Actions (CI), including test scripts, submission validation, and troubleshooting failing pipelines.",
-            "Grade students assignments and assessments and provide feedback.",
-            "Assist students during labs and office hours to clarify course concepts."
-        ],
-        "isActive": true
-        },
-        {
-        "company": "Voilà by IGA, Pointe-Claire, QC",
-        "period": "Aug 2023 - Aug 2025",
-        "role": "Inventory Clerk",
-        "bullets": [
-            "Performed over 15 accuracy-critical inventory audits daily with high precision.",
-            "Collaborated with multiple teams across the warehouse to ensure inventory reliability.",
-            "Applied strong attention to detail and problem-solving skills under operational constraints."
-        ],
-        "isActive": false
-        }
-    ]
-
-
-
+    "practices": "Practices",
+    "titleHighlight": "work on",
+    "pillarsTitle": "Engineering focus"
+  },
+  "about": {
+    "title": "The problems behind",
+    "body": "I enjoy solving the engineering problems behind great products: making uploads resilient, designing APIs that are easy to maintain, debugging tricky failures, and turning machine-learning experiments into usable services. My work spans TypeScript and Python backends, React interfaces, cloud deployment, testing, and collaborative development. I care about understanding how a system behaves in production—not just making a demo work.",
+    "approachTitle": "How I work",
+    "approach": "I start by reproducing the problem and reading the code that is already there. I prefer small pull requests with tests, I write down decisions and tradeoffs so the next person doesn't have to guess, and I measure before saying something got faster.",
+    "portraitAlt": "Portrait of Jeff Pendy",
+    "titleHighlight": "the product"
+  },
+  "contact": {
+    "title": "Have a product or engineering challenge",
+    "intro": "I'd love to hear about the team, the problem, and what you're building.",
+    "emailCta": "Email Jeff",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "formTitle": "Or leave your details",
+    "emailLabel": "Your email",
+    "emailPlaceholder": "you@company.com",
+    "messageLabel": "Message (optional)",
+    "messagePlaceholder": "A few words about the role or project",
+    "submit": "Send",
+    "sending": "Sending…",
+    "success": "Thanks! Your message was sent. I'll get back to you soon.",
+    "error": "Something went wrong and your message wasn't sent.",
+    "rateLimited": "Too many attempts. Please wait a few minutes and try again.",
+    "unavailable": "The contact form is temporarily unavailable.",
+    "fallback": "You can email me directly at",
+    "invalidEmail": "Enter a valid email address.",
+    "messageTooLong": "Keep the message under {max} characters.",
+    "honeypotLabel": "Leave this field empty",
+    "titleHighlight": "worth solving?"
+  },
+  "footer": {
+    "tagline": "Software engineer in Montréal building full-stack applications, backend workflows and applied AI systems.",
+    "navigation": "Navigation",
+    "elsewhere": "Elsewhere",
+    "rights": "All rights reserved.",
+    "source": "Source code",
+    "title": "Let's Connect"
+  }
 }
